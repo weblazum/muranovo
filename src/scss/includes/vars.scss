@@ -6,6 +6,7 @@ $c-theme-brown: #72665b;
 $c-theme-gray: #818b94;
 $c-white: #fbfbfb;
 $c-text: #1d1d1b;
+$c-background-gray-accent: #f4f5f7;
 
 // Макет
 $transition-base: 0.2s ease;
@@ -15,6 +16,7 @@ $animation-duration-middle: 1.2s;
 $animation-duration-long: 1.6s;
 
 // Шрифты
+$f-baron: "BaronNeue", sans-serif;
 $f-com: "Commissioner", sans-serif;
 
 // Медиа-запросы
@@ -30,4 +32,37 @@ $p-s: "max-width: 360px";
 	&:last-child {
 		margin: 0;
 	}
+}
+
+// d: 110, m: 42
+@mixin h1 {
+	font-family: $f-baron;
+	font-weight: 700;
+	line-height: 1.1;
+	font-size: clamp(2.625rem, 1.2083rem + 6.2963vw, 6.875rem);
+	text-transform: uppercase;
+}
+
+// d: 80, m: 40
+@mixin h2 {
+	font-family: $f-baron;
+	font-weight: 700;
+	line-height: 1.2;
+	font-size: clamp(2.5rem, 1.6667rem + 3.7037vw, 5rem);
+	text-transform: uppercase;
+}
+
+@mixin h5 {
+	font-family: $f-baron;
+	font-weight: 700;
+	font-size: 20px;
+	text-transform: uppercase;
+	line-height: 1.2;
+}
+
+@mixin p3 {
+	font-family: $f-com;
+	font-weight: 300;
+	font-size: 16px;
+	line-height: 1.2;
 }

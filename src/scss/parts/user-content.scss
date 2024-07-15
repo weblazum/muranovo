@@ -1,0 +1,21 @@
+.user-content {
+	li {
+		margin: 0 0 12px;
+		display: flex;
+		font-size: clamp(0.875rem, 0.8317rem + 0.1923vw, 1rem);
+		@include last-child;
+		@media ($t) {
+			margin: 0 0 8px;
+		}
+		&::before {
+			content: "";
+			display: inline-block;
+			width: 5px;
+			height: 5px;
+			border-radius: 50%;
+			background-color: $c-white;
+			margin: 7px 16px 0 0;
+			flex-shrink: 0;
+		}
+	}
+}

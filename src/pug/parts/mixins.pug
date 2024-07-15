@@ -1,91 +1,33 @@
 mixin picture(path, type = 'jpg', customClass = false)
 	picture 
-		source(type="image/avif" srcset=`img/${path}.avif?${randomNumber}`)
-		source(type="image/webp" srcset=`img/${path}.webp?${randomNumber}`)
+		//- source(type="image/avif" srcset=`img/${path}.avif?${randomNumber}`)
+		//- source(type="image/webp" srcset=`img/${path}.webp?${randomNumber}`)
 		img(src=`${sitePath}img/${path}.${type}?${randomNumber}` alt="" class= customClass)
 
 mixin svg(name)
 	svg 
 		use(xlink:href=`${sitePath}img/icons/${name}.svg#${name}`)
 
-mixin case-slide(client, name, description = false, image = false, list = false)
-	li.swiper-slide.cases__item 
-		.cases__top
-			span Заказчик
-			.cases__client!= client.replace(/\n/g, '<br>')
-		.cases__name!= name
-		.cases__info
-			.cases__text 
-				if (description)
-					.cases__description 
-						p!= description
-				if (list)
-					ul.cases__completed
+mixin btnTicker(color = "grey", url)
+	if (url)
+		a(href=`${sitePath}${url}` class=`btn--${color}`).btn.btn-transparent.ticker
+			ul.ticker__content
+				-for (let i=0; i<5; i++)
+					li.ticker__item
 						block
-			if (image)
-				.cases__image
-					+picture(`cases/${image}`)
+	else
+		button.btn.btn-transparent.ticker(class=`btn--${color}`) 
+			ul.ticker__content
+				-for (let i=0; i<5; i++)
+					li.ticker__item
+						block
 
-mixin licence-item(name, icon, customClass = false)
-	li.licences__item(class= customClass)
-		.licences__icon
-			+picture(`licences/${icon}`, 'png')
-		.licences__text 
-			.licences__tag.document-tag Лицензия
-			.licences__name!= name
-			.licences__description
+mixin eventItem(title, date, pic)
+	li.events__item
+		.events__pic
+			+picture(pic)
+			.events__props.tags
 				block
-
-mixin certificate-item(customClass = false)
-	li.certificates__item(class= customClass)
-		.certificates__tag.document-tag Сертификат
-		ul.certificates__textlist.user-content
-			block
-
-mixin direction-item(name, icon, customClass = false)
-	li.directions__item
-		.directions__icon 
-			+picture(`icons/${icon}`, 'png')
-		.directions__name!= name
-		.directions__description(class= customClass)
-			block
-
-mixin approach-item(name, icon)
-	li.approach__item(class="wow animate")
-		.approach__icon(class="wow animate")
-			+svg(`${icon}`)
-		.approach__name!= name
-		.approach__text 
-			ul.approach__textlist.user-content
-				block
-
-mixin activity-item(name, datalink)
-	li.activity__item
-		button.activity__head.tab-btn(data-button=`${datalink}`)
-			.activity__name!= name
-			.activity__button
-				svg 
-					use(xlink:href=`${sitePath}img/icons/icon-plus.svg#icon-plus`)
-		.activity__body.tab-content(id=`${datalink}`)
-			ul.activity__list
-				block
-
-mixin solutions-item(name, icon, customClass = false)
-	li.solutions__item
-		.solutions__icon(class= customClass)
-			svg 
-				use(xlink:href=`${sitePath}img/icons/${icon}.svg#${icon}`)
-		.solutions__text
-			.solutions__name 
-				h3!= name
-			ul.solutions__textlist.user-content
-				block
-
-mixin steps-item(name, text, customClass = false)
-	li.steps__item(class= customClass)
-		.steps__row
-			.steps__inner
-				.steps__name
-					h3!= name
-				.steps__text
-					p!= text
+		.events__text 
+			.events__date= date
+			.events__title= title

@@ -77,7 +77,7 @@ function scripts() {
 // настройка стилей
 function styles() {
 	return src('src/scss/style.scss') // путь к файлу-источнику
-		.pipe(autoprefixer({ overrideBrowsersList: ['last 10 version']})) // префиксы последних 10 версий
+		// .pipe(autoprefixer({overrideBrowsersList: ['last 10 version']})) // префиксы последних 10 версий
 		.pipe(concat('style.css')) // переименование, например style.min.css
 		.pipe(scss()) // { outputStyle: 'compressed' } для сжатия
 		.pipe(dest('src/css')) // путь для скомпилированного файла
@@ -94,7 +94,7 @@ function layout() {
 
 // настройка вотчера
 function watching() {
-	watch(['src/scss/style.scss'], styles);
+	watch(['src/scss/**/*.scss'], styles);
 	watch(['src/js/main.js'], scripts);
 	watch(['src/pug/**/*.pug'], layout);
 	watch(['src/img/src'], images);

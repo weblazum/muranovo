@@ -7,4 +7,92 @@ block vars
 	-let metaDescription = ''
 block content
 		main.main
-			section.section.top
+			section.top
+				.top__container
+					.top__content 
+						.top__title 
+							span Самая
+							span.c-accent Честная
+							span Усадьба
+							span Подмосковья
+						.top__links
+							a.btn.btn--black.top__link(href="#") Как добраться
+							a.btn.btn--black.top__link(href="#") Часы работы
+							a.btn.btn--black.top__link(href="#") Цены
+							a.btn.btn--black.top__link(href="#") Спланировать посещение
+						.top__ticket
+							+btnTicker('accent')
+								|• Купить билет
+			section.section.muranovo
+				.muranovo__container
+					.muranovo__item
+						.muranovo__word
+							+picture('word-m', 'svg')
+					.muranovo__item
+						.muranovo__pic
+							+picture('image-01')
+					.muranovo__item
+						.muranovo__word
+							+picture('word-u', 'svg')
+					.muranovo__item
+						.muranovo__text
+							p Посетите усадебный дом в Муранове и познакомитесь с его неповторимой экспозицией
+					.muranovo__item
+						.muranovo__word
+							+picture('word-r', 'svg')
+					.muranovo__item
+						.muranovo__pic
+							+picture('image-02')
+					.muranovo__item
+						.muranovo__word
+							+picture('word-a', 'svg')
+					.muranovo__item
+						.muranovo__pic
+							+picture('image-03')
+					.muranovo__item
+						.muranovo__word
+							+picture('word-n', 'svg')
+					.muranovo__item
+						.muranovo__pic
+							+picture('image-04')
+					.muranovo__item
+						.muranovo__word
+							+picture('word-o', 'svg')
+					.muranovo__item
+						.muranovo__text.space-between
+							p В сопровождении экскурсовода вы окажитесь в атмосфере русского дворянства XIX века, почувствуете себя званым и любимым гостем усадьбы.
+							+btnTicker('white', 'about.html')
+								|• <span class="f-baron">О</span> Музее
+					.muranovo__item
+						.muranovo__word
+							+picture('word-v', 'svg')
+					.muranovo__item
+						.muranovo__pic
+							+picture('image-05')
+					.muranovo__item
+						.muranovo__word
+							+picture('word-o', 'svg')
+			section.section.events
+				.events__container.container 
+					.events__heading 
+						h2 Афиша
+						+btnTicker('grey', 'about.html')
+							|• Все <span class="f-baron">С</span>обытия
+					ul.events__list
+						+eventItem('Выходные в Муранове', '01.06.2024 — 02.06.2024', 'image-21')
+							.events__prop.tag.tag--date Выходные
+							.events__prop.tag.tag--pushkin 	
+							.events__prop.tag.tag--age 3+
+						+eventItem('Поэтический концерт для детей и их родителей «Семена добра: Сергей Михалков – детям»', '01.06.2024', 'image-22')
+							.events__prop.tag.tag--date Концерт
+							.events__prop.tag.tag--pushkin 	
+							.events__prop.tag.tag--age 5+
+						+eventItem('Выставка «Любимцы муз и вдохновенья. Пушкин и Боратынский»', '06.06.2024', 'image-23')
+							.events__prop.tag.tag--date Выставка
+							.events__prop.tag.tag--pushkin 	
+							.events__prop.tag.tag--age 16+
+						+eventItem('Концерт класса арфы Надежды Сергеевой', '09.05.2024', 'image-24')
+							.events__prop.tag.tag--date Концерт
+							.events__prop.tag.tag--age 16+
+
+

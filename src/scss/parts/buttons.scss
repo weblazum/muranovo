@@ -1,0 +1,57 @@
+.btn-primary,
+input[type="submit"] {
+	color: $c-white;
+	background: $c-accent;
+	display: inline-block;
+	padding: 16px 60px;
+	width: fit-content;
+	min-width: 210px;
+	text-align: center;
+	text-decoration: none;
+	font-size: 18px;
+	border-radius: 10px;
+	&:hover {
+		background: $c-accent-hover;
+	}
+}
+
+.btn-transparent {
+	padding: 21px 4px 18px;
+	border: 1px solid $c-theme-gray;
+	color: $c-theme-gray;
+	border-radius: 40px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-transform: uppercase;
+	font-weight: 500;
+	max-width: 192px;
+	min-width: 192px;
+	width: fit-content;
+	line-height: 1;
+}
+
+.btn {
+	cursor: pointer;
+	transition: $transition-base;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	display: inline-block;
+	&:focus {
+		outline: none;
+	}
+	&--black {
+		color: $c-text;
+		&:hover {
+			color: $c-accent;
+		}
+	}
+	&--white {
+		border-color: $c-white;
+		color: $c-white;
+	}
+	&--accent {
+		border-color: $c-accent;
+		color: $c-accent;
+	}
+}
