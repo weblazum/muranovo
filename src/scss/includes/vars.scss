@@ -1,0 +1,33 @@
+// Цвета
+$c-accent: #c25b3c;
+$c-accent-hover: #b71400;
+$c-orangelight: #e6886b;
+$c-theme-brown: #72665b;
+$c-theme-gray: #818b94;
+$c-white: #fbfbfb;
+$c-text: #1d1d1b;
+
+// Макет
+$transition-base: 0.2s ease;
+$p-clamp: clamp(1rem, 0.1964rem + 3.5714vw, 3.125rem);
+$animation-duration-base: 0.8s;
+$animation-duration-middle: 1.2s;
+$animation-duration-long: 1.6s;
+
+// Шрифты
+$f-com: "Commissioner", sans-serif;
+
+// Медиа-запросы
+$l-b: "max-width: 1400px";
+$l-m: "max-width: 1200px";
+$l-s: "max-width: 1024px";
+$t: "max-width: 860px";
+$p-b: "max-width: 767px";
+$p-m: "max-width: 480px";
+$p-s: "max-width: 360px";
+
+@mixin last-child {
+	&:last-child {
+		margin: 0;
+	}
+}

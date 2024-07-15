@@ -1,0 +1,8 @@
+node_modules
+package-lock.json
+.idea
+git-tips.txt
+pxl
+temp
+src/css/style.css
+src/*.html

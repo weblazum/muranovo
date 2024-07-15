@@ -1,0 +1,104 @@
+header.header 
+	.container.header__container
+		.content.header__content
+			a(href=`${sitePath}`).logo.header__logo
+				svg
+					use(xlink:href=`${sitePath}img/logo.svg#logo`)
+			.header__menu
+				nav.nav.header__nav 
+					ul.nav__list
+						li.nav__item.nav__item--drop
+							span.nav__link.nav__link--drop О&nbsp;музее
+							ul.nav__list.nav__list--dropdown.dropdown-list
+								li.dropdown-list__item
+									a.dropdown-list__link(href=`${sitePath}#`) Владельцы
+								li.dropdown-list__item
+									a.dropdown-list__link(href=`${sitePath}#`) Новости
+								li.dropdown-list__item
+									a.dropdown-list__link(href=`${sitePath}#`) О музее
+								li.dropdown-list__item
+									a.dropdown-list__link(href=`${sitePath}#`) Фото музея
+								li.dropdown-list__item
+									a.dropdown-list__link(href=`${sitePath}#`) Карта музея
+								li.dropdown-list__item
+									a.dropdown-list__link(href=`${sitePath}#`) Виртуальный тур
+								li.dropdown-list__item
+									a.dropdown-list__link(href=`${sitePath}#`) Коллекции
+								li.dropdown-list__item
+									a.dropdown-list__link(href=`${sitePath}#`) Документация
+						li.nav__item
+							a.nav__link(href=`${sitePath}events.html`) Афиша
+						li.nav__item
+							a.nav__link(href=`${sitePath}programs.html`) Программы
+						li.nav__item
+							a.nav__link(href=`${sitePath}events.html`) Мероприятия
+						li.nav__item.nav__item--drop
+							span.nav__link.nav__link--drop Посетителям
+							ul.nav__list.nav__list--dropdown.dropdown-list
+								li.dropdown-list__item
+									a.dropdown-list__link(href=`${sitePath}#`) Владельцы
+								li.dropdown-list__item
+									a.dropdown-list__link(href=`${sitePath}#`) Новости
+								li.dropdown-list__item
+									a.dropdown-list__link(href=`${sitePath}#`) О музее
+								li.dropdown-list__item
+									a.dropdown-list__link(href=`${sitePath}#`) Фото музея
+								li.dropdown-list__item
+									a.dropdown-list__link(href=`${sitePath}#`) Карта музея
+								li.dropdown-list__item
+									a.dropdown-list__link(href=`${sitePath}#`) Виртуальный тур
+								li.dropdown-list__item
+									a.dropdown-list__link(href=`${sitePath}#`) Коллекции
+								li.dropdown-list__item
+									a.dropdown-list__link(href=`${sitePath}#`) Документация
+						li.nav__item
+							a.nav__link(href=`${sitePath}contacts.html`) Контакты
+				.header__ticket.desktop-hidden
+					button.btn.btn-transparent.ticker
+						ul.ticker__content
+							li.ticker__item • Купить билет
+							li.ticker__item • Купить билет
+							li.ticker__item • Купить билет
+							li.ticker__item • Купить билет
+							li.ticker__item • Купить билет
+			.header__ticket.mobile-hidden
+				button.btn.btn-transparent.ticker
+					ul.ticker__content
+						li.ticker__item • Купить билет
+						li.ticker__item • Купить билет
+						li.ticker__item • Купить билет
+						li.ticker__item • Купить билет
+						li.ticker__item • Купить билет
+			.header__buttons
+				button.header__button#search-btn
+					svg(width="19" height="19")
+						use(xlink:href=`${sitePath}img/icons/icon-search.svg#search`)
+				button.header__button
+					svg(width="22" height="17")
+						use(xlink:href=`${sitePath}img/icons/icon-eye.svg#eye`)
+				button.header__button
+					| RU 
+			button.burger.header__button
+				svg(viewbox="0 0 60 40")
+					g(stroke-width="4" stroke-linecap="round" stroke-linejoin="round")
+						path(id="top-line" d="M10,10 L50,10 Z")
+						path(id="middle-line" d="M10,20 L50,20 Z")
+						path(id="bottom-line" d="M10,30 L50,30 Z")
+			.header__search.search
+				.search__overlay
+				button.search__close.btn#search-closebtn(aria-label="Закрыть" title="Закрыть")
+				form.search__form
+					fieldset.search__fieldset
+						input.search__input(type="search" placeholder="Найти...")
+				.search__results
+					.search__results-content
+						ul.search__results-list
+							- for(let i=0; i<10; i++)
+								li.search__results-item 
+									a.search__results-link(href="#")
+										span.search__results-group Афиша
+										p.search__results-title Творческое пространство-выставка «Стекло на траве» в Муранове
+						.search__results-show
+							button.btn.btn-primary#search-showmore Смотреть Все результаты (10)
+					.search__results-nothing 
+						p К сожалению, ничего не найдено. Проверьте, что все слова написаны без ошибок, либо попробуйте более простые поисковые запросы.
