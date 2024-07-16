@@ -22,12 +22,13 @@ mixin btnTicker(color = "grey", url)
 					li.ticker__item
 						block
 
-mixin eventItem(title, date, pic)
+mixin eventItem(title, date, pic, link)
 	li.events__item
-		.events__pic
-			+picture(pic)
-			.events__props.tags
-				block
-		.events__text 
-			.events__date= date
-			.events__title= title
+		a(href= link).events__link
+			.events__pic
+				+picture(pic)
+				.events__props.tags
+					block
+			.events__text 
+				.events__date= date
+				.events__title= title

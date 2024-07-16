@@ -55,11 +55,7 @@
 	&__item {
 		width: 20vw;
 		height: 20vw;
-		opacity: 0.9;
 		transition: $transition-base;
-		&:hover {
-			opacity: 1;
-		}
 	}
 	&__word {
 		padding: 14%;
@@ -81,13 +77,19 @@
 	&__text {
 		width: 100%;
 		height: 100%;
-		background-color: $c-accent;
+		background:
+			url("../img/noise.png") center / contain repeat,
+			$c-accent;
 		color: $c-white;
 		padding: 13% 7%;
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
 		font-size: 16px;
+	}
+	.btn {
+		font-family: $f-baron;
+		text-transform: initial;
 	}
 }
 
@@ -106,26 +108,45 @@
 	}
 	&__item {
 		flex: 0 1 calc(25% - 12px);
-		background-color: $c-accent;
+		background:
+			url("../img/noise.png") center / contain repeat,
+			$c-accent;
 		border-radius: 30px;
 		overflow: hidden;
-		display: flex;
-		flex-direction: column-reverse;
+		transition: $transition-middle;
+		opacity: 1;
+		position: relative;
 		&:nth-child(2n) {
-			flex-direction: column;
+			.events__link {
+				flex-direction: column;
+			}
 			.events__text {
 				justify-content: flex-end;
 			}
 		}
+		&:hover {
+			box-shadow: 0px 0px 16px 0px rgba(34, 60, 80, 0.4);
+			transform: translateY(-7px);
+			.events__pic img {
+				// transform: scale(1.05);
+			}
+		}
+	}
+	&__link {
+		display: flex;
+		flex-direction: column-reverse;
+		height: 100%;
 	}
 	&__pic {
 		position: relative;
 		height: 218px;
+		overflow: hidden;
+		border-radius: 20px;
 		img {
 			width: 100%;
 			height: 100%;
 			object-fit: cover;
-			border-radius: 20px;
+			transition: $transition-middle;
 		}
 	}
 	&__props {
@@ -160,6 +181,182 @@
 	}
 	&__title {
 		@include h5;
-		font-family: $f-com;
+	}
+	.btn {
+		font-family: $f-baron;
+		text-transform: initial;
+	}
+}
+
+.ad {
+	background:
+		url("../img/noise.png") center / contain repeat,
+		$c-theme-gray;
+	padding: 28px;
+	&__container {
+		max-width: 1180px;
+		margin: 0 auto;
+	}
+	&__content {
+		display: flex;
+		gap: 20px;
+		justify-content: center;
+	}
+	&__item {
+		display: flex;
+		align-items: center;
+		&::after {
+			content: "";
+			background: url("data:image/svg+xml,%3Csvg width='13' height='13' fill='%23818B94' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M.908 10.914a1 1 0 1 0 1.414 1.414L.908 10.914ZM12.386 1.85a1 1 0 0 0-1-1h-9a1 1 0 0 0 0 2h8v8a1 1 0 1 0 2 0v-9ZM2.322 12.328l9.771-9.77-1.414-1.415-9.77 9.77 1.413 1.415Z' /%3E%3C/svg%3E")
+				center / 13px no-repeat;
+			background-color: $c-white;
+			display: block;
+			height: 40px;
+			width: 40px;
+			border-radius: 50%;
+			flex-shrink: 0;
+			margin: 0;
+			transition: $transition-base;
+			opacity: 0;
+		}
+		&:hover {
+			&::after {
+				margin-left: 16px;
+				opacity: 1;
+			}
+			.ad__link {
+				opacity: 1;
+				border-bottom-color: $c-white;
+				transform: translateY(-6px);
+			}
+		}
+	}
+	&__link {
+		color: $c-white;
+		@include h4;
+		line-height: 1;
+		opacity: 0.3;
+		border-bottom: 2px solid transparent;
+		padding: 0 0 6px 0;
+		width: 100%;
+		height: 100%;
+	}
+}
+
+.service {
+	background:
+		url("../img/noise.png") center / contain repeat,
+		$c-accent;
+	* {
+		color: $c-white;
+	}
+	&__container {
+		display: flex;
+	}
+	&__pages {
+		flex: 1;
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		gap: 14px;
+		@media ($l-m) {
+			grid-template-columns: repeat(3, 1fr);
+		}
+	}
+	&__block {
+		position: relative;
+		border-radius: 20px;
+		overflow: hidden;
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-end;
+		align-items: center;
+		height: 230px;
+		padding: 16px;
+		&:nth-child(-n + 4) {
+			border-radius: 0 0 20px 20px;
+		}
+		&:nth-last-child(-n + 4) {
+			border-radius: 20px 20px 0 0;
+		}
+		@media ($l-m) {
+			&:nth-child(4n) {
+				display: none;
+			}
+		}
+		&:hover {
+			&.service__page img {
+				filter: brightness(0.85);
+				transform: scale(1.05);
+			}
+			.service__name {
+				transform: translateY(-6px);
+			}
+		}
+	}
+	&__cover {
+		object-fit: cover;
+		position: absolute;
+		inset: 0;
+		width: 100%;
+		height: 100%;
+		transition: $transition-middle;
+	}
+	&__name {
+		position: relative;
+		z-index: 2;
+		text-align: center;
+		min-height: 36px;
+		transition: $transition-middle;
+	}
+
+	&__content {
+		flex: 1;
+		padding: 104px 24px 64px;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+	}
+	&__title {
+		margin: 0 0 32px;
+	}
+	&__links {
+		display: flex;
+		gap: 16px;
+		margin: 0 0 32px;
+		flex-wrap: wrap;
+	}
+	&__link {
+		display: block;
+		padding: 9px 14px;
+		background-color: #fbfbfb1a;
+		border-radius: 8px;
+		font-size: 16px;
+	}
+}
+
+.partners {
+	background:
+		url("../img/noise.png") center / contain repeat,
+		$c-theme-gray;
+	padding: 28px 0;
+	color: $c-white;
+	&__list {
+		display: grid;
+		grid-auto-columns: fit-content;
+		grid-auto-flow: column;
+	}
+	&__item {
+		min-width: 250px;
+		animation: ticker 2s linear infinite;
+		text-align: center;
+		display: flex;
+		justify-content: center;
+	}
+}
+
+.banner {
+	&__container {
+		margin: 0 auto;
+		max-width: 1440px;
 	}
 }

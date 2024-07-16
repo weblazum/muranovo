@@ -38,7 +38,6 @@ h5,
 h6,
 .h6 {
 	font-weight: 700;
-	text-transform: uppercase;
 }
 
 h1,
@@ -52,21 +51,17 @@ h2,
 
 h3,
 .h3 {
-	font-family: "BaronNeue", sans-serif;
-	font-size: clamp(1.5rem, 1.2404rem + 1.1538vw, 2.25rem); /* 36 > 24 */
-	line-height: 0.9;
+	@include h3;
 }
 
 h4,
 .h4 {
-	font-family: "BaronNeue", sans-serif;
-	font-size: clamp(1.5rem, 1.3109rem + 0.8403vw, 2rem);
+	@include h4;
 }
 
 h5,
 .h5 {
-	font-family: "BaronNeue", sans-serif;
-	font-size: clamp(1.125rem, 1.0777rem + 0.2101vw, 1.25rem);
+	@include h5;
 }
 
 a {

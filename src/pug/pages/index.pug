@@ -62,7 +62,7 @@ block content
 						.muranovo__text.space-between
 							p В сопровождении экскурсовода вы окажитесь в атмосфере русского дворянства XIX века, почувствуете себя званым и любимым гостем усадьбы.
 							+btnTicker('white', 'about.html')
-								|• <span class="f-baron">О</span> Музее
+								|• О музее
 					.muranovo__item
 						.muranovo__word
 							+picture('word-v', 'svg')
@@ -77,22 +77,95 @@ block content
 					.events__heading 
 						h2 Афиша
 						+btnTicker('grey', 'about.html')
-							|• Все <span class="f-baron">С</span>обытия
+							|• все События
 					ul.events__list
-						+eventItem('Выходные в Муранове', '01.06.2024 — 02.06.2024', 'image-21')
+						+eventItem('Выходные в Муранове', '01.06.2024 — 02.06.2024', 'image-21', "#")
 							.events__prop.tag.tag--date Выходные
 							.events__prop.tag.tag--pushkin 	
 							.events__prop.tag.tag--age 3+
-						+eventItem('Поэтический концерт для детей и их родителей «Семена добра: Сергей Михалков – детям»', '01.06.2024', 'image-22')
+						+eventItem('Поэтический концерт для детей и их родителей «Семена добра: Сергей Михалков – детям»', '01.06.2024', 'image-22', "#")
 							.events__prop.tag.tag--date Концерт
 							.events__prop.tag.tag--pushkin 	
 							.events__prop.tag.tag--age 5+
-						+eventItem('Выставка «Любимцы муз и вдохновенья. Пушкин и Боратынский»', '06.06.2024', 'image-23')
+						+eventItem('Выставка «Любимцы муз и вдохновенья. Пушкин и Боратынский»', '06.06.2024', 'image-23', "#")
 							.events__prop.tag.tag--date Выставка
 							.events__prop.tag.tag--pushkin 	
 							.events__prop.tag.tag--age 16+
-						+eventItem('Концерт класса арфы Надежды Сергеевой', '09.05.2024', 'image-24')
+						+eventItem('Концерт класса арфы Надежды Сергеевой', '09.05.2024', 'image-24', "#")
 							.events__prop.tag.tag--date Концерт
 							.events__prop.tag.tag--age 16+
+			section.section.ad
+				.ad__container
+					.ad__content
+						.ad__item
+							a(href="#").ad__link Ночь музеев в Муранове
+						.ad__item
+							a(href="#").ad__link Фестиваль «Про речь»
+			section.section.service
+				.service__container 
+					.service__pages
+						a(href="#").service__block.service__page
+							+picture('image-10', 'jpg', 'service__cover')
+							h5.service__name семейные программы
+						.service__block
+							+picture('image-11', 'jpg', 'service__cover')
+						a(href="#").service__block.service__page
+							+picture('image-20', 'jpg', 'service__cover')
+							h5.service__name Экскурсии
+						.service__block
+							+picture('image-12', 'jpg', 'service__cover')
+						.service__block
+							+picture('image-17', 'jpg', 'service__cover')
+						a(href="#").service__block.service__page
+							+picture('image-18', 'jpg', 'service__cover')
+							h5.service__name Концерты
+						.service__block
+							+picture('image-25', 'jpg', 'service__cover')
+						a(href="#").service__block.service__page
+							+picture('image-16', 'jpg', 'service__cover')
+							h5.service__name Усадебный крокет
+						a(href="#").service__block.service__page
+							+picture('image-15', 'jpg', 'service__cover')
+							h5.service__name Фестивали
+						.service__block
+							+picture('image-14', 'jpg', 'service__cover')
+						a(href="#").service__block.service__page
+							+picture('image-19', 'jpg', 'service__cover')
+							h5.service__name Квесты
+						.service__block
+							+picture('image-13', 'jpg', 'service__cover')
+					.service__content
+						.service__heading 
+							.service__title.h2 Услуги музея
+							.service__links 
+								a(href="").service__link Усадьба и парк
+								a(href="").service__link Главный дом
+								a(href="").service__link Флигель
+								a(href="").service__link Храм Спаса Нерукотворного
+						.service__more 
+							+btnTicker('white', 'service.html')
+								|• Все услуги
+			section.section.partners
+				.partners__container 
+					.partners__content.ticker 	
+						ul.partners__list.ticker__content
+							-for (let i=0; i<19; i++)
+								li.partners__item.ticker__item
+									span.h4 партнеры
+								li.partners__item.ticker__item
+									+picture('partner-mkmo', 'png')
+								li.partners__item.ticker__item
+									span.h4 партнеры
+								li.partners__item.ticker__item
+									+picture('partner-mosreg', 'png')
+								li.partners__item.ticker__item
+									span.h4 партнеры
+								li.partners__item.ticker__item
+									+picture('partner-hanoy', 'png')
+			section.section.banner
+				.banner__container
+					a(href="#").banner__link
+						+picture('banner-mosreg')
+
 
 
