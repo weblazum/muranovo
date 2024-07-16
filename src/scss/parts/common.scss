@@ -174,12 +174,13 @@ label {
 	&:last-child {
 		margin: 0 0 80px;
 	}
-	&-heading {
-		margin: 0 0 80px;
-		animation: fadeInUp $animation-duration-base;
-		@media ($t) {
-			margin: 0 0 20px;
-		}
+	&__heading {
+		display: flex;
+		justify-content: space-between;
+		gap: 24px;
+		align-items: center;
+		color: $c-theme-gray;
+		margin: 0 0 40px;
 	}
 }
 

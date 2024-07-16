@@ -32,3 +32,15 @@ mixin eventItem(title, date, pic, link)
 			.events__text 
 				.events__date= date
 				.events__title= title
+
+mixin newsItem(title, date, pic, link)
+	li.news__item
+		a(href= link).news__link
+			.news__top
+				.news__title.h4= title
+				.news__pic
+					+picture(pic)
+			.news__text 
+				.news__date= date
+				.news__announce
+					block

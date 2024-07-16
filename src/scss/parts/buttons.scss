@@ -11,7 +11,7 @@ input[type="submit"] {
 	font-size: 18px;
 	border-radius: 10px;
 	&:hover {
-		background: $c-accent-hover;
+		opacity: 0.6;
 	}
 }
 

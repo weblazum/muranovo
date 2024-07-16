@@ -94,14 +94,6 @@
 }
 
 .events {
-	&__heading {
-		display: flex;
-		justify-content: space-between;
-		gap: 24px;
-		align-items: center;
-		color: $c-theme-gray;
-		margin: 0 0 40px;
-	}
 	&__list {
 		display: flex;
 		gap: 24px;
@@ -127,8 +119,8 @@
 		&:hover {
 			box-shadow: 0px 0px 16px 0px rgba(34, 60, 80, 0.4);
 			transform: translateY(-7px);
-			.events__pic img {
-				// transform: scale(1.05);
+			.events__prop {
+				background-color: #c25b3ce5;
 			}
 		}
 	}
@@ -167,6 +159,7 @@
 		justify-content: center;
 		@include p3;
 		line-height: 1;
+		transition: $transition-middle;
 	}
 	&__text {
 		min-height: 218px;
@@ -358,5 +351,124 @@
 	&__container {
 		margin: 0 auto;
 		max-width: 1440px;
+	}
+}
+
+.gosuslugi {
+	background-color: $c-background-gray-accent;
+	padding: 45px 0;
+	&__container {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 28px;
+	}
+	&__content {
+		flex: 0 1 58%;
+	}
+	&__subtitle {
+		margin: 0 0 24px;
+		font-size: 20px;
+	}
+	&__title {
+		margin: 0 0 32px;
+	}
+	&__pic {
+		max-width: 320px;
+		width: 100%;
+	}
+}
+
+.guest {
+	padding: 90px 0;
+	position: relative;
+	&::before {
+		content: "";
+		background: url("../img/decorate-03.png") center / contain no-repeat;
+		display: block;
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		height: 608px;
+		width: 326px;
+		z-index: -1;
+	}
+	&::after {
+	}
+	&__container {
+	}
+	&__content {
+		max-width: 80%;
+		margin: 0 auto;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+	&__title {
+		margin: 0 0 58px;
+		text-align: center;
+	}
+	&__links {
+		display: flex;
+		gap: 8px;
+		margin: 0 0 58px;
+		text-align: center;
+	}
+	&__link {
+		text-transform: uppercase;
+	}
+}
+
+.news {
+	&__list {
+		display: flex;
+		gap: 60px;
+	}
+	&__item {
+		flex: 0 1 calc(100% / 3 - 30px);
+		&:nth-child(3n - 1) {
+			.news__pic {
+				display: block;
+			}
+		}
+	}
+	&__top {
+		position: relative;
+		margin: 0 0 40px;
+		min-height: 200px;
+	}
+	&__title {
+		padding: 32px 0 0;
+		color: $c-theme-gray;
+		text-shadow:
+			1px 1px 0 $c-white,
+			1px -1px 0 $c-white,
+			-1px 1px 0 $c-white,
+			-1px -1px 0 $c-white;
+		-webkit-background-clip: text;
+	}
+	&__pic {
+		position: absolute;
+		top: 0;
+		left: 46px;
+		width: 240px;
+		height: 200px;
+		display: none;
+		border-radius: 20px;
+		overflow: hidden;
+		z-index: -1;
+	}
+	img {
+		object-fit: cover;
+		width: 100%;
+		height: 100%;
+	}
+	&__date {
+		margin: 0 0 20px;
+		font-size: 20px;
+	}
+	&__announce {
+		font-size: 20px;
+		color: $c-text;
 	}
 }

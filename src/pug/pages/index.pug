@@ -74,7 +74,7 @@ block content
 							+picture('word-o', 'svg')
 			section.section.events
 				.events__container.container 
-					.events__heading 
+					.events__heading.section__heading
 						h2 Афиша
 						+btnTicker('grey', 'about.html')
 							|• все События
@@ -145,6 +145,19 @@ block content
 						.service__more 
 							+btnTicker('white', 'service.html')
 								|• Все услуги
+			section.section.news
+				.news__container.container 
+					.news__heading.section__heading
+						h2 Новости
+						+btnTicker('grey', 'news.html')
+							|• все Новости
+					ul.news__list
+						+newsItem('Изменение режима работы музея', '29.05.2024', 'image-21', "#")
+							p Дорогие гости музея! Обращаем ваше внимание, что 🔔 в связи с проведением технических работ музей и усадебный парк закрыты 10 и 11 июня 2024 года!
+						+newsItem('Фоторепортаж - литературный фестиваль «Про Речь»', '27.05.2024', 'image-26', "#")
+							p 📚 👀 25 мая в усадьбе состоялся новый литературный фестиваль «Про Речь». 
+						+newsItem('«Инновации и традиции могут прекрасно  сосуществовать»', '20.05.2024', 'image-12', "#")
+							p Музей-заповедник «Усадьба “Мураново”» и IPQuorum совместно с Российским государственным художественно-промышленным университетом имени С.Г. Строгановапроводят оцифровку части экспонатов из музейного собрания. 
 			section.section.partners
 				.partners__container 
 					.partners__content.ticker 	
@@ -162,10 +175,32 @@ block content
 									span.h4 партнеры
 								li.partners__item.ticker__item
 									+picture('partner-hanoy', 'png')
+			section.gosuslugi
+				.gosuslugi__container.container
+					.gosuslugi__content
+						p.gosuslugi__subtitle Ждем ваших предложений!
+						h4.gosuslugi__title Расскажите, как музей может стать лучше?
+						button.btn.btn-primary Перейти
+					.gosuslugi__pic
+						+picture('gosuslugi-logo', 'svg')
 			section.section.banner
 				.banner__container
 					a(href="#").banner__link
 						+picture('banner-mosreg')
+			section.guest
+				.guest__container
+					.guest__content 
+						.guest__title 
+							h2 <span class="c-accent">ощутите</span> себя <span class="c-accent">гостем</span> старинной усадьбы, хозяева которой некоторое время назад <span class="c-accent">покинули</span> свой <span class="c-accent">дом</span>
+						.guest__links 
+							a.btn.btn--black(href="#").guest__link Виртуальный тур
+							span •
+							a.btn.btn--black(href="#").guest__link Пушкинская карта
+							span •
+							a.btn.btn--black(href="#").guest__link коллекции
+						.guest__button 
+							+btnTicker("grey", "#")
+								|• Посетить
 
 
 
