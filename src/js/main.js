@@ -120,10 +120,13 @@ const swiperCases = new Swiper('.swiper-cases', {
 })
 
 // Табы
+// Табы
+let currentUrl = window.location.href
+
 const 
 	tabs = document.querySelector('.tabs'),
-	tabItem = document.querySelectorAll('.tab-btn'),
-	tabContent = document.querySelectorAll('.tab-content')
+	tabItem = document.querySelectorAll('.tab-target'),
+	tabContent = document.querySelectorAll('.tab-body')
 
 if (tabs) {
 	tabItem.forEach(function (element) {
@@ -133,22 +136,32 @@ if (tabs) {
 	function open(evt) {
 		const tabTarget = evt.currentTarget
 		const button = tabTarget.dataset.button
-
-		tabContent.forEach(function (content) {
-			if (content.id !== button) {
-				content.classList.remove('active')
-			}
-		})
-
+		const tabTargetData = tabTarget.getAttribute("data-button")
+		
 		tabItem.forEach(function (item) {
-			if (item !== tabTarget) {
-				item.classList.remove('active')
-			}
+			item.classList.remove('active')
 		})
-
-		tabTarget.classList.toggle('active')
-		document.querySelector(`#${button}`).classList.toggle('active')
+		
+		tabTarget.classList.add('active')
+		
+		if (currentUrl.includes('?ref')) {
+			currentUrl = currentUrl.replace(/ref=[^&]*/, `ref=${tabTargetData}`);
+		} else {
+			currentUrl += `?ref=${tabTargetData}`;
+		}
+		
+		if (currentUrl.includes('tickets') && tabTargetData !== "common") {
+			window.history.pushState({ path: currentUrl }, '', currentUrl);
+		}
+		
+		tabContent.forEach(function (item) {
+			item.classList.remove('active')
+		})
+		
+		document.querySelector(`#${button}`).classList.add('active')
 	}
+
+	tabItem[0].click()
 }
 
 // init wow.js

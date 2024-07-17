@@ -99,7 +99,8 @@
 
 .events {
 	&__list {
-		display: flex;
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
 		gap: 24px;
 	}
 	&__item {
@@ -124,7 +125,7 @@
 			box-shadow: 0px 0px 16px 0px rgba(34, 60, 80, 0.4);
 			transform: translateY(-7px);
 			.events__prop {
-				background-color: #c25b3ce5;
+				background-color: transparentize($c-accent, 0.1);
 			}
 		}
 	}
@@ -154,7 +155,7 @@
 		gap: 10px;
 	}
 	&__prop {
-		background-color: #c25b3c80;
+		background-color: transparentize($c-accent, 0.5);
 		backdrop-filter: blur(4px);
 		height: 40px;
 		color: $c-white;
@@ -182,6 +183,32 @@
 	.btn {
 		font-family: $f-baron;
 		text-transform: initial;
+	}
+	&__tabs {
+		display: flex;
+		gap: 12px;
+		margin: 0 0 40px;
+	}
+	&__tab {
+		padding: 10px 16px;
+		background-color: transparentize($c-theme-brown, 0.9);
+		color: $c-theme-brown;
+		border-radius: 8px;
+		font-size: 16px;
+		transition: $transition-base;
+		&:hover {
+			background-color: transparentize($c-theme-brown, 0.8);
+		}
+		&.active {
+			color: $c-white;
+			background-color: $c-theme-brown;
+		}
+	}
+	&__body {
+		display: none;
+		&.active {
+			display: grid;
+		}
 	}
 }
 
@@ -480,6 +507,7 @@
 .pagetop {
 	padding: 48px 0;
 	background-color: $c-accent;
+	margin: 0 0 40px;
 	* {
 		color: $c-white;
 	}
@@ -519,7 +547,6 @@
 		grid-template-columns: repeat(auto-fill, minmax(420px, 0.7fr));
 		justify-content: center;
 		gap: 40px;
-		padding: 40px 0;
 		@media ($t) {
 			display: flex;
 			flex-direction: column;
