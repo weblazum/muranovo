@@ -4,9 +4,20 @@ mixin picture(path, type = 'jpg', customClass = false)
 		//- source(type="image/webp" srcset=`img/${path}.webp?${randomNumber}`)
 		img(src=`${sitePath}img/${path}.${type}?${randomNumber}` alt="" class= customClass)
 
-mixin svg(name)
+mixin svg(name, id = name)
 	svg 
-		use(xlink:href=`${sitePath}img/icons/${name}.svg#${name}`)
+		use(xlink:href=`${sitePath}img/icons/${name}.svg#${id}`)
+
+mixin breadcrumps(currentPage, prevPage = false, prevLink = false)
+	.breadcrumps
+		a.breadcrumps__item.breadcrumps__home.btn.btn-link(href=`${sitePath}`) Главная
+		span.breadcrumps__separator.breadcrumps__separator--first
+		if (prevPage && prevLink)
+			a.breadcrumps__item.breadcrumps__prev.link.btn.btn-link(href=`${sitePath}${prevLink}`)= prevPage
+			span.breadcrumps__separator
+			span.breadcrumps__item.breadcrumps__current= currentPage
+		else
+			span.breadcrumps__item.breadcrumps__current= currentPage
 
 mixin btnTicker(color = "grey", url)
 	if (url)
@@ -44,3 +55,10 @@ mixin newsItem(title, date, pic, link)
 				.news__date= date
 				.news__announce
 					block
+
+mixin catItem(name, link, pic)
+	li.category__item
+		a(href=`${sitePath}${link}`).category__link
+			h4.category__name= name
+			.category__pic 
+				+picture(`${pic}`, 'png')

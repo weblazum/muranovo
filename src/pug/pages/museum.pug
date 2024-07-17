@@ -1,0 +1,23 @@
+extends ../base
+
+block vars
+	-let pageName = 'museum-page'
+	-let pageTitle = 'О музее'
+	-let metaTitle = 'О музее | Усадьба Мураново'
+	-let metaDescription = ''
+block content
+		main.main
+			section.pagetop
+				.pagetop__container.container
+					+breadcrumps(`${pageTitle}`)
+					h1.pagetop__title= pageTitle
+			section.section.category
+				.category__container.container
+					ul.category__list
+						+catItem("Владельцы", "owners.html", "image-27")
+						+catItem("О музее", "about.html", "image-28")
+						+catItem("Объекты музея", "objects.html", "image-29")
+						+catItem("Коллекции", "collections.html", "image-30")
+						+catItem("Новости", "news.html", "image-31")
+						+catItem("Виртуальный тур", "#", "image-32")
+						+catItem("Документация", "documents.html", "image-33")

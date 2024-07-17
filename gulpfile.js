@@ -31,7 +31,7 @@ function fonts(){
 
 // создание svg-спрайтов
 function sprite() {
-	return src('src/img/*.svg')
+	return src('src/img/src/*.svg')
 		.pipe(svgSprite({
 			mode: {
 				stack: {

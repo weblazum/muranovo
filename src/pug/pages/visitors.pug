@@ -1,0 +1,20 @@
+extends ../base
+
+block vars
+	-let pageName = 'museum-page'
+	-let pageTitle = 'Посетителям'
+	-let metaTitle = 'Посетителям | Усадьба Мураново'
+	-let metaDescription = ''
+block content
+		main.main
+			section.pagetop
+				.pagetop__container.container
+					+breadcrumps(`${pageTitle}`)
+					h1.pagetop__title= pageTitle
+			section.section.category
+				.category__container.container
+					ul.category__list
+						+catItem("Подготовка к визиту", "rules.html", "image-34")
+						+catItem("Инклюзивный музей", "inclusive.html", "image-35")
+						+catItem("Пушкинская карта", "pushkin-card.html", "image-36")
+						+catItem("Частые вопросы", "faq.html", "image-37")

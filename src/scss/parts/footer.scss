@@ -2,7 +2,9 @@
 	padding: 50px 0 30px;
 	position: relative;
 	z-index: 3;
-	background-color: $c-accent;
+	background:
+		url("../img/noise.png") center / contain repeat,
+		$c-accent;
 	color: $c-white;
 	font-size: 16px;
 	font-weight: 300;

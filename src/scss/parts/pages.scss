@@ -61,6 +61,10 @@
 		padding: 14%;
 		width: 100%;
 		height: 100%;
+		svg {
+			width: 100%;
+			height: 100%;
+		}
 		img {
 			object-fit: contain;
 			width: 100%;
@@ -470,5 +474,107 @@
 	&__announce {
 		font-size: 20px;
 		color: $c-text;
+	}
+}
+
+.pagetop {
+	padding: 48px 0;
+	background-color: $c-accent;
+	* {
+		color: $c-white;
+	}
+	.breadcrumps {
+		margin: 0 0 24px;
+		font-size: 14px;
+		display: flex;
+		align-items: center;
+		gap: 8px;
+		&__item {
+			padding: 6px;
+		}
+		&__home {
+			font-weight: 300;
+			opacity: 0.9;
+			transition: $transition-base;
+			&:hover {
+				opacity: 1;
+			}
+		}
+		&__separator {
+			width: 11px;
+			height: 1px;
+			background-color: $c-white;
+		}
+		&__current {
+			font-weight: 700;
+		}
+	}
+	&__title {
+	}
+}
+
+.category {
+	&__list {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(420px, 0.7fr));
+		justify-content: center;
+		gap: 40px;
+		padding: 40px 0;
+		@media ($t) {
+			display: flex;
+			flex-direction: column;
+			max-width: 420px;
+			margin: 0 auto;
+			gap: 20px;
+		}
+	}
+	&__item {
+		background:
+			url("../img/noise.png") center / contain repeat,
+			$c-theme-gray;
+		border-radius: 30px;
+		height: 276px;
+		overflow: hidden;
+		transition: $transition-base;
+		&:hover {
+			box-shadow: 0px 0px 16px 0px rgba(34, 60, 80, 0.4);
+			.category__name {
+				transform: translate(3px, -6px);
+			}
+			.category__pic {
+				filter: brightness(0.9);
+			}
+		}
+		@media ($t) {
+			height: 220px;
+		}
+	}
+	&__link {
+		display: block;
+		padding: 16px 20px;
+		width: 100%;
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-end;
+		position: relative;
+	}
+	&__name {
+		color: $c-white;
+		position: relative;
+		z-index: 2;
+		white-space: no-wrap;
+		transition: $transition-middle;
+	}
+	&__pic {
+		position: absolute;
+		bottom: 0;
+		right: 0;
+		transition: $transition-middle;
+		display: flex;
+		justify-content: flex-end;
+		@media ($t) {
+			max-width: 62%;
+		}
 	}
 }
