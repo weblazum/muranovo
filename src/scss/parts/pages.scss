@@ -102,6 +102,15 @@
 		display: grid;
 		grid-template-columns: repeat(4, 1fr);
 		gap: 24px;
+		@media ($l-m) {
+			grid-template-columns: repeat(3, 1fr);
+		}
+		@media ($l-s) {
+			grid-template-columns: repeat(2, 1fr);
+		}
+		@media ($p-b) {
+			grid-template-columns: 1fr;
+		}
 	}
 	&__item {
 		flex: 0 1 calc(25% - 12px);
@@ -113,6 +122,12 @@
 		transition: $transition-middle;
 		opacity: 1;
 		position: relative;
+		@media ($p-b) {
+			flex: 0 1 100%;
+			max-width: 456px;
+			width: 100%;
+			margin: 0 auto;
+		}
 		&:nth-child(2n) {
 			.events__link {
 				flex-direction: column;
@@ -121,6 +136,7 @@
 				justify-content: flex-end;
 			}
 		}
+
 		&:hover {
 			box-shadow: 0px 0px 16px 0px rgba(34, 60, 80, 0.4);
 			transform: translateY(-7px);
@@ -203,6 +219,24 @@
 			color: $c-white;
 			background-color: $c-theme-brown;
 		}
+	}
+	&__calendar {
+		&-btn {
+			border-radius: 50%;
+			width: 40px;
+			height: 40px;
+			margin: 0 13px 0 0;
+			background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='22' height='22' fill='none'%3E%3Cpath d='M19.246 2h-3v-.75a.75.75 0 1 0-1.5 0V2h-7.5v-.75a.75.75 0 1 0-1.5 0V2h-3a2.25 2.25 0 0 0-2.25 2.25V6.5h21V4.25A2.25 2.25 0 0 0 19.246 2ZM.496 19.25a2.25 2.25 0 0 0 2.25 2.25h16.5a2.25 2.25 0 0 0 2.25-2.25V8h-21v11.25Zm15-7.5h1.5a.75.75 0 1 1 0 1.5h-1.5a.75.75 0 1 1 0-1.5Zm0 4.5h1.5a.75.75 0 1 1 0 1.5h-1.5a.75.75 0 1 1 0-1.5Zm-5.25-4.5h1.5a.75.75 0 1 1 0 1.5h-1.5a.75.75 0 1 1 0-1.5Zm0 4.5h1.5a.75.75 0 1 1 0 1.5h-1.5a.75.75 0 1 1 0-1.5Zm-5.25-4.5h1.5a.75.75 0 1 1 0 1.5h-1.5a.75.75 0 1 1 0-1.5Zm0 4.5h1.5a.75.75 0 1 1 0 1.5h-1.5a.75.75 0 1 1 0-1.5Z' fill='%2372665B'/%3E%3C/svg%3E")
+				center / 22px no-repeat;
+		}
+	}
+	&__reset {
+		border-radius: 50%;
+		width: 40px;
+		height: 40px;
+		margin: 0 0 0 13px;
+		background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none'%3E%3Cpath fill='%2372665B' stroke='%2372665B' stroke-width='.4' d='M15.349 14.018 9.329 8l6.02-6.018A.943.943 0 1 0 14.015.647l-6.019 6.02L1.977.646A.943.943 0 1 0 .643 1.98l6.02 6.018-6.02 6.02a.943.943 0 1 0 1.334 1.333l6.019-6.02 6.019 6.02a.943.943 0 1 0 1.334-1.334Z'/%3E%3C/svg%3E")
+			center / 16px no-repeat;
 	}
 	&__body {
 		display: none;
@@ -603,5 +637,19 @@
 		@media ($t) {
 			max-width: 62%;
 		}
+	}
+}
+
+.seemore {
+	.category__item {
+		flex: 0 0 calc(100% / 3 - 32px);
+		min-width: 420px;
+		margin: 0 32px 0 0;
+		&:last-child {
+			margin: 0;
+		}
+	}
+	.swiper {
+		overflow: visible;
 	}
 }

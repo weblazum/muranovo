@@ -12,31 +12,16 @@ block content
 					+breadcrumps(`${pageTitle}`)
 					h1.pagetop__title= pageTitle
 			section.section.events
+				include ../parts/events-list
 				.events__container.container
 					.events__tabs.tabs
 						button.events__tab.tab-target(data-button="current") Праздники
 						button.events__tab.tab-target(data-button="archive") Архив
 					ul.events__list.events__body.tab-body#current
-						+eventItem('Субботний крокет', 'Каждая суббота и воскресение', 'image-38', "#")
-							.events__prop.tag.tag--date Программы
-							.events__prop.tag.tag--pushkin 	
-							.events__prop.tag.tag--age 7+
-						+eventItem('Зимние праздники в усадьбе Мураново', 'Суббота-Воскресение', 'image-39', "#")
-							.events__prop.tag.tag--date Программы
-							.events__prop.tag.tag--pushkin 	
-							.events__prop.tag.tag--age 0+
-						+eventItem('Тематические усадебные квесты', 'Каждую зиму', 'image-40', "#")
-							.events__prop.tag.tag--date Программы
-							.events__prop.tag.tag--pushkin 	
-							.events__prop.tag.tag--age 16+
-						+eventItem('Гастрономический фестиваль «День варенья»', 'Среда-Воскресение', 'image-41', "#")
-							.events__prop.tag.tag--date Программы
-							.events__prop.tag.tag--age 7+
-						+eventItem('Еженедельная программа «Выходные в Муранове»', 'Летом каждое Воскресение', 'image-42', "#")
-							.events__prop.tag.tag--date Программы
-							.events__prop.tag.tag--age 16+
+						each item in eventsList
+							if (item.category == 'Программы' && item.archive == false)
+								+eventItem(`${item.title}`, `${item.date}`, `${item.image}`, `${item.link}`, `${item.category}`, `${item.pushkincard}`, `${item.age}`)
 					ul.events__list.events__body.tab-body#archive
-						+eventItem('Еженедельная программа «Выходные в Муранове»', 'Среда-Воскресение', 'image-23', "#")
-							.events__prop.tag.tag--date Программы
-							.events__prop.tag.tag--pushkin 	
-							.events__prop.tag.tag--age 16+
+						each item in eventsList
+							if (item.category == 'Программы' && item.archive == true)
+								+eventItem(`${item.title}`, `${item.date}`, `${item.image}`, `${item.link}`, `${item.category}`, `${item.pushkincard}`, `${item.age}`)

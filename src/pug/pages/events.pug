@@ -12,6 +12,7 @@ block content
 					+breadcrumps(`${pageTitle}`)
 					h1.pagetop__title= pageTitle
 			section.section.events
+				include ../parts/events-list
 				.events__container.container
 					.events__tabs.tabs
 						button.events__tab.tab-target(data-button="holidays") Праздники
@@ -19,35 +20,18 @@ block content
 						button.events__tab.tab-target(data-button="child") Детям
 						button.events__tab.tab-target(data-button="archive") Архив
 					ul.events__list.events__body.tab-body#holidays
-						+eventItem('Масленица в Муранове', '01.06.2024 — 02.06.2024', 'image-38', "#")
-							.events__prop.tag.tag--date Праздники
-							.events__prop.tag.tag--pushkin 	
-							.events__prop.tag.tag--age 7+
-						+eventItem('Ежегодный фестиваль дворянской культуры «Талица» (В рамках Дня Подмосковной усадьбы)', '01.06.2024', 'image-39', "#")
-							.events__prop.tag.tag--date Праздники
-							.events__prop.tag.tag--pushkin 	
-							.events__prop.tag.tag--age 0+
-						+eventItem('Фольклорный фестиваль «Сенокос в Муранове»', '06.06.2024', 'image-40', "#")
-							.events__prop.tag.tag--date Праздники
-							.events__prop.tag.tag--pushkin 	
-							.events__prop.tag.tag--age 16+
-						+eventItem('Гастрономический фестиваль «День варенья»', '09.05.2024', 'image-41', "#")
-							.events__prop.tag.tag--date Праздники
-							.events__prop.tag.tag--age 7+
-						+eventItem('Гастрономический фестиваль «Аксаковская уха»', '09.05.2024', 'image-42', "#")
-							.events__prop.tag.tag--date Праздники
-							.events__prop.tag.tag--age 16+
+						each item in eventsList
+							if (item.category == 'Мероприятия' && item.group == 'Праздники' && item.archive == false)
+								+eventItem(`${item.title}`, `${item.date}`, `${item.image}`, `${item.link}`, `${item.category}`, `${item.pushkincard}`, `${item.age}`)
 					ul.events__list.events__body.tab-body#tours
-						+eventItem('Масленица в Муранове', '01.06.2024 — 02.06.2024', 'image-21', "#")
-							.events__prop.tag.tag--date Праздники
-							.events__prop.tag.tag--pushkin 	
-							.events__prop.tag.tag--age 7+
+						each item in eventsList
+							if (item.category == 'Мероприятия' && item.group == 'Экскурсии' && item.archive == false)
+								+eventItem(`${item.title}`, `${item.date}`, `${item.image}`, `${item.link}`, `${item.category}`, `${item.pushkincard}`, `${item.age}`)
 					ul.events__list.events__body.tab-body#child
-						+eventItem('Гастрономический фестиваль «Аксаковская уха»', '09.05.2024', 'image-24', "#")
-							.events__prop.tag.tag--date Праздники
-							.events__prop.tag.tag--age 16+
+						each item in eventsList
+							if (item.category == 'Детям' && item.archive == false)
+								+eventItem(`${item.title}`, `${item.date}`, `${item.image}`, `${item.link}`, `${item.category}`, `${item.pushkincard}`, `${item.age}`)
 					ul.events__list.events__body.tab-body#archive
-						+eventItem('Фольклорный фестиваль «Сенокос в Муранове»', '06.06.2024', 'image-23', "#")
-							.events__prop.tag.tag--date Праздники
-							.events__prop.tag.tag--pushkin 	
-							.events__prop.tag.tag--age 16+
+						each item in eventsList
+							if (item.category == 'Мероприятия' && item.archive == true)
+								+eventItem(`${item.title}`, `${item.date}`, `${item.image}`, `${item.link}`, `${item.category}`, `${item.pushkincard}`, `${item.age}`)

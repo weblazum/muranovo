@@ -33,13 +33,18 @@ mixin btnTicker(color = "grey", url)
 					li.ticker__item
 						block
 
-mixin eventItem(title, date, pic, link)
+mixin eventItem(title, date, pic, link, category, pushkincard, age)
 	li.events__item
 		a(href= link).events__link
 			.events__pic
 				+picture(pic)
 				.events__props.tags
-					block
+					if (category)
+						.events__prop.tag.tag--category= category
+					if (pushkincard == 'true')
+						.events__prop.tag.tag--pushkin
+					if (age)
+						.events__prop.tag.tag--age= age + '+'
 			.events__text 
 				.events__date= date
 				.events__title= title
@@ -56,8 +61,8 @@ mixin newsItem(title, date, pic, link)
 				.news__announce
 					block
 
-mixin catItem(name, link, pic)
-	li.category__item
+mixin catItem(name, link, pic, customClass)
+	li.category__item(class= customClass)
 		a(href=`${sitePath}${link}`).category__link
 			h4.category__name= name
 			.category__pic 

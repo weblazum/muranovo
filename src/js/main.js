@@ -173,3 +173,10 @@ const wow = new WOW({
 }) 
 
 wow.init( )
+
+// Смотрите также
+const swiperSeemore = new Swiper('.swiper-seemore', {
+	slidesPerView: 'auto',
+	freeMode: true,
+	mousewheel: {enabled: true},
+})

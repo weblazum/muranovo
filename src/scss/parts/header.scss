@@ -59,7 +59,11 @@
 				width: 100%;
 				margin: 0 auto;
 			}
-			@media ($l-m) {
+			@media ($l-s) {
+				display: block;
+				text-align: center;
+			}
+			@media ($l-s) {
 				display: block;
 				text-align: center;
 			}
@@ -185,6 +189,12 @@
 	}
 	&__ticket {
 		@media ($l-b) {
+			display: none;
+		}
+		@media ($l-m) {
+			display: block;
+		}
+		@media ($t) {
 			display: none;
 		}
 		button {
