@@ -174,9 +174,17 @@ const wow = new WOW({
 
 wow.init( )
 
-// Смотрите также
-const swiperSeemore = new Swiper('.swiper-seemore', {
-	slidesPerView: 'auto',
-	freeMode: true,
-	mousewheel: {enabled: true},
-})
+
+// Swiper nowrap
+
+const swiperTapeItems = document.querySelectorAll('.swiper-tape');
+
+if (swiperTapeItems) {
+	swiperTapeItems.forEach(item => {
+		const swiperTape = new Swiper('.swiper-tape', {
+			slidesPerView: 'auto',
+			freeMode: true,
+			// mousewheel: {enabled: true},
+		})
+	})
+}

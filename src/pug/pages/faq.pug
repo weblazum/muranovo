@@ -1,0 +1,15 @@
+extends ../base
+
+block vars
+	-let pageName = 'faq-page'
+	-let pageTitle = 'Частые вопросы'
+	-let parentPage = 'Посетителям'
+	-let metaTitle = 'Частые вопросы | Усадьба Мураново'
+	-let metaDescription = ''
+block content
+		main.main
+			section.pagetop
+				.pagetop__container.container
+					+breadcrumps(`${pageTitle}`, parentPage, 'visitors.html')
+					h1.pagetop__title= pageTitle
+			+seeMore(pageName, parentPage)

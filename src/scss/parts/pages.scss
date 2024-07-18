@@ -309,13 +309,15 @@
 		color: $c-white;
 	}
 	&__container {
-		display: flex;
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
 	}
 	&__pages {
 		flex: 1;
 		display: grid;
 		grid-template-columns: repeat(4, 1fr);
 		gap: 14px;
+		grid-row: span 2;
 		@media ($l-m) {
 			grid-template-columns: repeat(3, 1fr);
 		}
@@ -374,6 +376,9 @@
 		flex-direction: column;
 		justify-content: space-between;
 	}
+	&__heading {
+		padding: 104px 24px 16px;
+	}
 	&__title {
 		margin: 0 0 32px;
 	}
@@ -389,6 +394,10 @@
 		background-color: #fbfbfb1a;
 		border-radius: 8px;
 		font-size: 16px;
+	}
+	&__more {
+		align-self: end;
+		padding: 16px 24px 64px;
 	}
 }
 
@@ -486,16 +495,18 @@
 
 .news {
 	&__list {
-		display: flex;
-		gap: 60px;
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 90px 60px;
+		@media ($l-m) {
+			grid-template-columns: repeat(2, 1fr);
+		}
+		@media ($t) {
+			grid-template-columns: 1fr;
+		}
 	}
 	&__item {
 		flex: 0 1 calc(100% / 3 - 30px);
-		&:nth-child(3n - 1) {
-			.news__pic {
-				display: block;
-			}
-		}
 	}
 	&__top {
 		position: relative;
@@ -522,6 +533,7 @@
 		border-radius: 20px;
 		overflow: hidden;
 		z-index: -1;
+		display: none;
 	}
 	img {
 		object-fit: cover;
@@ -554,7 +566,8 @@
 		&__item {
 			padding: 6px;
 		}
-		&__home {
+		&__home,
+		&__prev {
 			font-weight: 300;
 			opacity: 0.9;
 			transition: $transition-base;
@@ -640,6 +653,10 @@
 	}
 }
 
+.swiper-tape {
+	overflow: visible;
+}
+
 .seemore {
 	.category__item {
 		flex: 0 0 calc(100% / 3 - 32px);
@@ -649,7 +666,45 @@
 			margin: 0;
 		}
 	}
-	.swiper {
-		overflow: visible;
+}
+
+.front-page {
+	.news {
+		&__item {
+			min-width: 408px;
+		}
+	}
+	.events {
+		&__list {
+			display: flex;
+			gap: 0;
+		}
+		&__item {
+			min-width: 318px;
+			margin: 0 24px 0 0;
+			&:last-child {
+				margin: 0;
+			}
+		}
+	}
+	.news {
+		&__list {
+			display: flex;
+		}
+		&__item {
+			&:nth-child(3n - 1) {
+				.news__pic {
+					display: block;
+				}
+			}
+		}
+	}
+}
+
+.news-page {
+	.news {
+		&__top {
+			min-height: initial;
+		}
 	}
 }

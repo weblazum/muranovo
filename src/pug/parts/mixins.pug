@@ -33,15 +33,15 @@ mixin btnTicker(color = "grey", url)
 					li.ticker__item
 						block
 
-mixin eventItem(title, date, pic, link, category, pushkincard, age)
-	li.events__item
+mixin eventItem(title, date, pic, link, category, pushkincard, age, customClass)
+	li.events__item(class= customClass)
 		a(href= link).events__link
 			.events__pic
 				+picture(pic)
 				.events__props.tags
 					if (category)
 						.events__prop.tag.tag--category= category
-					if (pushkincard == 'true')
+					if (pushkincard == true)
 						.events__prop.tag.tag--pushkin
 					if (age)
 						.events__prop.tag.tag--age= age + '+'
@@ -49,8 +49,8 @@ mixin eventItem(title, date, pic, link, category, pushkincard, age)
 				.events__date= date
 				.events__title= title
 
-mixin newsItem(title, date, pic, link)
-	li.news__item
+mixin newsItem(title, date, pic, link, customClass)
+	li.news__item(class= customClass)
 		a(href= link).news__link
 			.news__top
 				.news__title.h4= title
@@ -67,3 +67,14 @@ mixin catItem(name, link, pic, customClass)
 			h4.category__name= name
 			.category__pic 
 				+picture(`${pic}`, 'png')
+
+mixin seeMore(pageName, parentPage)
+	include pages-list
+	section.section.seemore.category
+		.seemore__container.container
+			h2.seemore__heading.section__heading Смотрите также
+			.swiper.swiper-tape
+				ul.swiper-wrapper
+					each item in pagesList
+						if (pageName !== item.name + '-page' && parentPage == item.parent)
+							+catItem(item.title, item.name + '.html', item.image, "swiper-slide")

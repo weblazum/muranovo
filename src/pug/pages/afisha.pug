@@ -3,6 +3,7 @@ extends ../base
 block vars
 	-let pageName = 'afisha-page'
 	-let pageTitle = 'Афиша'
+	-let parentPage = 'О музее'
 	-let metaTitle = 'Афиша | Усадьба Мураново'
 	-let metaDescription = ''
 block content
@@ -57,4 +58,4 @@ block content
 						each item in eventsList
 							if (item.archive == true)
 								+eventItem(`${item.title}`, `${item.date}`, `${item.image}`, `${item.link}`, `${item.category}`, `${item.pushkincard}`, `${item.age}`)
-			include ../parts/seemore
+			+seeMore(pageName, parentPage)
