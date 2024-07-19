@@ -4,13 +4,13 @@ block vars
 	-let pageName = 'afisha-page'
 	-let pageTitle = 'Афиша'
 	-let parentPage = 'О музее'
-	-let metaTitle = 'Афиша | Усадьба Мураново'
+	-let metaTitle = pageTitle + ' | Усадьба Мураново'
 	-let metaDescription = ''
 block content
 		main.main
 			section.pagetop
 				.pagetop__container.container
-					+breadcrumps(`${pageTitle}`)
+					+breadcrumps(pageTitle)
 					h1.pagetop__title= pageTitle
 			section.section.events
 				include ../parts/events-list
@@ -29,33 +29,33 @@ block content
 					ul.events__list.events__body.tab-body#exhibitions
 						each item in eventsList
 							if (item.category == 'Выставки' && item.archive == false)
-								+eventItem(`${item.title}`, `${item.date}`, `${item.image}`, `${item.link}`, `${item.category}`, `${item.pushkincard}`, `${item.age}`)
+								+eventItem(item.title, item.date, item.image, item.link, item.category, item.pushkincard, item.age)
 					ul.events__list.events__body.tab-body#concerts
 						each item in eventsList
 							if (item.category == 'Концерты' && item.archive == false)
-								+eventItem(`${item.title}`, `${item.date}`, `${item.image}`, `${item.link}`, `${item.category}`, `${item.pushkincard}`, `${item.age}`)
+								+eventItem(item.title, item.date, item.image, item.link, item.category, item.pushkincard, item.age)
 					ul.events__list.events__body.tab-body#programs
 						each item in eventsList
 							if (item.category == 'Программы' && item.archive == false)
-								+eventItem(`${item.title}`, `${item.date}`, `${item.image}`, `${item.link}`, `${item.category}`, `${item.pushkincard}`, `${item.age}`)
+								+eventItem(item.title, item.date, item.image, item.link, item.category, item.pushkincard, item.age)
 					ul.events__list.events__body.tab-body#events
 						each item in eventsList
 							if (item.category == 'Мероприятия' && item.archive == false)
-								+eventItem(`${item.title}`, `${item.date}`, `${item.image}`, `${item.link}`, `${item.category}`, `${item.pushkincard}`, `${item.age}`)
+								+eventItem(item.title, item.date, item.image, item.link, item.category, item.pushkincard, item.age)
 					ul.events__list.events__body.tab-body#tours
 						each item in eventsList
 							if (item.category == 'Экскурсии' && item.archive == false)
-								+eventItem(`${item.title}`, `${item.date}`, `${item.image}`, `${item.link}`, `${item.category}`, `${item.pushkincard}`, `${item.age}`)
+								+eventItem(item.title, item.date, item.image, item.link, item.category, item.pushkincard, item.age)
 					ul.events__list.events__body.tab-body#child
 						each item in eventsList
 							if (item.category == 'Детям' && item.archive == false)
-								+eventItem(`${item.title}`, `${item.date}`, `${item.image}`, `${item.link}`, `${item.category}`, `${item.pushkincard}`, `${item.age}`)
+								+eventItem(item.title, item.date, item.image, item.link, item.category, item.pushkincard, item.age)
 					ul.events__list.events__body.tab-body#pushkincard
 						each item in eventsList
 							if (item.pushkincard == true && item.archive == false)
-								+eventItem(`${item.title}`, `${item.date}`, `${item.image}`, `${item.link}`, `${item.category}`, `${item.pushkincard}`, `${item.age}`)
+								+eventItem(item.title, item.date, item.image, item.link, item.category, item.pushkincard, item.age)
 					ul.events__list.events__body.tab-body#archive
 						each item in eventsList
 							if (item.archive == true)
-								+eventItem(`${item.title}`, `${item.date}`, `${item.image}`, `${item.link}`, `${item.category}`, `${item.pushkincard}`, `${item.age}`)
+								+eventItem(item.title, item.date, item.image, item.link, item.category, item.pushkincard, item.age)
 			+seeMore(pageName, parentPage)

@@ -13,7 +13,7 @@ mixin breadcrumps(currentPage, prevPage = false, prevLink = false)
 		a.breadcrumps__item.breadcrumps__home.btn.btn-link(href=`${sitePath}`) Главная
 		span.breadcrumps__separator.breadcrumps__separator--first
 		if (prevPage && prevLink)
-			a.breadcrumps__item.breadcrumps__prev.link.btn.btn-link(href=`${sitePath}${prevLink}`)= prevPage
+			a.breadcrumps__item.breadcrumps__prev.btn.btn-link(href=`${sitePath}${prevLink}`)= prevPage
 			span.breadcrumps__separator
 			span.breadcrumps__item.breadcrumps__current= currentPage
 		else
@@ -49,7 +49,7 @@ mixin eventItem(title, date, pic, link, category, pushkincard, age, customClass)
 				.events__date= date
 				.events__title= title
 
-mixin newsItem(title, date, pic, link, customClass)
+mixin newsItem(title, date, pic, link, announce, customClass)
 	li.news__item(class= customClass)
 		a(href= link).news__link
 			.news__top
@@ -58,15 +58,14 @@ mixin newsItem(title, date, pic, link, customClass)
 					+picture(pic)
 			.news__text 
 				.news__date= date
-				.news__announce
-					block
+				.news__announce= announce
 
 mixin catItem(name, link, pic, customClass)
 	li.category__item(class= customClass)
-		a(href=`${sitePath}${link}`).category__link
+		a(href= sitePath + link).category__link
 			h4.category__name= name
 			.category__pic 
-				+picture(`${pic}`, 'png')
+				+picture(pic, 'png')
 
 mixin seeMore(pageName, parentPage)
 	include pages-list

@@ -3,7 +3,7 @@ extends ../base
 block vars
 	-let pageName = 'front-page'
 	-let pageTitle = 'Усадьба Мураново'
-	-let metaTitle = 'Усадьба Мураново | Главная'
+	-let metaTitle = pageTitle + ' | Главная'
 	-let metaDescription = ''
 block content
 		main.main
@@ -72,6 +72,7 @@ block content
 					.muranovo__item
 						.muranovo__word
 							+svg('words', 'o')
+			include ../parts/events-list
 			section.section.events
 				.events__container.container 
 					.events__heading.section__heading
@@ -80,10 +81,9 @@ block content
 							|• все События
 					.swiper.swiper-tape
 						ul.events__list.swiper-wrapper
-							+eventItem('Выходные в Муранове', '01.06.2024 — 02.06.2024', 'image-21', "#", 'Выходные', true, '3', 'swiper-slide')
-							+eventItem('Поэтический концерт для детей и их родителей «Семена добра: Сергей Михалков – детям»', '01.06.2024', 'image-22', "#", 'Концерт', true, '5', 'swiper-slide')
-							+eventItem('Выставка «Любимцы муз и вдохновенья. Пушкин и Боратынский»', '06.06.2024', 'image-23', "#", 'Выставка', true, '16', 'swiper-slide')
-							+eventItem('Концерт класса арфы Надежды Сергеевой', '09.05.2024', 'image-24', "#", 'Концерт', false, '16', 'swiper-slide')
+							each item in eventsList.slice(0, 4)
+								if (item.category == 'Мероприятия' && item.archive == false)
+									+eventItem(item.title, item.date, item.image, item.link, item.category, item.pushkincard, item.age, 'swiper-slide')
 			section.section.ad
 				.ad__container
 					.ad__content
@@ -135,6 +135,7 @@ block content
 					.service__more 
 						+btnTicker('white', 'service.html')
 							|• Все услуги
+			include ../parts/news-list
 			section.section.news
 				.news__container.container 
 					.news__heading.section__heading
@@ -143,12 +144,8 @@ block content
 							|• все Новости
 					.swiper.swiper-tape
 						ul.news__list.swiper-wrapper
-							+newsItem('Изменение режима работы музея', '29.05.2024', 'image-21', "#", 'swiper-slide')
-								p Дорогие гости музея! Обращаем ваше внимание, что 🔔 в связи с проведением технических работ музей и усадебный парк закрыты 10 и 11 июня 2024 года!
-							+newsItem('Фоторепортаж - литературный фестиваль «Про Речь»', '27.05.2024', 'image-26', "#", 'swiper-slide')
-								p 📚 👀 25 мая в усадьбе состоялся новый литературный фестиваль «Про Речь». 
-							+newsItem('«Инновации и традиции могут прекрасно  сосуществовать»', '20.05.2024', 'image-12', "#", 'swiper-slide')
-								p Музей-заповедник «Усадьба “Мураново”» и IPQuorum совместно с Российским государственным художественно-промышленным университетом имени С.Г. Строганова проводят оцифровку части экспонатов из музейного собрания. 
+							each item in newsList.slice(0, 3)
+								+newsItem(item.title, item.date, item.image, item.link, item.announce, 'swiper-slide')
 			section.section.partners
 				.partners__container 
 					.partners__content.ticker 	

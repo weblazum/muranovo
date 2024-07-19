@@ -120,11 +120,11 @@ const swiperCases = new Swiper('.swiper-cases', {
 })
 
 // Табы
-// Табы
 let currentUrl = window.location.href
 
 const 
 	tabs = document.querySelector('.tabs'),
+	accordion = document.querySelector('.accordion'),
 	tabItem = document.querySelectorAll('.tab-target'),
 	tabContent = document.querySelectorAll('.tab-body')
 
@@ -164,19 +164,45 @@ if (tabs) {
 	tabItem[0].click()
 }
 
-// init wow.js
-const wow = new WOW({ 
-	boxClass: 'wow',
-	animateClass: 'animate',
-	offset: '80',
-	mobile: false,
-}) 
+if (accordion) {
+	tabItem.forEach(function (element) {
+		element.addEventListener('click', open)
+	})
 
-wow.init( )
+	function open(evt) {
+		const tabTarget = evt.currentTarget
+		const button = tabTarget.dataset.button
+
+		tabContent.forEach(function (content) {
+			if (content.id !== button) {
+				content.classList.remove('active')
+			}
+		})
+
+		tabItem.forEach(function (item) {
+			if (item !== tabTarget) {
+				item.classList.remove('active')
+			}
+		})
+
+		tabTarget.classList.toggle('active')
+		document.querySelector(`#${button}`).classList.toggle('active')
+	}
+}
+
+
+// init wow.js
+// const wow = new WOW({ 
+// 	boxClass: 'wow',
+// 	animateClass: 'animate',
+// 	offset: '80',
+// 	mobile: false,
+// }) 
+
+// wow.init( )
 
 
 // Swiper nowrap
-
 const swiperTapeItems = document.querySelectorAll('.swiper-tape');
 
 if (swiperTapeItems) {

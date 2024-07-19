@@ -3,13 +3,13 @@ extends ../base
 block vars
 	-let pageName = 'programs-page'
 	-let pageTitle = 'Программы'
-	-let metaTitle = 'Программы | Усадьба Мураново'
+	-let metaTitle = pageTitle + ' | Усадьба Мураново'
 	-let metaDescription = ''
 block content
 		main.main
 			section.pagetop
 				.pagetop__container.container
-					+breadcrumps(`${pageTitle}`)
+					+breadcrumps(pageTitle)
 					h1.pagetop__title= pageTitle
 			section.section.events
 				include ../parts/events-list
@@ -20,8 +20,8 @@ block content
 					ul.events__list.events__body.tab-body#current
 						each item in eventsList
 							if (item.category == 'Программы' && item.archive == false)
-								+eventItem(`${item.title}`, `${item.date}`, `${item.image}`, `${item.link}`, `${item.category}`, `${item.pushkincard}`, `${item.age}`)
+								+eventItem(item.title, item.date, item.image, item.link, item.category, item.pushkincard, item.age)
 					ul.events__list.events__body.tab-body#archive
 						each item in eventsList
 							if (item.category == 'Программы' && item.archive == true)
-								+eventItem(`${item.title}`, `${item.date}`, `${item.image}`, `${item.link}`, `${item.category}`, `${item.pushkincard}`, `${item.age}`)
+								+eventItem(item.title, item.date, item.image, item.link, item.category, item.pushkincard, item.age)

@@ -3,13 +3,13 @@ extends ../base
 block vars
 	-let pageName = 'museum-page'
 	-let pageTitle = 'Посетителям'
-	-let metaTitle = 'Посетителям | Усадьба Мураново'
+	-let metaTitle = pageTitle + ' | Усадьба Мураново'
 	-let metaDescription = ''
 block content
 		main.main
 			section.pagetop
 				.pagetop__container.container
-					+breadcrumps(`${pageTitle}`)
+					+breadcrumps(pageTitle)
 					h1.pagetop__title= pageTitle
 			include ../parts/pages-list
 			section.section.category

@@ -1,7 +1,7 @@
 header.header 
 	.container.header__container
 		.content.header__content
-			a(href=`${sitePath}`).logo.header__logo
+			a(href= sitePath).logo.header__logo
 				svg
 					use(xlink:href=`${sitePath}img/logo.svg#logo`)
 			.header__menu
@@ -12,65 +12,92 @@ header.header
 							span.nav__link.nav__link--drop О музее
 							ul.nav__list.nav__list--dropdown.dropdown-list
 								li.dropdown-list__item
-									a.dropdown-list__link(href=`${sitePath}owners.html`) Владельцы
+									if (pageName == 'owners-page')
+										span.dropdown-list__link.dropdown-list__link--selected Владельцы
+									else
+										a.dropdown-list__link(href=`${sitePath}owners.html`) Владельцы
 								li.dropdown-list__item
-									a.dropdown-list__link(href=`${sitePath}news.html`) Новости
+									if (pageName == 'news-page')
+										span.dropdown-list__link.dropdown-list__link--selected Новости
+									else
+										a.dropdown-list__link(href=`${sitePath}news.html`) Новости
 								li.dropdown-list__item
-									a.dropdown-list__link(href=`${sitePath}about.html`) О музее
+									if (pageName == 'about-page')
+										span.dropdown-list__link.dropdown-list__link--selected О музее
+									else
+										a.dropdown-list__link(href=`${sitePath}about.html`) О музее
 								li.dropdown-list__item
-									a.dropdown-list__link(href=`${sitePath}#`) Фото музея
+									if (pageName == 'photos-page')
+										span.dropdown-list__link.dropdown-list__link--selected Фото музея
+									else
+										a.dropdown-list__link(href=`${sitePath}#`) Фото музея
 								li.dropdown-list__item
-									a.dropdown-list__link(href=`${sitePath}#`) Карта музея
+									if (pageName == 'map-page')
+										span.dropdown-list__link.dropdown-list__link--selected Карта музея
+									else
+										a.dropdown-list__link(href=`${sitePath}#`) Карта музея
 								li.dropdown-list__item
-									a.dropdown-list__link(href=`${sitePath}#`) Виртуальный тур
+										a.dropdown-list__link(href=`${sitePath}#`) Виртуальный тур
 								li.dropdown-list__item
-									a.dropdown-list__link(href=`${sitePath}collections.html`) Коллекции
+									if (pageName == 'collections-page')
+										span.dropdown-list__link.dropdown-list__link--selected Коллекции
+									else
+										a.dropdown-list__link(href=`${sitePath}collections.html`) Коллекции
 								li.dropdown-list__item
-									a.dropdown-list__link(href=`${sitePath}documents.html`) Документация
+									if (pageName == 'documents-page')
+										span.dropdown-list__link.dropdown-list__link--selected Документация
+									else
+										a.dropdown-list__link(href=`${sitePath}documents.html`) Документация
 						li.nav__item
-							a.nav__link(href=`${sitePath}afisha.html`) Афиша
+							if (pageName == 'afisha-page')
+								span.nav__link.nav__link--selected Афиша
+							else
+								a.nav__link(href=`${sitePath}afisha.html`) Афиша
 						li.nav__item
-							a.nav__link(href=`${sitePath}programs.html`) Программы
+							if (pageName == 'programs-page')
+								span.nav__link.nav__link--selected Программы
+							else
+								a.nav__link(href=`${sitePath}programs.html`) Программы
 						li.nav__item
-							a.nav__link(href=`${sitePath}events.html`) Мероприятия
+							if (pageName == 'events-page')
+								span.nav__link.nav__link--selected Мероприятия
+							else
+								a.nav__link(href=`${sitePath}events.html`) Мероприятия
 						li.nav__item.nav__item--drop
 							a(href=`${sitePath}visitors.html`).nav__link.nav__link--drop Посетителям
 							span.nav__link.nav__link--drop Посетителям
 							ul.nav__list.nav__list--dropdown.dropdown-list
 								li.dropdown-list__item
-									a.dropdown-list__link(href=`${sitePath}#`) Владельцы
+									if (pageName == 'rules-page')
+										span.dropdown-list__link.dropdown-list__link--selected Подготовка к визиту
+									else
+										a.dropdown-list__link(href=`${sitePath}rules.html`) Подготовка к визиту
 								li.dropdown-list__item
-									a.dropdown-list__link(href=`${sitePath}#`) Новости
+									if (pageName == 'inclusive-page')
+										span.dropdown-list__link.dropdown-list__link--selected Инклюзивный музей
+									else
+										a.dropdown-list__link(href=`${sitePath}inclusive.html`) Инклюзивный музей
 								li.dropdown-list__item
-									a.dropdown-list__link(href=`${sitePath}#`) О музее
+									if (pageName == 'pushkin-card-page')
+										span.dropdown-list__link.dropdown-list__link--selected Пушкинская карта
+									else
+										a.dropdown-list__link(href=`${sitePath}pushkin-card.html`) Пушкинская карта
 								li.dropdown-list__item
-									a.dropdown-list__link(href=`${sitePath}#`) Фото музея
-								li.dropdown-list__item
-									a.dropdown-list__link(href=`${sitePath}#`) Карта музея
-								li.dropdown-list__item
-									a.dropdown-list__link(href=`${sitePath}#`) Виртуальный тур
-								li.dropdown-list__item
-									a.dropdown-list__link(href=`${sitePath}#`) Коллекции
-								li.dropdown-list__item
-									a.dropdown-list__link(href=`${sitePath}#`) Документация
+									if (pageName == 'faq-page')
+										span.dropdown-list__link.dropdown-list__link--selected Частые вопросы
+									else
+										a.dropdown-list__link(href=`${sitePath}faq.html`) Частые вопросы
 						li.nav__item
-							a.nav__link(href=`${sitePath}contacts.html`) Контакты
+							if (pageName == 'contacts-page')
+								span.nav__link.nav__link--selected Контакты
+							else
+								a.nav__link(href=`${sitePath}contacts.html`) Контакты
 				.header__ticket
-					button.btn.btn-transparent.ticker
-						ul.ticker__content
-							li.ticker__item • Купить билет
-							li.ticker__item • Купить билет
-							li.ticker__item • Купить билет
-							li.ticker__item • Купить билет
-							li.ticker__item • Купить билет
+					+btnTicker('accent')
+						|• Купить билет
 			.header__ticket
-				button.btn.btn-transparent.ticker
-					ul.ticker__content
-						li.ticker__item • Купить билет
-						li.ticker__item • Купить билет
-						li.ticker__item • Купить билет
-						li.ticker__item • Купить билет
-						li.ticker__item • Купить билет
+				+btnTicker('accent')
+					|• Купить билет
 			.header__buttons
 				button.header__button#search-btn
 					svg(width="19" height="19")

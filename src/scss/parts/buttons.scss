@@ -55,3 +55,12 @@ input[type="submit"] {
 		color: $c-accent;
 	}
 }
+
+.link {
+	color: $c-text;
+	cursor: pointer;
+	transition: $transition-base;
+	&:hover {
+		color: $c-accent;
+	}
+}

@@ -1,0 +1,63 @@
+extends ../base
+
+block vars
+	-let pageName = 'sitemap-page'
+	-let pageTitle = 'Карта сайта'
+	-let parentPage = ''
+	-let metaTitle = pageTitle + ' | Усадьба Мураново'
+	-let metaDescription = ''
+block content
+		main.main
+			section.pagetop
+				.pagetop__container.container
+					+breadcrumps(pageTitle)
+					h1.pagetop__title= pageTitle
+			section.section.sitemap
+				.sitemap__container.container 	
+					.sitemap__content.background-fill
+						.user-content.narrow-content 	
+							p
+								a(href= sitePath target='_blank') Главная
+							h5 
+								a(href= sitePath + 'museum.html' target='_blank').link О музее
+							ul 
+								li 
+									a(href= sitePath + 'owners.html' target='_blank') Владельцы 
+									span  (в разработке)
+								li 
+									a(href= sitePath + 'about.html' target='_blank') О музее 
+									span  (в разработке)
+								li 
+									a(href= sitePath + 'news.html' target='_blank') Новости
+								li 
+									a(href= sitePath + 'news-single.html' target='_blank') Шаблон новости
+									span  (в разработке)
+							br
+							h5 
+								a(href= sitePath + 'afisha.html' target='_blank').link Афиша
+							ul 
+								li 
+									a(href= sitePath + 'events.html' target='_blank') Мероприятия
+								li 
+									a(href= sitePath + 'programs.html' target='_blank') Программы
+								li 
+									a(href= sitePath + 'event-single.html' target='_blank') Шаблон мероприятия
+									span  (в разработке)
+							br
+							h5 
+								a(href= sitePath + 'visitors.html' target='_blank').link Посетителям
+							ul 
+								li 
+									a(href= sitePath + 'rules.html' target='_blank') Подготовка к визиту
+									span  (в разработке)
+								li 
+									a(href= sitePath + 'inclusive.html' target='_blank') Инклюзивный музей
+								li 
+									a(href= sitePath + 'pushkin-card.html' target='_blank') Пушкинская карта
+								li 
+									a(href= sitePath + 'faq.html' target='_blank') Частые вопросы
+							br
+							h5 
+								a(href= sitePath + 'contacts.html' target='_blank').link Контакты 
+							span  (в разработке)
+
