@@ -30,6 +30,30 @@ input[type="submit"] {
 	line-height: 1;
 }
 
+.btn-tab {
+	padding: 10px 16px;
+	background-color: transparentize($c-theme-brown, 0.9);
+	color: $c-theme-brown;
+	border-radius: 8px;
+	font-size: 16px;
+	transition: $transition-base;
+	flex-shrink: 0;
+	text-decoration: none;
+	&:hover,
+	&.active {
+		background-color: $c-theme-brown;
+		color: $c-white;
+	}
+}
+
+.btn-link {
+	color: $c-accent;
+	text-decoration: none;
+	&:hover {
+		text-decoration: underline;
+	}
+}
+
 .btn {
 	cursor: pointer;
 	transition: $transition-base;

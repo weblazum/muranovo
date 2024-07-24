@@ -2,7 +2,7 @@
 $c-accent: #c25b3c;
 $c-accent-hover: #b71400;
 $c-orangelight: #e6886b;
-$c-theme-brown: #72665b; // #FF72665b
+$c-theme-brown: #72665b;
 $c-theme-gray: #818b94;
 $c-white: #fbfbfb;
 $c-text: #1d1d1b;
@@ -33,6 +33,19 @@ $p-s: "max-width: 360px";
 	&:last-child {
 		margin: 0;
 	}
+}
+
+@mixin accent-txt {
+	font-family: $f-baron;
+	font-weight: 700;
+	line-height: 1.1;
+	text-transform: uppercase;
+	color: $c-white;
+	text-shadow:
+		2px 2px 0 $c-theme-brown,
+		2px -2px 0 $c-theme-brown,
+		-2px 2px 0 $c-theme-brown,
+		-2px -2px 0 $c-theme-brown;
 }
 
 // d: 110, m: 42

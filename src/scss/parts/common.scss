@@ -2,9 +2,22 @@
 	box-sizing: border-box;
 }
 
-html,
-body {
+html {
 	scroll-behavior: smooth;
+	::-webkit-scrollbar {
+		width: 14px;
+	}
+
+	::-webkit-scrollbar-track {
+		background-color: $c-white;
+	}
+
+	::-webkit-scrollbar-thumb {
+		background-color: $c-accent;
+		&:hover {
+			background-color: transparentize($c-accent, 0.1);
+		}
+	}
 }
 
 body {
@@ -164,6 +177,19 @@ label {
 	color: $c-accent;
 }
 
+.c-brown {
+	color: $c-theme-brown;
+}
+
+.accent-txt {
+	@include accent-txt;
+}
+
+// d: 140, m: 80
+.h-large {
+	font-size: clamp(5rem, 3.75rem + 5.5556vw, 8.75rem);
+}
+
 .section {
 	margin: 0 0 120px;
 	scroll-margin-top: 90px;
@@ -185,7 +211,7 @@ label {
 
 .wrapper {
 	max-width: 100%;
-	overflow: hidden;
+	// overflow: hidden;
 	margin: 0 auto;
 	display: flex;
 	flex-direction: column;
@@ -224,6 +250,40 @@ label {
 		opacity: 0;
 		visibility: hidden;
 		z-index: -10;
+	}
+}
+
+.social {
+	@media ($t) {
+		max-width: 360px;
+		margin: 0 auto;
+	}
+	&__list {
+		display: flex;
+		gap: 9px;
+		@media ($t) {
+			justify-content: space-between;
+		}
+	}
+	&__item {
+		width: 40px;
+		height: 40px;
+		background: $c-orangelight;
+		border-radius: 50%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		transition: $transition-base;
+		&:hover {
+			background: $c-accent;
+		}
+	}
+	&__link {
+		padding: 8px;
+		display: flex;
+	}
+	svg {
+		fill: $c-white;
 	}
 }
 

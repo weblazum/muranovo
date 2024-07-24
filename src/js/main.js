@@ -190,6 +190,17 @@ if (accordion) {
 	}
 }
 
+// Fancybox
+Fancybox.bind("[data-fancybox]", {
+	Toolbar: {
+		display: {
+			left: [],
+			middle: [],
+			right: ["close"],
+		},
+	},
+})
+
 
 // init wow.js
 // const wow = new WOW({ 
@@ -211,6 +222,24 @@ if (swiperTapeItems) {
 			slidesPerView: 'auto',
 			freeMode: true,
 			// mousewheel: {enabled: true},
+		})
+	})
+}
+
+// Swiper gallery
+const swiperGalleryItems = document.querySelectorAll('.swiper-gallery');
+
+if (swiperGalleryItems) {
+	swiperGalleryItems.forEach(item => {
+		const swiperGallery = new Swiper('.swiper-gallery', {
+			spaceBetween: 20,
+			pagination: {
+				el: '.swiper-gallery-pagination',
+			},
+			navigation: {
+				nextEl: '.swiper-gallery-button-next',
+				prevEl: '.swiper-gallery-button-prev',
+			},
 		})
 	})
 }

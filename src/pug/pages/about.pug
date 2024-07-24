@@ -1,0 +1,94 @@
+extends ../base
+
+block vars
+	-let pageName = 'about-page'
+	-let pageTitle = 'О музее'
+	-let parentPage = 'О музее'
+	-let metaTitle = pageTitle + ' | Усадьба Мураново'
+	-let metaDescription = ''
+block content
+		main.main
+			section.pagetop
+				.pagetop__container.container
+					+breadcrumps(pageTitle, parentPage, 'museum.html')
+					h1.pagetop__title= pageTitle
+			section.content-section.content-section--cols
+				.content-section__images.content-section__images--single
+					+picture('image-44', 'jpg', false, 'Вивьен Ж. Портрет Е. А. Боратынского. 1826 г. Бумага, итальянский карандаш')
+				.content-section__text.container
+					.content-section__title
+						h2.accent-txt.h2 <span class="c-brown">Мураново</span> - это Боратынский
+					.content-section__description.user-content
+						p Музей-заповедник «Усадьба«Мураново» — это неповторимый образцец среднепоместной дворянской усадьбы XIX века. Старинное имение расположено в 50 км от Москвы по Ярославской железной дороге. Здесь некоторое время жил поэт Е.А. Боратынский со своей семьёй. По его чертежам и планам в Муранове был построен дом, который сохранился до нашего времени.
+			section.content-section.content-section--cols.content-section--space
+				.content-section__text.container
+					.content-section__title
+						h2.accent-txt <span class="c-brown">Мураново</span> - это Тютчев
+					.content-section__description.user-content
+						p В Муранове жила семья поэта Ф.И. Тютчева, семейные реликвии и рукописи которого были перевезены после его смерти в усадьбу. 
+						p Так, Мураново стало основным местом хранения наследия великого русского поэта.
+				.content-section__images.content-section__images--tablet.container
+					+picture('image-60', 'jpg', 'tablet-pic tablet-pic--primary', 'Фёдор Тютчев. Портрет работы С. Ф. Александровского', false, 'gallery-tyutchev')
+					+picture('image-50', 'jpg', 'tablet-pic tablet-pic--primary', 'Фотопортрет Ивана Фёдоровича Тютчева', false, 'gallery-tyutchev')
+			section.content-section.content-section--cols
+				.content-section__images
+					.swiper.swiper-gallery 
+						.swiper-wrapper
+							+picture('image-61', 'jpg', false, 'Интерьер главного усадебного дома', true, 'interior-gallery')
+							+picture('image-62', 'jpg', false, 'Интерьер главного усадебного дома', true, 'interior-gallery')
+							+picture('image-63', 'jpg', false, 'Интерьер главного усадебного дома', true, 'interior-gallery')
+							+picture('image-64', 'jpg', false, 'Интерьер главного усадебного дома', true, 'interior-gallery')
+						.swiper-gallery-navigation
+							button.swiper-gallery-button-prev
+							button.swiper-gallery-button-next
+						.swiper-gallery-pagination
+				.content-section__text.container
+					.content-section__title
+						h2.accent-txt <span class="c-brown">Мураново</span> - это атмосфера дворянства
+					.content-section__description.user-content
+						p Сегодня Мураново объединяет в себе несколько построек: 
+						.content-section__links 	
+							a(href=`${sitePath}objects.html`).btn.btn-tab Главный усадебный дом
+							a(href=`${sitePath}objects.html`).btn.btn-tab Кучерская
+							a(href=`${sitePath}objects.html`).btn.btn-tab Флигель 
+							a(href=`${sitePath}objects.html`).btn.btn-tab Храм Спаса Нерукотворного
+							a(href=`${sitePath}objects.html`).btn.btn-tab Главный усадебный дом
+							a(href=`${sitePath}objects.html`).btn.btn-tab Кухня
+							a(href=`${sitePath}objects.html`).btn.btn-tab Гладильная
+							a(href=`${sitePath}objects.html`).btn.btn-tab Ледник
+							a(href=`${sitePath}objects.html`).btn.btn-tab Амбар
+							a(href=`${sitePath}objects.html`).btn.btn-tab Детский домик
+							a(href=`${sitePath}objects.html`).btn.btn-tab Школа
+							a(href=`${sitePath}objects.html`).btn.btn-tab Каретный сарай
+							a(href=`${sitePath}objects.html`).btn.btn-tab Кегельбан
+							a(href=`${sitePath}objects.html`).btn.btn-tab Оранжерея
+							a(href=`${sitePath}objects.html`).btn.btn-tab Прачечная
+							a(href=`${sitePath}objects.html`).btn.btn-tab Сенной сарай
+						p Основные объекты для показа: Главный усадебный дом, Кучерская, в которой находится выставочный зал и Домовая церковь. Остальные усадебные постройки являются служебными помещениями, которые можно осмотреть снаружи. Побывав у нас, вы увидите все эти достопримечательности и погрузитесь в атмосферу жизни в русской усадьбе XIX века высокообразованного дворянства. 
+			section.content-section.content-section--cols.content-section--space
+				.content-section__text.container
+					.content-section__title
+						h2.accent-txt <span class="c-brown">Мураново</span> - это наследие
+					.content-section__description.user-content
+						p Собрание музея насчитывает более 30 000 экспонатов. Большая часть предметов – мемориальные, принадлежавшие владельцам усадьбы и их родственникам. Это одна из самых богатых в российских музеях коллекция мебели, большое разнообразие изобразительных материалов, внушительная мемориальная библиотека, насчитывающая более 9000 книг.
+				.content-section__images.content-section__images--tablet.container
+					+picture('image-65', 'jpg', 'tablet-pic', 'Перочистка. Литье, сукно, бронза', false, 'gallery-lagacy')
+					+picture('image-66', 'jpg', 'tablet-pic tablet-pic--object-top', 'Наполеон I. Статуэтка<br>Слоновая кость, резьба', false, 'gallery-lagacy')
+			section.content-section.content-section--cols
+				.content-section__images
+					.swiper.swiper-gallery 
+						.swiper-wrapper
+							+picture('image-69', 'jpg', false, 'Холмы в Мураново', true, 'nature-gallery')
+							+picture('image-68', 'jpg', false, 'Виды на территории усадьбы', true, 'nature-gallery')
+							+picture('image-67', 'jpg', false, 'Аллея на территории усадьбы', true, 'nature-gallery')
+							+picture('image-70', 'jpg', false, 'Виды на территории усадьбы', true, 'nature-gallery')
+						.swiper-gallery-navigation
+							button.swiper-gallery-button-prev
+							button.swiper-gallery-button-next
+						.swiper-gallery-pagination
+				.content-section__text.container
+					.content-section__title
+						h2.accent-txt <span class="c-brown">Мураново</span> - это природа
+					.content-section__description.user-content
+						p По мурановскому парку всегда приятно погулять — пройтись по розовой и липовой аллеям, увидеть остатки системы прудов, ощутить приятную прохладу под сенью вековых дубов и лиственниц. Посетителям музея предлагается несколько увлекательных экскурсий. В выставочном зале музея регулярно проходят интересные сменные выставки, темы которых имеют весьма широкий спектр.
+			+seeMore(pageName, parentPage)

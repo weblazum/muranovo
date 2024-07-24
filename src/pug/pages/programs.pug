@@ -15,8 +15,8 @@ block content
 				include ../parts/events-list
 				.events__container.container
 					.events__tabs.tabs
-						button.events__tab.tab-target(data-button="current") Праздники
-						button.events__tab.tab-target(data-button="archive") Архив
+						button.events__tab.btn.btn-tab.tab-target(data-button="current") Праздники
+						button.events__tab.btn.btn-tab.tab-target(data-button="archive") Архив
 					ul.events__list.events__body.tab-body#current
 						each item in eventsList
 							if (item.category == 'Программы' && item.archive == false)

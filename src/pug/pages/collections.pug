@@ -1,0 +1,14 @@
+extends ../base
+
+block vars
+	-let pageName = 'collections-page'
+	-let pageTitle = 'Коллекции'
+	-let parentPage = 'О музее'
+	-let metaTitle = pageTitle + ' | Усадьба Мураново'
+	-let metaDescription = ''
+block content
+		main.main
+			section.pagetop
+				.pagetop__container.container
+					+breadcrumps(pageTitle, parentPage, 'museum.html')
+					h1.pagetop__title= pageTitle

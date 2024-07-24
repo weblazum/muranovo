@@ -1,8 +1,27 @@
-mixin picture(path, type = 'jpg', customClass = false)
-	picture 
-		//- source(type="image/avif" srcset=`img/${path}.avif?${randomNumber}`)
-		//- source(type="image/webp" srcset=`img/${path}.webp?${randomNumber}`)
-		img(src=`${sitePath}img/${path}.${type}?${randomNumber}` alt="" class= customClass)
+mixin picture(path, type = 'jpg', customClass = false, caption, gallery, groupName = '')
+	if (caption && !gallery)
+		a.gallery-pic(href=`${sitePath}img/${path}.${type}?${randomNumber}` data-fancybox= groupName data-caption!= caption class= customClass)
+			figure
+				picture 
+					//- source(type="image/avif" srcset=`img/${path}.avif?${randomNumber}`)
+					//- source(type="image/webp" srcset=`img/${path}.webp?${randomNumber}`)
+					img(src=`${sitePath}img/${path}.${type}?${randomNumber}` alt="")
+					figcaption!= caption
+	if (gallery)
+		.swiper-slide
+			a.gallery-pic(href=`${sitePath}img/${path}.${type}?${randomNumber}` data-fancybox= groupName data-caption!= caption class= customClass)
+				figure
+					picture 
+						//- source(type="image/avif" srcset=`img/${path}.avif?${randomNumber}`)
+						//- source(type="image/webp" srcset=`img/${path}.webp?${randomNumber}`)
+						img(src=`${sitePath}img/${path}.${type}?${randomNumber}` alt="")
+					if (caption)
+						figcaption!= caption
+	if (!gallery && !caption)
+		picture 
+			//- source(type="image/avif" srcset=`img/${path}.avif?${randomNumber}`)
+			//- source(type="image/webp" srcset=`img/${path}.webp?${randomNumber}`)
+			img(src=`${sitePath}img/${path}.${type}?${randomNumber}` alt="" class= customClass)
 
 mixin svg(name, id = name)
 	svg 
@@ -53,7 +72,9 @@ mixin newsItem(title, date, pic, link, announce, customClass)
 	li.news__item(class= customClass)
 		a(href= link).news__link
 			.news__top
-				.news__title.h4= title
+				.news__title
+					.news__title--fill.h4= title
+					.news__title--outline.h4= title
 				.news__pic
 					+picture(pic)
 			.news__text 
@@ -77,3 +98,16 @@ mixin seeMore(pageName, parentPage)
 					each item in pagesList
 						if (pageName !== item.name + '-page' && parentPage == item.parent)
 							+catItem(item.title, item.name + '.html', item.image, "swiper-slide")
+
+mixin contactBlock(title, suptitle, link, customClass)
+	.contacts__block
+		.contacts__top
+			if (suptitle)
+				.contacts__suptitle= suptitle
+			if (title)
+				.contacts__name.h5= title 
+		.contacts__info(class= customClass)
+			block
+		if (link)
+			.contacts__link 
+				button.btn.btn-link Написать

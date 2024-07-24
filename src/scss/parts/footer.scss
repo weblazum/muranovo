@@ -77,36 +77,6 @@
 	&__maplink {
 		margin: 0 0 32px;
 	}
-	.social {
-		@media ($t) {
-			max-width: 360px;
-			margin: 0 auto;
-		}
-		&__list {
-			display: flex;
-			gap: 9px;
-			@media ($t) {
-				justify-content: space-between;
-			}
-		}
-		&__item {
-			width: 40px;
-			height: 40px;
-			background: $c-orangelight;
-			border-radius: 50%;
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			transition: $transition-base;
-			&:hover {
-				background: $c-accent;
-			}
-		}
-		&__link {
-			padding: 8px;
-			display: flex;
-		}
-	}
 	.nav {
 		flex: 0 1 auto;
 		@media ($t) {

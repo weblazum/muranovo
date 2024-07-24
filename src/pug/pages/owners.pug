@@ -1,0 +1,159 @@
+extends ../base
+
+block vars
+	-let pageName = 'owners-page'
+	-let pageTitle = 'Владельцы'
+	-let parentPage = 'О музее'
+	-let metaTitle = pageTitle + ' | Усадьба Мураново'
+	-let metaDescription = ''
+block content
+		main.main
+			section.pagetop
+				.pagetop__container.container
+					+breadcrumps(`${pageTitle} музея`, parentPage, 'museum.html')
+					h1.pagetop__title= pageTitle + " музея"
+			section.content-section.content-section--cols
+				.content-section__images
+					.swiper.swiper-gallery 
+						.swiper-wrapper
+							+picture('image-11', 'jpg', 'tablet-pic--object-top', 'Неизвестный художник. Портрет Екатерины Петровны Энгельгардт. 1810-е гг. Холст, масло', true, 'gallery-engelgardt')
+							+picture('image-11', 'jpg', 'tablet-pic--object-top', 'Неизвестный художник. Портрет Екатерины Петровны Энгельгардт. 1810-е гг. Холст, масло', true, 'gallery-engelgardt')
+						.swiper-gallery-navigation
+							button.swiper-gallery-button-prev
+							button.swiper-gallery-button-next
+						.swiper-gallery-pagination
+				.content-section__text.container
+					.content-section__title
+						h2.accent-txt.h-large 1816 год
+					.content-section__description.user-content
+						p Эта небольшая подмосковная усадьба была приобретена Екатериной Петровной Энгельгардт (1770-е – 1821), женой отставного генерал-майора Льва Николаевича Энгельгардта (1766 – 1836). Участник многих военных походов под знамёнами П.А. Румянцева-Задунайского и А.В. Суворова-Рымникского, он стал известен как автор воспоминаний об этих сражениях, о времени Екатерины II, Павла I и Александра I.
+			section.content-section.content-section--cols.content-section--space
+				.content-section__text.container
+					.content-section__title
+						h2.accent-txt.h-large 1826 год
+					.content-section__description.user-content
+						p Поэт Евгений Абрамович Боратынский (1800-1844) женился на старшей дочери Энгельгардтов Анастасии Львовне (1804-1860), а в 1837 г. его ближайший друг – литератор Николай Васильевич Путята (1802-1877) – стал мужем Софьи Львовны (1811-1883), младшей дочери Энгельгардтов. 
+						p Впервые Боратынский посетил Мураново в 1826 г. Начиная с 1828 г. он почти ежегодно жил здесь с семьёй в летнее время. <strong>В стихотворении «Есть милая страна, есть угол на земле…» (начало 1830-х гг.) он с душевной теплотой и документальной точностью запечатлел характерный мурановский пейзаж:</strong>
+						q «Я помню ясный, чистый пруд;<br>Под сению берез ветвистых,<br>Средь мирных вод его три острова цветут;<br>Светлея нивами меж рощ своих волнистых,<br>За ним встаёт гора, пред ним в кустах шумит<br>И брызжет мельница. Деревня, луг широкий,<br>А там счастливый дом… Туда душа летит,<br>Там не хладел бы я и в старости глубокой!»
+				.content-section__images.content-section__images--tablet.container
+					+picture('image-44', 'jpg', 'tablet-pic tablet-pic--square', 'Вивьен Ж. Портрет Е. А. Боратынского. 1826 г. Бумага, итальянский карандаш', false, 'gallery-1826')
+					+picture('image-43', 'jpg', 'tablet-pic tablet-pic--square tablet-pic--object-top', 'Неизвестный фотограф портрет Н. Л. Боратынской. Подкрашенная фотография', false, 'gallery-1826')
+					+picture('image-46', 'jpg', 'tablet-pic tablet-pic--square', 'Неизвестный художник. Портрет Н. В. Путяты. Картон, акварель, лак', false, 'gallery-1826')
+					+picture('image-47', 'jpg', 'tablet-pic tablet-pic--square tablet-pic--object-top', 'Неизвестный художник. Портрет С. Л. Путяты. Бумага, итальянский карандаш, соус, кисть', false, 'gallery-1826')
+			section.content-section.content-section--cols
+				.content-section__images
+					.swiper.swiper-gallery 
+						.swiper-wrapper
+							+picture('image-49', 'jpg', false, 'Путята Д.В. Мураново. Часть дома с южной верандой. 1878 г. Бумага, акварель', true, 'gallery-1842')
+							+picture('image-57', 'jpg', false, 'Кабинет двух поэтов. Письменный стол Е.А. Боратынского', true, 'gallery-1842')
+						.swiper-gallery-navigation
+							button.swiper-gallery-button-prev
+							button.swiper-gallery-button-next
+						.swiper-gallery-pagination
+				.content-section__text.container
+					.content-section__title
+						h2.accent-txt.h-large 1842 год
+					.content-section__description.user-content
+						p Поэт по собственным чертежам и планам построил в Муранове новый дом для своей семьи – двухэтажный, деревянный, обложенный снаружи кирпичом. В нём до сегодняшнего дня сохранилась обстановка рабочего кабинета Е.А. Боратынского. В этом кабинете поэт готовил к изданию свою последнюю поэтическую книгу «Сумерки» (в 1842 г. она вышла в свет).
+			section.content-section.content-section--single.content-section--space
+				.content-section__text.container
+					.content-section__title
+						h2.accent-txt.h-large 1850 год
+					.content-section__description.user-content
+						p Е.А. Боратынский отправился с женой и старшими детьми в заграничное путешествие, из которого ему не суждено было вернуться. Поэт скоропостижно умер в Италии в 1844 г. от разрыва сердца.
+			section.content-section.content-section--cols
+				.content-section__text.container
+					.content-section__title
+						h2.accent-txt.h-large 1850 год
+					.content-section__description.user-content
+						p Имение по разделу имущества между сёстрами А.Л. Боратынской и С.Л. Путятой отошло во владение к последней.
+						p <strong>Для Путят Мураново всегда оставалось «страной поэта».</strong>
+						p Они бережно хранили мемории Боратынского, оставленные его вдовой в усадьбе. Главным образом, это предметы, связанные с литературным трудом и последним путешествием Евгения Абрамовича. Широкие литературные связи Н.В. Путяты определили круг его мурановских гостей. Здесь бывали: Н.В. Гоголь, С.Т. и К.С. Аксаковы, Е.П. Ростопчина, С.А. Соболевский, С.Д. Полторацкий. Н.В. Путята и сам имел непосредственное отношение к литературе – он автор целого ряда литературных и исторических статей и заметок. Его семья много заботилась о процветании мурановской усадьбы, большое внимание уделялось хозяйству, саду и цветникам.
+				.content-section__images.content-section__images--tablet.container
+					+picture('image-48', 'jpg', 'tablet-pic tablet-pic--square', 'Дарленг. Портрет Николая Васильевича Гоголя. Литография', false, 'gallery-1850')
+					+picture('image-52', 'jpg', 'tablet-pic tablet-pic--square', 'Фотопортрет Николая Васильевича Путяты', false, 'gallery-1850')
+					+picture('image-51', 'jpg', 'tablet-pic tablet-pic--full tablet-pic--object-top', 'Борель П.Ф. Портрет Сергея Тимофеевича Аксакова. Литография', false, 'gallery-1850')
+			section.content-section.content-section--cols
+				.content-section__images
+					.swiper.swiper-gallery 
+						.swiper-wrapper
+							+picture('image-50', 'jpg', false, 'Фотопортрет Ивана Фёдоровича Тютчева.', true, 'gallery-1869')
+							+picture('image-58', 'jpg', false, 'Петерсон О.А. Вид Овстуга. Дорога на мельницу. 1861 г. Бумага, акварель', true, 'gallery-1869')
+						.swiper-gallery-navigation
+							button.swiper-gallery-button-prev
+							button.swiper-gallery-button-next
+						.swiper-gallery-pagination
+				.content-section__text.container
+					.content-section__title
+						h2.accent-txt.h-large 1869 год
+					.content-section__description.user-content
+						p Единственная дочь Путят Ольга Николаевна (1840-1920) вышла замуж за Ивана Фёдоровича Тютчева (1846 - 1909), младшего сына поэта. 
+						p <strong>С этой семьёй завершился усадебный период существования Муранова.</strong>
+						p Именно Ивану Фёдоровичу и его детям мы обязаны тем, что в Муранове было сосредоточено и бережно хранилось наследие 
+						p Ф.И. Тютчева и других славных обитателей усадьбы. С 1874 г. сюда перевозились автографы, книги, портреты, личные вещи поэта и членов его семьи из Петербурга, Москвы и обветшавшего к концу 
+						p XIX века Овстуга, родового имения Тютчевых в Орловской губернии. Своего рода домашним музеем Мураново стало ещё при жизни в усадьбе её последних владельцев.
+			section.content-section.content-section--cols.content-section--space
+				.content-section__text.container
+					.content-section__title
+						h2.accent-txt.h-large 1879 год
+					.content-section__description.user-content
+						p И.Ф. Тютчев построил в Муранове для своей овдовевшей матери Эрнестины Фёдоровны флигель, куда она приезжала в летнее время. Здесь она готовила к печати посмертное собрание сочинений мужа, изданное в 1886 году. 
+						p В Муранове неоднократно бывал Иван Сергеевич Аксаков (1823-1886), женатый на старшей дочери поэта Анне Фёдоровне (1829-1889). Он стал первым биографом Ф.И. Тютчева. После кончины И.С. Аксакова его вдова передала брату И.Ф. Тютчеву часть рукописей, книг и портретов мужа, а также обстановку его московского кабинета. В Муранове оказалось и наследие Николая Васильевича Сушкова (1796-1871), который был женат на Дарье Ивановне Тютчевой, сестре поэта. В Москве, в доме Сушковых, жила Екатерина Фёдоровна Тютчева, младшая дочь поэта. Её сестра Дарья Фёдоровна Тютчева вместе с И.Ф. Тютчевым в 1900 году издала второе, дополненное, собрание сочинений отца. После смерти обеих сестёр в Мураново было доставлено множество портретов, документов, книг и вещей из принадлежавшей им усадьбы Варварино Владимирской губернии. 
+						p Так семья И.Ф. и О.Н. Тютчевых оказалась хранительницей значительного наследия поэтов Ф.И. Тютчева и Е.А. Боратынского, а также лиц их родственного окружения. В настоящее время он являет собой редкий пример неразорённого родового гнезда, в котором семейные культурные традиции не прерывались и в музейный период.
+				.content-section__images.content-section__images--single.container
+					+picture('image-53', 'jpg', 'tablet-pic', 'Артемьев А.Ф. Тютчевы с гостями на большом острове мурановского пруда. 1890 г. Фотография.')
+			section.content-section.content-section--cols
+				.content-section__images
+					.swiper.swiper-gallery 
+						.swiper-wrapper
+							+picture('image-54', 'jpg', false, 'Молчанов В.С.<br>Портрет Николая Ивановича Тютчева в собственном кабинете. 1948 г. Фотография', true, 'gallery-1918')
+							+picture('image-59', 'jpg', false, 'Молчанов В.С.<br>Портрет Николая Ивановича Тютчева и Кирилла Васильевича Пигарёва. 1948 г. Фотография.', true, 'gallery-1918')
+						.swiper-gallery-navigation
+							button.swiper-gallery-button-prev
+							button.swiper-gallery-button-next
+						.swiper-gallery-pagination
+				.content-section__text.container
+					.content-section__title
+						h2.accent-txt.h-large 1918 год
+					.content-section__description.user-content.timeline
+						p О.Н. Тютчева, последняя владелица усадьбы, и её сын Н.И. Тютчев (1876 - 1949) приняли решение о передаче Муранова государству.
+						ul.timeline__list
+							li.timeline__item
+								.timeline__title <strong>Октябрь 1918 года </strong>
+								.timeline__body
+									p Регистрационная комиссия Отдела по делам музеев и охране памятников искусства и старины Наркомпроса выдала 
+									p О.Н. Тютчевой охранную грамоту на усадьбу. Одновременно Василию Евгеньевичу Пигарёву (мужу внучки поэта Екатерины Ивановны) был выдан Мандат, по которому он назначался хранителем дома Тютчевых при сельце Мураново Дмитровского уезда.
+							li.timeline__item
+								.timeline__title <strong>13 декабря 1919 года</strong>
+								.timeline__body
+									p Усадьба была объявлена музеем по декрету Народного Коммисариата по Просвещению (предполагалось, что это будет бытовой музей 1840-х гг. XIX века). 
+							li.timeline__item
+								.timeline__title <strong>13 августа 1920 года</strong>
+								.timeline__body
+									p Открытие музея-усадьбы «Мураново» имени поэта 
+									p Ф.И. Тютчева. Первым его заведующим был назначен 
+									p К.И. Барташевич, но его обязанности фактически исполнял внук поэта Н.И. Тютчев. В 1921 году в штате музея числилось 6 человек, вскоре это число сократилось до 4-х человек.
+							li.timeline__item
+								.timeline__title <strong>20 августа 1922 года</strong>
+								.timeline__body
+									p Постановлением Совнаркома «Мураново» было утверждено в сети учреждений Главнауки как музей-усадьба. 
+							li.timeline__item
+								.timeline__title <strong>9 февраля 1924 года</strong>
+								.timeline__body
+									p Его пожизненным хранителем и заведующим назначается 
+									p Н.И. Тютчев, инициатор создания музея. 
+							li.timeline__item
+								.timeline__title <strong>С 1930-х годов</strong>
+								.timeline__body
+									p В штате музея официально появилась должность научного сотрудника, на которую был зачислен правнук поэта Тютчева К.В. Пигарёв. С самого начала существования музея интенсивную научную работу ведут сам Н.И. Тютчев и на добровольных началах его сёстры Е.И. Пигарёва и С.И. Тютчева, в частности, переводя и изучая обширный Мурановский архив.
+			section.content-section.content-section--cols.content-section--space
+				.content-section__text.container
+					.content-section__title
+						h2.accent-txt.h-large 1949 год
+					.content-section__description.user-content
+						p К материалам музея постоянно обращаются известные литературоведы Г.И. Чулков, С.Н. Дурылин, Д. Благой и многие другие видные учёные того времени; несколько позже к ним присоединяются и зарубежные исследователи. 
+						p Так Мурановский музей становится источниковедческой базой для изучения жизни и творчества Тютчева и Боратынского. После смерти Н.И. Тютчева (1949 г.) директором музея стал К.В. Пигарёв, остававшийся на этом посту до 1980 г. Доктор филологических наук, он был известен как ведущий исследователь жизни и творчества Ф.И. Тютчева. Николай Иванович Тютчев пополнил мурановские собрания предметами из своей московской коллекции фарфора, стекла и других замечательных произведений искусства, которые безвозмездно были переданы им в музей. Немало ценнейших семейных реликвий было передано в дар музею и К.В. Пигарёвым. 
+				.content-section__images.content-section__images--tablet.container
+					+picture('image-55', 'jpg', 'tablet-pic tablet-pic--full', 'Мураново. Главный усадебный дом. Современная фотография', false, 'gallery-1949')
+					+picture('image-56', 'jpg', 'tablet-pic tablet-pic--full', 'Мураново. Главный усадебный дом. Современная фотография', false, 'gallery-1949')
+			+seeMore(pageName, parentPage)
