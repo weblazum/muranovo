@@ -1,0 +1,37 @@
+extends ../base
+
+block vars
+	-let pageName = 'single-news-page'
+	-let pageTitle = 'Внимание! Изменение режима работы музея!'
+	-let parentPage = 'Новости'
+	-let metaTitle = pageTitle + ' | Усадьба Мураново'
+	-let metaDescription = ''
+block content
+		main.main
+			section.pagetop.pagetop--breadcrumps
+				.container
+					+breadcrumps(`${pageTitle}`, parentPage, 'news.html')
+			section.section.event
+				.event__container.container
+					.event__inner
+						.narrow-content.event__content
+							.event__backlink 
+								a(href=`${sitePath}news.html`) Ко всем новостям
+							h1.event__heading.h3= pageTitle
+							.event__date 29.05.2024
+							.event__image
+								.swiper.swiper-gallery 
+									.swiper-wrapper
+										+picture('image-61', 'jpg', false, 'Интерьер главного усадебного дома', true, 'interior-gallery')
+										+picture('image-62', 'jpg', false, 'Интерьер главного усадебного дома', true, 'interior-gallery')
+										+picture('image-63', 'jpg', false, 'Интерьер главного усадебного дома', true, 'interior-gallery')
+										+picture('image-64', 'jpg', false, 'Интерьер главного усадебного дома', true, 'interior-gallery')
+									.swiper-gallery-navigation
+										button.swiper-gallery-button-prev
+										button.swiper-gallery-button-next
+									.swiper-gallery-pagination
+							.event__detail.user-content
+								p Дорогие гости музея! Обращаем ваше внимание, что  в связи с проведением технических работ музей и усадебный парк закрыты 10 и 11 июня 2024 года!
+								p 💌 летний режим работы, среда-воскресенье 10:00-18:00 (касса до 17:00)
+								p 🕘 усадебный парк: ежедневно до 20:00
+			+seeMore(pageName, parentPage, 'news')

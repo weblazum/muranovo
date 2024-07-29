@@ -1,0 +1,17 @@
+extends ../base
+
+block vars
+	-let pageName = 'notfound-page'
+	-let pageTitle = '404'
+	-let metaTitle = pageTitle + ' | Усадьба Мураново'
+	-let metaDescription = ''
+block content
+		main.main
+			section.section.notfound
+				.notfound__container.container
+					.notfound__heading
+						+picture('notfound', 'png')
+					h1.h3.notfound__title.c-accent Кажется, такой страницы нет
+					p.notfound__text Возможно, вы перешли по ссылке, которая больше не действительна или ввели не верный адрес.<br>Попробуйте еще раз или вернитесь на главную страницу и попробуйте найти нужный раздел в меню
+					.notfound__links 
+						a(href=`${sitePath}`).btn.btn-primary На главную

@@ -243,3 +243,88 @@ if (swiperGalleryItems) {
 		})
 	})
 }
+
+// Форма обратной связи
+
+const select = function () {
+	let selectHeader = document.querySelectorAll('.custom-select__input'),
+		selectItem = document.querySelectorAll('.custom-select__item')
+
+	selectHeader.forEach(item => {
+		item.addEventListener('click', selectToggle)
+	})
+
+	selectItem.forEach(item => {
+		item.addEventListener('click', selectChoose)
+	})
+
+	function selectToggle() {
+		this.parentElement.classList.toggle('active')
+	}
+
+	function selectChoose() {
+		let text = this.innerText,
+			select = this.closest('.custom-select'),
+			// подменный инпут для выбора значения
+			currentText = select.querySelector('.custom-select__current'),
+			// скрытый инпут для передачи выбранного значения
+			selectedInput = select.parentElement.querySelector('.selected_value')
+
+		currentText.innerText = text
+		selectedInput.value = text
+		select.classList.remove('active')
+
+		selectItem.forEach(item => {
+			item.classList.remove('selected')
+		})
+
+		this.classList.add('selected')
+	}
+}
+
+select()
+
+const formRegister = document.querySelector('.feedback__content'),
+			formSuccess = document.querySelector('.feedback__success'),
+			formSubmitBtn = document.querySelector('.feedback__submit'),
+			form = document.querySelector('.feedback')
+
+if(form) {
+	formSubmitBtn.addEventListener('click', () => {
+		formRegister.style.display = 'none'
+		formSuccess.style.display = 'block'
+	})
+}
+
+function init() {
+  // Инициализация карты с id="ymap"
+  if (document.querySelector('#ymap')) {
+    const ymap = new ymaps.Map('ymap', {
+      center: [56.178288, 37.902758],
+      zoom: 14,
+      controls: ['zoomControl'],
+    })
+    // Добавление метки на карту
+    ymap.geoObjects.add(
+			new ymaps.Placemark(
+				[56.178288, 37.902758],
+				{
+					balloonContentHeader: 'Усадьба Мураново',
+					balloonContentBody: '141250, Московская область, Пушкинский городской округ, деревня Мураново',
+					hintContent: 'Усадьба Мураново',
+				}, {
+					iconLayout: 'default#image',
+					iconImageHref: 'https://weblazum.ru/muranovo/img/icons/placemark.svg',
+					iconImageSize: [34, 44],
+					iconImageOffset: [-19, -24],
+					iconCaption: ''
+				}
+			)
+		)
+	}
+}
+
+// Ожидание загрузки библиотеки Яндекс.Карт
+if (document.querySelector('.ymap')) {
+  ymaps.ready(init)
+}

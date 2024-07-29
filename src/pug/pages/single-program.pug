@@ -1,0 +1,62 @@
+extends ../base
+
+block vars
+	-let pageName = 'single-program-page'
+	-let pageTitle = 'Субботний крокет'
+	-let parentPage = 'Программы'
+	-let metaTitle = pageTitle + ' | Усадьба Мураново'
+	-let metaDescription = ''
+block content
+		main.main
+			section.pagetop.pagetop--breadcrumps
+				.container
+					+breadcrumps(`${pageTitle}`, parentPage, 'programs.html')
+			section.section.event
+				.event__container.container
+					.event__inner
+						.narrow-content.event__content
+							.event__backlink 
+								a(href=`${sitePath}events.html`) К программам
+							h1.event__heading.h3= pageTitle
+							.event__image 	
+								+picture('image-72', 'jpg', false, false, true)
+							h4.event__subtitle О программе
+							.event__detail.user-content
+								p Крокет был одним из развлечений повседневной жизни дворянской усадьбы. Спортивная игра зародилась в Англии, а в России стала очень популярной в XIX веке. Освоить эту старинную аристократическую забаву можно у нас в Муранове!
+								p В конце мая у нас традиционно окрывается сезон игры в крокет: все желающие под руководством наших улыбчивых инструкторов смогут познакомиться с этой прекрасной игрой и поиграть в свое удовольствие.
+								p Казалось бы, всё просто: ударами специальных деревянных молоточков необходимо деревянными же шарами попасть в ворота, расположенные на поле. Однако, крокет – игра весьма интеллектуальная, где каждый ход просчитывается, как в шахматах, а успех зависит от слаженных действий команд. В любом случае удовольствие от крокетной партии получат абсолютно все, даже дети!
+								p Приезжайте в усадьбу, присоединяйтесь к обществу любителей Муранова, радуйте себя и близких тёплыми и добрыми моментами, дарите друг другу уникальные мурановские подарки / сувениры и впечатления!
+							.event__gallery
+								.swiper.swiper-tape.event__gallery-slider
+									.swiper-wrapper.event__gallery-list
+										+picture('image-72', 'jpg', 'event__gallery-slide', false, true, 'event')
+										+picture('image-72', 'jpg', 'event__gallery-slide', false, true, 'event')
+										+picture('image-72', 'jpg', 'event__gallery-slide', false, true, 'event')
+										+picture('image-72', 'jpg', 'event__gallery-slide', false, true, 'event')
+							.event__info
+								.event__info-row
+									.event__info-item
+										span Возраст
+										p 7+
+									.event__info-item
+										span Дата
+										p Каждые суббота и воскресение
+									.event__info-item
+										span Время
+										p 10:30-17:00
+									.event__info-item
+										span Длительность
+										p 50 минут
+								.event__info-row
+									.event__info-item
+										span Место
+										p Крокетные пощадки
+								.event__info-row
+									.event__info-item
+										span Билет
+										.user-content.c-accent
+											p По предварительной записи по номеру +7 (985) 317-38-98.
+											p До 4-х игроков.
+											p 150 ₽ дети до 12 лет / 300 ₽ взрослые.
+							include ../parts/event-inner-links
+			+seeMore(pageName, parentPage, 'programs')

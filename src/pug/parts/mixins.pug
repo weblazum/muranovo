@@ -88,26 +88,51 @@ mixin catItem(name, link, pic, customClass)
 			.category__pic 
 				+picture(pic, 'png')
 
-mixin seeMore(pageName, parentPage)
-	include pages-list
+mixin seeMore(pageName, parentPage, contentType = 'pages')
 	section.section.seemore.category
 		.seemore__container.container
 			h2.seemore__heading.section__heading Смотрите также
 			.swiper.swiper-tape
-				ul.swiper-wrapper
-					each item in pagesList
-						if (pageName !== item.name + '-page' && parentPage == item.parent)
-							+catItem(item.title, item.name + '.html', item.image, "swiper-slide")
+				if (contentType == 'events')
+					include events-list
+					ul.events__list.swiper-wrapper
+						- let i = 0
+						each item in eventsList
+							if (item.category == 'Мероприятия' && item.archive == false && i < 4)
+								+eventItem(item.title, item.date, item.image, item.link, item.category, item.pushkincard, item.age, 'swiper-slide')
+								- i++
+				if (contentType == 'programs')
+					include events-list
+					ul.events__list.swiper-wrapper
+						- let i = 0
+						each item in eventsList
+							if (item.category == 'Программы' && item.archive == false && i < 4)
+								+eventItem(item.title, item.date, item.image, item.link, item.category, item.pushkincard, item.age, 'swiper-slide')
+								- i++
+				if (contentType == 'news')
+					include news-list
+					ul.events__list.swiper-wrapper
+						- let i = 0
+						each item in newsList
+							if (i < 3)
+								+newsItem(item.title, item.date, item.image, item.link, item.announce)
+								- i++
+				if (contentType == 'pages')
+					include pages-list
+					ul.swiper-wrapper
+						each item in pagesList
+							if (pageName !== item.name + '-page' && parentPage == item.parent)
+								+catItem(item.title, item.name + '.html', item.image, "swiper-slide")
 
 mixin contactBlock(title, suptitle, link, customClass)
-	.contacts__block
-		.contacts__top
+	.highlight-block__block
+		.highlight-block__top
 			if (suptitle)
-				.contacts__suptitle= suptitle
+				.highlight-block__suptitle= suptitle
 			if (title)
-				.contacts__name.h5= title 
-		.contacts__info(class= customClass)
+				.highlight-block__name.h5= title 
+		.highlight-block__info(class= customClass)
 			block
 		if (link)
-			.contacts__link 
-				button.btn.btn-link Написать
+			.highlight-block__link 
+				a(href="#feedback" data-fancybox).btn.btn-link Написать
