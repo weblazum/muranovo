@@ -116,10 +116,6 @@
 			}
 		}
 		&__link {
-			color: $c-text;
-			@media ($l-m) {
-				cursor: pointer;
-			}
 			&--selected {
 				color: $c-accent;
 				cursor: default;

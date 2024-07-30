@@ -126,7 +126,9 @@ const
 	tabs = document.querySelector('.tabs'),
 	accordion = document.querySelector('.accordion'),
 	tabItem = document.querySelectorAll('.tab-target'),
-	tabContent = document.querySelectorAll('.tab-body')
+	tabContent = document.querySelectorAll('.tab-body'),
+	pageParams = new URLSearchParams(window.location.search),
+	pageReferrer = pageParams.get('t')
 
 if (tabs) {
 	tabItem.forEach(function (element) {
@@ -144,16 +146,16 @@ if (tabs) {
 		
 		tabTarget.classList.add('active')
 		
-		if (currentUrl.includes('?ref')) {
-			currentUrl = currentUrl.replace(/ref=[^&]*/, `ref=${tabTargetData}`);
-		} else {
-			currentUrl += `?ref=${tabTargetData}`;
+		if (pageReferrer) {
+			if (currentUrl.includes('?t')) {
+				currentUrl = currentUrl.replace(/t=[^&]*/, `t=${tabTargetData}`);
+			} else {
+				currentUrl += `?t=${tabTargetData}`;
+			}
 		}
 		
-		if (currentUrl.includes('tickets') && tabTargetData !== "common") {
-			window.history.pushState({ path: currentUrl }, '', currentUrl);
-		}
-		
+		window.history.pushState({ path: currentUrl }, '', currentUrl);
+
 		tabContent.forEach(function (item) {
 			item.classList.remove('active')
 		})
@@ -161,7 +163,11 @@ if (tabs) {
 		document.querySelector(`#${button}`).classList.add('active')
 	}
 
-	tabItem[0].click()
+	if (pageReferrer) {
+		document.querySelector(`.tab-target[data-button="${pageReferrer}"]`).click()
+	} else {
+		tabItem[0].click()
+	}
 }
 
 if (accordion) {
@@ -189,6 +195,7 @@ if (accordion) {
 		document.querySelector(`#${button}`).classList.toggle('active')
 	}
 }
+
 
 // Fancybox
 Fancybox.bind("[data-fancybox]", {
@@ -328,3 +335,64 @@ function init() {
 if (document.querySelector('.ymap')) {
   ymaps.ready(init)
 }
+
+// карта объектов
+if (document.querySelector('#object-map')) {
+	console.log(window.innerWidth)
+
+	var myElement = document.querySelector('.map-wrapper');
+
+	let isMouseLeftButtonDown = false;
+	let lastMouseX = 0;
+	let lastMouseY = 0;
+
+	myElement.addEventListener('mousedown', function(event) {
+		if (event.button === 0) { // Левая кнопка мыши
+			isMouseLeftButtonDown = true;
+			lastMouseX = event.clientX; // Запоминаем начальное положение мыши по оси X
+			lastMouseY = event.clientY; // Запоминаем начальное положение мыши по оси Y
+
+			// Запрещаем контекстное меню при зажатии левой кнопки мыши
+			event.preventDefault();
+		}
+	});
+
+	myElement.addEventListener('mouseup', function(event) {
+		if (event.button === 0) {
+			isMouseLeftButtonDown = false;
+		}
+	});
+
+	myElement.addEventListener('mousemove', function(event) {
+		if (isMouseLeftButtonDown) {
+			// Рассчитываем разницу в положении мыши и инвертированно прокручиваем содержимое элемента
+			const deltaX = lastMouseX - event.clientX;
+			const deltaY = lastMouseY - event.clientY;
+
+			myElement.scrollLeft += deltaX;
+			myElement.scrollTop += deltaY;
+
+			// Обновляем положение мыши
+			lastMouseX = event.clientX;
+			lastMouseY = event.clientY;
+
+			//console.log(event.clientX, event.clientY);
+		}
+	});
+}
+
+const objectMapAreas = document.querySelectorAll('area[data-object]'),
+			objectMapItems = document.querySelectorAll('.objects__item')
+
+objectMapAreas.forEach(area => {
+	area.addEventListener('click', function() {
+		const objectId = this.getAttribute('data-object');
+		const targetItem = document.getElementById(objectId);
+
+		objectMapItems.forEach(item => item.classList.remove('active'));
+
+		if (targetItem) {
+			targetItem.classList.add('active');
+		}
+	})
+})

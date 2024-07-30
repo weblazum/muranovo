@@ -8,8 +8,8 @@ header.header
 				nav.nav.header__nav 
 					ul.nav__list
 						li.nav__item.nav__item--drop
-							a(href=`${sitePath}museum.html`).nav__link.nav__link--drop О музее
-							span.nav__link.nav__link--drop О музее
+							a(href=`${sitePath}museum.html`).link.nav__link.nav__link--drop О музее
+							span.link.nav__link.nav__link--drop О музее
 							ul.nav__list.nav__list--dropdown.dropdown-list
 								li.dropdown-list__item
 									if (pageName == 'owners-page')
@@ -27,17 +27,12 @@ header.header
 									else
 										a.dropdown-list__link(href=`${sitePath}about.html`) О музее
 								li.dropdown-list__item
-									if (pageName == 'photos-page')
-										span.dropdown-list__link.dropdown-list__link--selected Фото музея
+									if (pageName == 'objects-page')
+										span.dropdown-list__link.dropdown-list__link--selected Объекты музея
 									else
-										a.dropdown-list__link(href=`${sitePath}#`) Фото музея
+										a.dropdown-list__link(href=`${sitePath}objects.html`) Объекты музея
 								li.dropdown-list__item
-									if (pageName == 'map-page')
-										span.dropdown-list__link.dropdown-list__link--selected Карта музея
-									else
-										a.dropdown-list__link(href=`${sitePath}#`) Карта музея
-								li.dropdown-list__item
-										a.dropdown-list__link(href=`${sitePath}#`) Виртуальный тур
+									a.dropdown-list__link(href=`#`) Виртуальный тур
 								li.dropdown-list__item
 									if (pageName == 'collections-page')
 										span.dropdown-list__link.dropdown-list__link--selected Коллекции
@@ -50,22 +45,22 @@ header.header
 										a.dropdown-list__link(href=`${sitePath}documents.html`) Документация
 						li.nav__item
 							if (pageName == 'afisha-page')
-								span.nav__link.nav__link--selected Афиша
+								span.link.nav__link.link.nav__link--selected Афиша
 							else
-								a.nav__link(href=`${sitePath}afisha.html`) Афиша
+								a.link.nav__link(href=`${sitePath}afisha.html`) Афиша
 						li.nav__item
 							if (pageName == 'programs-page')
-								span.nav__link.nav__link--selected Программы
+								span.link.nav__link.link.nav__link--selected Программы
 							else
-								a.nav__link(href=`${sitePath}programs.html`) Программы
+								a.link.nav__link(href=`${sitePath}programs.html`) Программы
 						li.nav__item
 							if (pageName == 'events-page')
-								span.nav__link.nav__link--selected Мероприятия
+								span.link.nav__link.link.nav__link--selected Мероприятия
 							else
-								a.nav__link(href=`${sitePath}events.html`) Мероприятия
+								a.link.nav__link(href=`${sitePath}events.html`) Мероприятия
 						li.nav__item.nav__item--drop
-							a(href=`${sitePath}visitors.html`).nav__link.nav__link--drop Посетителям
-							span.nav__link.nav__link--drop Посетителям
+							a(href=`${sitePath}visitors.html`).link.nav__link.nav__link--drop Посетителям
+							span.link.nav__link.nav__link--drop Посетителям
 							ul.nav__list.nav__list--dropdown.dropdown-list
 								li.dropdown-list__item
 									if (pageName == 'preparation-page')
@@ -89,9 +84,9 @@ header.header
 										a.dropdown-list__link(href=`${sitePath}faq.html`) Частые вопросы
 						li.nav__item
 							if (pageName == 'contacts-page')
-								span.nav__link.nav__link--selected Контакты
+								span.link.nav__link.link.nav__link--selected Контакты
 							else
-								a.nav__link(href=`${sitePath}contacts.html`) Контакты
+								a.link.nav__link(href=`${sitePath}contacts.html`) Контакты
 				.header__ticket
 					+btnTicker('accent')
 						|• Купить билет

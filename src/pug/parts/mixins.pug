@@ -136,3 +136,18 @@ mixin contactBlock(title, suptitle, link, customClass)
 		if (link)
 			.highlight-block__link 
 				a(href="#feedback" data-fancybox).btn.btn-link Написать
+
+mixin objectItem(title, description, image, link, id)
+	li.objects__item(id=`object-${id}`)
+		.objects__top
+			.objects__image
+				+picture(image)
+			.objects__text
+				.objects__title 
+					h5.c-grey= title
+				.objects__description 
+					p= description
+		.objects__bottom
+			.objects__link
+				+btnTicker('grey', `${sitePath}${link}`)
+					|• Подробнее

@@ -16,10 +16,9 @@ block content
 							span Усадьба
 							span Подмосковья
 						.top__links
-							a.btn.btn-tab.top__link(href="#") Как добраться
-							a.btn.btn-tab.top__link(href="#") Часы работы
-							a.btn.btn-tab.top__link(href="#") Цены
-							a.btn.btn-tab.top__link(href="#") Спланировать посещение
+							a.btn.btn-tab.top__link(href=`${sitePath}preparation.html?t=howtoget`) Как добраться
+							a.btn.btn-tab.top__link(href=`${sitePath}preparation.html?t=mode`) Часы работы
+							a.btn.btn-tab.top__link(href=`${sitePath}preparation.html?t=cost`) Цены
 						.top__ticket
 							+btnTicker('accent')
 								|• Купить билет

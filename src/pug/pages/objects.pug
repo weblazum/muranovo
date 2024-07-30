@@ -12,3 +12,31 @@ block content
 				.pagetop__container.container
 					+breadcrumps(pageTitle, parentPage, 'museum.html')
 					h1.pagetop__title= pageTitle
+					.pagetop__tabs.tabs
+						button.pagetop__tab.btn.btn-tab.btn-tab--white.tab-target(data-button="map") Карта
+						button.pagetop__tab.btn.btn-tab.btn-tab--white.tab-target(data-button="list") Список
+			section.objects
+				.objects__map.map.tab-body#map
+					.map-wrapper
+						img(src=`${sitePath}img/objects-map-2.jpg` id="object-map" usemap="#obmap")
+						map(name="obmap")
+							<area shape="circle" coords="945, 983, 28" data-object="object-1"/>
+							<area shape="circle" coords="684, 842, 30" data-object="object-2" />
+							<area shape="circle" coords="1139, 720, 29" href="#3" />
+							<area shape="circle" coords="1122, 629, 29" href="#4" />
+							<area shape="circle" coords="1300, 591, 29" href="#5" />
+							<area shape="circle" coords="824, 600, 29" href="#6" />
+							<area shape="circle" coords="669, 554, 29" href="#7" />
+							<area shape="circle" coords="513, 347, 28" href="#8" />
+							<area shape="circle" coords="483, 540, 30" href="#9" />
+							<area shape="circle" coords="1589, 91, 29" href="#10" />
+							<area shape="circle" coords="444, 959, 29" href="#11" />
+							<area shape="circle" coords="342, 1225, 30" href="#12" />
+							<area shape="circle" coords="142, 1161, 30" href="#13" />
+							<area shape="circle" coords="415, 1476, 29" href="#14" />
+					include ../parts/objects-list
+					ul.objects__list
+						each item in objectsList
+							+objectItem(item.title, item.description, item.image, item.link, item.id)
+				.objects__objects.tab-body#list
+					.objects__container.container

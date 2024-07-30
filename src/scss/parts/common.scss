@@ -107,11 +107,6 @@ strong {
 	font-weight: bold;
 }
 
-img {
-	display: block;
-	max-width: 100%;
-}
-
 ::selection {
 	background: #d2948c;
 }
@@ -173,12 +168,16 @@ label {
 	margin: 0 0 5px;
 }
 
-.c-accent {
-	color: $c-accent;
-}
-
-.c-brown {
-	color: $c-theme-brown;
+.c {
+	&-accent {
+		color: $c-accent;
+	}
+	&-brown {
+		color: $c-theme-brown;
+	}
+	&-grey {
+		color: $c-theme-grey;
+	}
 }
 
 .accent-txt {
@@ -187,6 +186,11 @@ label {
 
 .text-uppercase {
 	text-transform: uppercase;
+}
+
+.text-disclaimer {
+	font-size: 14px;
+	font-weight: 300;
 }
 
 // d: 140, m: 80
@@ -380,9 +384,14 @@ div.space-between {
 }
 
 .tab-body {
-	display: none;
+	opacity: 0;
+	visibility: hidden;
+	transition: $transition-middle;
+	height: 0;
 	&.active {
-		display: block;
+		opacity: 1;
+		visibility: visible;
+		height: fit-content;
 	}
 }
 
@@ -399,9 +408,9 @@ div.space-between {
 		background-color: transparentize($c-theme-brown, 0.9);
 		margin: 40px 0;
 		color: $c-theme-brown;
-		// h4 {
-		// 	color: $c-theme-brown;
-		// }
+		ul li::before {
+			background-color: $c-theme-brown;
+		}
 	}
 }
 

@@ -69,7 +69,7 @@ function scripts() {
 		'!src/js/main.min.js' // исключить файл main.min.js для предотвращения бесконечного цикла
 	]) // пути к файлам-источникам
 		.pipe(concat('main.min.js')) // переименование, например main.min.js
-		.pipe(uglify()) // функция сжатия
+		//.pipe(uglify()) // функция сжатия
 		.pipe(dest('src/js')) // путь для скомпилированного файла
 		.pipe(browserSync.stream());
 }
