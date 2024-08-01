@@ -11,32 +11,48 @@ block content
 			section.pagetop
 				.pagetop__container.container
 					+breadcrumps(pageTitle, parentPage, 'museum.html')
-					h1.pagetop__title= pageTitle
-					.pagetop__tabs.tabs
-						button.pagetop__tab.btn.btn-tab.btn-tab--white.tab-target(data-button="map") Карта
-						button.pagetop__tab.btn.btn-tab.btn-tab--white.tab-target(data-button="list") Список
+					h1.h2.pagetop__title= pageTitle
+					//- .pagetop__tabs.tabs
+					//- 	button.pagetop__tab.btn.btn-tab.btn-tab--white.tab-target(data-button="map") Карта
+					//- 	button.pagetop__tab.btn.btn-tab.btn-tab--white.tab-target(data-button="list") Список
 			section.objects
-				.objects__map.map.tab-body#map
+				.objects__nav.tabs
+					button.objects__select.btn.tab-target(data-button="map") 
+						svg(width="26" height="24")
+							use(xlink:href=`${sitePath}img/icons/icon-map.svg#icon-map`)
+					button.objects__select.btn.tab-target(data-button="list")
+						svg(width="24" height="20")
+							use(xlink:href=`${sitePath}img/icons/icon-list.svg#icon-list`)
+				.objects__map.map.tab-body.active#map
 					.map-wrapper
-						img(src=`${sitePath}img/objects-map-2.jpg` id="object-map" usemap="#obmap")
-						map(name="obmap")
-							<area shape="circle" coords="945, 983, 28" data-object="object-1"/>
-							<area shape="circle" coords="684, 842, 30" data-object="object-2" />
-							<area shape="circle" coords="1139, 720, 29" href="#3" />
-							<area shape="circle" coords="1122, 629, 29" href="#4" />
-							<area shape="circle" coords="1300, 591, 29" href="#5" />
-							<area shape="circle" coords="824, 600, 29" href="#6" />
-							<area shape="circle" coords="669, 554, 29" href="#7" />
-							<area shape="circle" coords="513, 347, 28" href="#8" />
-							<area shape="circle" coords="483, 540, 30" href="#9" />
-							<area shape="circle" coords="1589, 91, 29" href="#10" />
-							<area shape="circle" coords="444, 959, 29" href="#11" />
-							<area shape="circle" coords="342, 1225, 30" href="#12" />
-							<area shape="circle" coords="142, 1161, 30" href="#13" />
-							<area shape="circle" coords="415, 1476, 29" href="#14" />
-					include ../parts/objects-list
-					ul.objects__list
-						each item in objectsList
-							+objectItem(item.title, item.description, item.image, item.link, item.id)
+						img(src=`${sitePath}img/objects-map-2.jpg` id="object-map" usemap="#map")
+						map(name="map")
+							area(shape="circle" coords="945, 983, 28" data-object="object-1" title="Главный Усадебный Дом")
+							area(shape="circle" coords="684, 842, 28" data-object="object-2" title="Кучерская")
+							area(shape="circle" coords="1139, 720, 29" data-object="object-3" title="Гладильная")
+							area(shape="circle" coords="1122, 629, 29" data-object="object-4" title="Крокетные площадки")
+							area(shape="circle" coords="1300, 591, 29" data-object="object-5" title="Детский домик")
+							area(shape="circle" coords="824, 600, 29" data-object="object-6" title="Амбар")
+							area(shape="circle" coords="669, 554, 29" data-object="object-7" title="Сторожка")
+							area(shape="circle" coords="513, 347, 28" data-object="object-8" title="Храм Спаса Нерукотворного")
+							area(shape="circle" coords="483, 540, 28" data-object="object-8" title="Колокольня")
+							area(shape="circle" coords="1589, 91, 29" data-object="object-10" title="Флигель и Кухня флигеля")
+							area(shape="circle" coords="444, 959, 29" data-object="object-11" title="Ледник")
+							area(shape="circle" coords="342, 1225, 30" data-object="object-12" title="Сарай на лугу")
+							area(shape="circle" coords="142, 1161, 30" data-object="object-13" title="Выход на Барный колодец")
+							area(shape="circle" coords="415, 1476, 29" data-object="object-14" title="Прачечная")
+							area(shape="circle" coords="911, 548, 28" data-object="object-16" title="Каретный сарай")
+							area(shape="circle" coords="1170, 321, 29" data-object="object-17" title="Оранжерея")
+							area(shape="circle" coords="1508, 594, 28" data-object="object-18" title="Кегельбан")
+							area(shape="circle" coords="1642, 899, 28" data-object="object-19" title="Баня")
+							area(shape="circle" coords="555, 1273, 28" data-object="object-20" title="Школа")
+					.map-objects
+						include ../parts/objects-list
+						.objects__map-list 
+							each item in objectsList
+								+objectItem("map", item.title, item.description, item.image, item.link, item.id, item.number)
 				.objects__objects.tab-body#list
 					.objects__container.container
+						.objects__list
+							each item in objectsList
+								+objectItem("list", item.title, item.description, item.image, item.link)

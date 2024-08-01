@@ -11,7 +11,7 @@ block content
 			section.pagetop
 				.pagetop__container.container
 					+breadcrumps(pageTitle)
-					h1.pagetop__title= pageTitle
+					h1.h2.pagetop__title= pageTitle
 			section.section.sitemap
 				.sitemap__container.container 	
 					.sitemap__content.background-fill
@@ -33,10 +33,8 @@ block content
 									a(href= sitePath + 'single-news.html' target='_blank') Шаблон новости
 								li 
 									a(href= sitePath + 'collections.html' target='_blank') Коллекции
-									span  (в разработке)
 								li 
-									a(href= sitePath + 'objects.html' target='_blank') Объекты музея + интерактивная карта
-									span  (в разработке)
+									a(href= sitePath + 'objects.html' target='_blank') Объекты музея
 							br
 							h5 
 								a(href= sitePath + 'afisha.html' target='_blank').link Афиша
@@ -67,6 +65,9 @@ block content
 							br
 							h5 Остальные
 							ul 
+								li 
+									a(href= sitePath + 'search.html' target='_blank') Результаты поиска
+									span  (в разработке)
 								li 
 									a(href= sitePath + '404.html' target='_blank') 404 
 								li 

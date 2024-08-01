@@ -366,8 +366,12 @@ div.space-between {
 
 .narrow-content {
 	max-width: calc(1024px + 100px);
-	margin: 0 auto;
+	margin: 0 auto 20px;
 	padding: 0 $p-clamp;
+	overflow: hidden;
+	&:last-child {
+		margin: 0 auto;
+	}
 }
 
 .background-fill {
@@ -388,28 +392,51 @@ div.space-between {
 	visibility: hidden;
 	transition: $transition-middle;
 	height: 0;
+	overflow: hidden;
 	&.active {
 		opacity: 1;
 		visibility: visible;
 		height: fit-content;
+		overflow: visible;
 	}
 }
 
 .highlight {
 	border-radius: 30px;
 	width: 100%;
+	*:not(ol, ul, li) {
+		margin: 0 0 20px;
+		&:last-child {
+			margin: 0;
+		}
+	}
 	&--whiteback {
 		padding: 24px $p-clamp;
 		background-color: $c-white;
 		margin: 0 0 40px;
+		* {
+			color: $c-text;
+		}
 	}
 	&--brownback {
 		padding: 32px $p-clamp;
 		background-color: transparentize($c-theme-brown, 0.9);
 		margin: 40px 0;
-		color: $c-theme-brown;
+		* {
+			color: $c-theme-brown;
+		}
 		ul li::before {
 			background-color: $c-theme-brown;
+		}
+	}
+	&--accentback {
+		padding: 32px $p-clamp;
+		background:
+			url("../img/noise.png") center / contain repeat,
+			$c-accent;
+		margin: 40px 0;
+		* {
+			color: $c-white;
 		}
 	}
 }

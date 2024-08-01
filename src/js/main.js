@@ -337,62 +337,72 @@ if (document.querySelector('.ymap')) {
 }
 
 // карта объектов
-if (document.querySelector('#object-map')) {
-	console.log(window.innerWidth)
+const objectMap = document.querySelector('#object-map'),
+			objectMapWrapper = document.querySelector('.map-wrapper'),
+			objectMapAreas = document.querySelectorAll('area[data-object]'),
+			objectMapItems = document.querySelectorAll('.objects__item'),
+			objectMapItemClose = document.querySelectorAll('.map-objects-close')
 
-	var myElement = document.querySelector('.map-wrapper');
+if (objectMap) {
+	let isMouseLeftButtonDown = false
+	let lastMouseX = 0
+	let lastMouseY = 0
 
-	let isMouseLeftButtonDown = false;
-	let lastMouseX = 0;
-	let lastMouseY = 0;
-
-	myElement.addEventListener('mousedown', function(event) {
+	objectMapWrapper.addEventListener('mousedown', function(event) {
 		if (event.button === 0) { // Левая кнопка мыши
-			isMouseLeftButtonDown = true;
-			lastMouseX = event.clientX; // Запоминаем начальное положение мыши по оси X
-			lastMouseY = event.clientY; // Запоминаем начальное положение мыши по оси Y
+			isMouseLeftButtonDown = true
+			lastMouseX = event.clientX // Запоминаем начальное положение мыши по оси X
+			lastMouseY = event.clientY // Запоминаем начальное положение мыши по оси Y
 
 			// Запрещаем контекстное меню при зажатии левой кнопки мыши
-			event.preventDefault();
+			event.preventDefault()
 		}
 	});
 
-	myElement.addEventListener('mouseup', function(event) {
+	objectMapWrapper.addEventListener('mouseup', function(event) {
 		if (event.button === 0) {
-			isMouseLeftButtonDown = false;
+			isMouseLeftButtonDown = false
 		}
 	});
 
-	myElement.addEventListener('mousemove', function(event) {
+	objectMapWrapper.addEventListener('mousemove', function(event) {
 		if (isMouseLeftButtonDown) {
 			// Рассчитываем разницу в положении мыши и инвертированно прокручиваем содержимое элемента
-			const deltaX = lastMouseX - event.clientX;
-			const deltaY = lastMouseY - event.clientY;
+			const deltaX = lastMouseX - event.clientX
+			const deltaY = lastMouseY - event.clientY
 
-			myElement.scrollLeft += deltaX;
-			myElement.scrollTop += deltaY;
+			objectMapWrapper.scrollLeft += deltaX
+			objectMapWrapper.scrollTop += deltaY
 
 			// Обновляем положение мыши
-			lastMouseX = event.clientX;
-			lastMouseY = event.clientY;
-
-			//console.log(event.clientX, event.clientY);
+			lastMouseX = event.clientX
+			lastMouseY = event.clientY
 		}
 	});
-}
 
-const objectMapAreas = document.querySelectorAll('area[data-object]'),
-			objectMapItems = document.querySelectorAll('.objects__item')
+	objectMapAreas.forEach(area => {
+		area.addEventListener('click', function() {
+			const objectId = this.getAttribute('data-object')
+			const targetItem = document.getElementById(objectId)
 
-objectMapAreas.forEach(area => {
-	area.addEventListener('click', function() {
-		const objectId = this.getAttribute('data-object');
-		const targetItem = document.getElementById(objectId);
+			objectMapItems.forEach(item => item.classList.remove('active'))
 
-		objectMapItems.forEach(item => item.classList.remove('active'));
-
-		if (targetItem) {
-			targetItem.classList.add('active');
-		}
+			if (targetItem) {
+				targetItem.classList.add('active')
+			}
+		})
 	})
-})
+
+	objectMapItemClose.forEach(btn => {
+		btn.addEventListener('click', function() {
+			objectMapItems.forEach(item => item.classList.remove('active'))
+		})
+	})
+	
+	// Инициируем библиотеку для подсветки area
+	$('#object-map').maphilight({
+		fillColor:'e6886b',
+		stroke:false,
+		fillOpacity: 0.3,
+	});
+}

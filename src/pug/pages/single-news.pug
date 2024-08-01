@@ -11,15 +11,15 @@ block content
 			section.pagetop.pagetop--breadcrumps
 				.container
 					+breadcrumps(`${pageTitle}`, parentPage, 'news.html')
-			section.section.event
-				.event__container.container
-					.event__inner
-						.narrow-content.event__content
-							.event__backlink 
+			section.section.detail
+				.detail__container.container
+					.detail__inner
+						.narrow-content.detail__content
+							.detail__backlink 
 								a(href=`${sitePath}news.html`) Ко всем новостям
-							h1.event__heading.h3= pageTitle
-							.event__date 29.05.2024
-							.event__image
+							h1.detail__heading.h3= pageTitle
+							.detail__date 29.05.2024
+							.detail__image
 								.swiper.swiper-gallery 
 									.swiper-wrapper
 										+picture('image-61', 'jpg', false, 'Интерьер главного усадебного дома', true, 'interior-gallery')
@@ -30,7 +30,7 @@ block content
 										button.swiper-gallery-button-prev
 										button.swiper-gallery-button-next
 									.swiper-gallery-pagination
-							.event__detail.user-content
+							.detail__detail.user-content
 								p Дорогие гости музея! Обращаем ваше внимание, что  в связи с проведением технических работ музей и усадебный парк закрыты 10 и 11 июня 2024 года!
 								p 💌 летний режим работы, среда-воскресенье 10:00-18:00 (касса до 17:00)
 								p 🕘 усадебный парк: ежедневно до 20:00

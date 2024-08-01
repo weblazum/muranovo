@@ -94,3 +94,23 @@ $p-s: "max-width: 360px";
 	font-size: 16px;
 	line-height: 1.2;
 }
+
+@mixin string-cut-2 {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 2; /* Количество строк */
+	// line-height: 1.3em;
+	// height: 2.6em;
+}
+
+@mixin string-cut-4 {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 4; /* Количество строк */
+	// line-height: 1.3em;
+	// height: 2.6em;
+}

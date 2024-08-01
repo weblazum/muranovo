@@ -11,17 +11,17 @@ block content
 			section.pagetop.pagetop--breadcrumps
 				.container
 					+breadcrumps(`${pageTitle}`, parentPage, 'events.html')
-			section.section.event
-				.event__container.container
-					.event__inner
-						.narrow-content.event__content
-							.event__backlink 
+			section.section.detail
+				.detail__container.container
+					.detail__inner
+						.narrow-content.detail__content
+							.detail__backlink 
 								a(href=`${sitePath}events.html`) К мероприятиям
-							h1.event__heading.h3= pageTitle
-							.event__image 	
+							h1.detail__heading.h3= pageTitle
+							.detail__image 	
 								+picture('image-71', 'jpg', false, false, true)
-							h4.event__subtitle О мероприятии
-							.event__detail.user-content
+							h4.detail__subtitle О мероприятии
+							.detail__detail.user-content
 								p Масленица — традиционный русский праздник. В Муранове он длится два дня. Помимо концертов фольклорных коллективов из Москвы и Подмосковья на территории усадьбы проходят тематические мастер-классы в различных техниках, исторические реконструкции, анимационные программы.
 								p Не обходится этот праздник и без катания на лошадях и сибирских хаски.
 								p Органичным вливанием в атмосферу праздника являются театрализованные экскурсии по кухне с рассказом о старинных кулинарных рецептах.
@@ -38,15 +38,16 @@ block content
 									li чай с блинами и пирогами и многое другое!
 								p Если вы любите русскую зиму, хотите побывать в атмосфере празднования традиционной масленицы, готовы участвовать в старинных русских забавах, петь и плясать без устали - приезжайте в Мураново.
 								p Приглашаем вас на свежий воздух, в подмосковную деревню повеселиться с близкими, друзьями, коллегами – погулять, поиграть, познакомиться с бытом старинной дворянской усадьбы.
-							.event__gallery
-								h4.event__gallery-title Как это было
-								.swiper.swiper-tape.event__gallery-slider
-									.swiper-wrapper.event__gallery-list
+							.detail__gallery
+								h4.detail__gallery-title Как это было
+								.swiper.swiper-tape.detail__gallery-slider
+									.swiper-wrapper.detail__gallery-list
 										+picture('image-71', 'jpg', 'event__gallery-slide', false, true, 'event')
 										+picture('image-71', 'jpg', 'event__gallery-slide', false, true, 'event')
 										+picture('image-71', 'jpg', 'event__gallery-slide', false, true, 'event')
-							.event__common.user-content
-								h4 Информация о празднике
-								p Масленица в Муранове проходит каждую зиму. Следите за анонсом и билетами на сайте в афише!
+							.highlight.highlight--accentback
+								.user-content
+									h4 Информация о празднике
+									p Масленица в Муранове проходит каждую зиму. Следите за анонсом и билетами на сайте в афише!
 							include ../parts/event-inner-links
 			+seeMore(pageName, parentPage, 'events')

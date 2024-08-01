@@ -89,7 +89,7 @@ function layout() {
 	return src('src/pug/pages/*.pug') // путь к файлу-источнику
 		.pipe(pug()) // Компиляция Pug в HTML
     .pipe(dest('src/')) // Сохранение HTML файлов в папке src
-		.pipe(browserSync.stream());
+		// .pipe(browserSync.stream());
 }
 
 // настройка вотчера

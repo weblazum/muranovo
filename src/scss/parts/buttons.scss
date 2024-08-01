@@ -97,6 +97,10 @@ input[type="submit"] {
 	&:active {
 		outline: none;
 	}
+	&--baron {
+		font-family: "BaronNeue", sans-serif;
+		text-transform: initial;
+	}
 	&--black {
 		color: $c-text;
 		&:hover,
@@ -130,6 +134,15 @@ input[type="submit"] {
 		&:focus {
 			border-color: $c-accent;
 			color: $c-accent;
+		}
+	}
+	&--brown {
+		border-color: $c-theme-brown;
+		color: $c-theme-brown;
+		&:active,
+		&:focus {
+			border-color: $c-theme-brown;
+			color: $c-theme-brown;
 		}
 	}
 }

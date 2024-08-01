@@ -27,6 +27,11 @@ mixin svg(name, id = name)
 	svg 
 		use(xlink:href=`${sitePath}img/icons/${name}.svg#${id}`)
 
+mixin quote
+	blockquote
+		q
+			block 
+
 mixin breadcrumps(currentPage, prevPage = false, prevLink = false)
 	.breadcrumps
 		a.breadcrumps__item.breadcrumps__home.btn.btn-link(href=`${sitePath}`) Главная
@@ -38,13 +43,20 @@ mixin breadcrumps(currentPage, prevPage = false, prevLink = false)
 		else
 			span.breadcrumps__item.breadcrumps__current= currentPage
 
-mixin btnTicker(color = "grey", url)
+mixin btnTicker(color = "grey", url, customClass)
 	if (url)
-		a(href=`${sitePath}${url}` class=`btn--${color}`).btn.btn-transparent.ticker
-			ul.ticker__content
-				-for (let i=0; i<5; i++)
-					li.ticker__item
-						block
+		if (url.slice(0, 4) == 'http')
+			a(href= url target="_blank" class=`btn--${color} ${customClass}`).btn.btn-transparent.ticker
+				ul.ticker__content
+					-for (let i=0; i<5; i++)
+						li.ticker__item
+							block
+		else
+			a(href=`${sitePath}${url}` class=`btn--${color} ${customClass}`).btn.btn-transparent.ticker
+				ul.ticker__content
+					-for (let i=0; i<5; i++)
+						li.ticker__item
+							block
 	else
 		button.btn.btn-transparent.ticker(class=`btn--${color}`) 
 			ul.ticker__content
@@ -137,17 +149,33 @@ mixin contactBlock(title, suptitle, link, customClass)
 			.highlight-block__link 
 				a(href="#feedback" data-fancybox).btn.btn-link Написать
 
-mixin objectItem(title, description, image, link, id)
-	li.objects__item(id=`object-${id}`)
-		.objects__top
-			.objects__image
-				+picture(image)
-			.objects__text
-				.objects__title 
-					h5.c-grey= title
-				.objects__description 
-					p= description
-		.objects__bottom
-			.objects__link
-				+btnTicker('grey', `${sitePath}${link}`)
-					|• Подробнее
+mixin objectItem(type, title, description, image, link, id, number)
+	if (type === "map")
+		article.objects__item.objects__map-item(id=`object-${id}`)
+			button.btn.map-objects-close
+			.objects__top
+				.objects__image
+					+picture(image)
+					span.objects__number= number
+				.objects__text
+					.objects__title= title
+					.objects__description 
+						p= description
+			.objects__bottom
+				.objects__link
+					+btnTicker('grey', link)
+						|• Подробнее
+	if (type === "list")
+		article.objects__item
+			.objects__top
+				.objects__image
+					+picture(image)
+				.objects__text
+					.objects__title 
+						h5.c-grey= title
+					.objects__description 
+						p= description
+			.objects__bottom
+				.objects__link
+					+btnTicker('grey', link)
+						|• Подробнее
