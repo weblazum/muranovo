@@ -247,16 +247,12 @@
 		inset: 0;
 		width: 100%;
 		height: 100%;
-		display: flex;
-		flex-direction: column;
-		align-items: center;
 		background-color: rgba(0, 0, 0, 0.8);
 		backdrop-filter: blur(4px);
-		padding: 20vh $p-clamp 40px;
 		opacity: 0;
 		visibility: hidden;
 		z-index: -1;
-		transition: $transition-base;
+		padding: 20vh $p-clamp 40px;
 		&.open {
 			opacity: 1;
 			visibility: visible;
@@ -290,7 +286,6 @@
 		&__form {
 			width: 100%;
 			max-width: 60vw;
-			margin: 0 0 24px;
 			@media ($l-m) {
 				max-width: 80vw;
 			}
@@ -299,122 +294,24 @@
 			}
 		}
 		&__fieldset {
-			position: relative;
-			&::before {
-				content: "";
-				display: block;
-				background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='19' fill='none'%3E%3Cpath d='M2.696 8.189a5.708 5.708 0 1 1 11.416 0 5.708 5.708 0 0 1-11.416 0zM8.404.435a7.754 7.754 0 1 0 4.712 13.913l3.988 3.987a1.023 1.023 0 0 0 1.446-1.446L14.562 12.9A7.754 7.754 0 0 0 8.403.435z' fill='%23818B94' stroke='%23818B94' stroke-width='.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")
-					center / contain no-repeat;
-				width: 18px;
-				height: 18px;
-				position: absolute;
-				left: 20px;
-				top: 50%;
-				transform: translateY(-50%);
-			}
-		}
-		.clear-btn {
-			position: absolute;
-			display: block;
-			width: 15px;
-			height: 15px;
-			right: 20px;
-			top: 50%;
-			transform: translateY(-50%);
-			background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none'%3E%3Cpath d='m15.352 14.019-6.02-6.02 6.02-6.018A.943.943 0 1 0 14.018.647L8 6.667 1.981.647A.943.943 0 0 0 .647 1.981L6.667 8l-6.02 6.019a.943.943 0 1 0 1.334 1.334l6.018-6.02 6.02 6.02a.944.944 0 1 0 1.333-1.334z' fill='%23818B94' stroke='%23818B94' stroke-width='.4'/%3E%3C/svg%3E")
-				center / contain no-repeat;
+			margin: 0 0 24px;
 		}
 		&__input {
-			width: 100%;
-			margin: 0 auto;
-			display: flex;
-			padding: 18px 44px 18px 50px;
-			border-radius: 20px;
 			border: none;
-			outline: none;
-			font-size: 22px;
-			font-family: $f-com;
-			background-color: $c-white;
 		}
 		&__results {
-			width: 100%;
-			max-width: 60vw;
-			margin: 0 auto;
 			background-color: $c-white;
-			padding: 24px 0;
+			max-width: 60vw;
 			border-radius: 20px;
-			opacity: 0;
-			visibility: hidden;
-			z-index: -1;
-			transition: $transition-base;
 			@media ($l-m) {
 				max-width: 80vw;
 			}
 			@media ($t) {
 				max-width: 100%;
 			}
-			&.active {
-				opacity: 1;
-				visibility: visible;
-				z-index: 2;
-			}
-			.btn {
-				width: 100%;
-				text-transform: uppercase;
-			}
-			&-content {
-				display: block;
-				&.hidden {
-					display: none;
-				}
-			}
 			&-list {
 				max-height: 52vh;
 				overflow-y: auto;
-				&.added {
-					& > li {
-						display: block !important;
-					}
-				}
-			}
-			&-item {
-				transition: $transition-base;
-				display: none;
-				&:hover {
-					background-color: #e6e8ec;
-				}
-				&:nth-child(-n + 5) {
-					display: block;
-				}
-			}
-			&-link {
-				padding: 12px 24px;
-				display: block;
-				@media ($t) {
-					padding: 10px 24px;
-				}
-			}
-
-			&-group {
-				color: $c-theme-grey;
-				margin: 0 0 4px;
-			}
-			&-title {
-				font-size: 20px;
-				color: $c-text;
-			}
-			&-show {
-				margin: 16px 0 0 0;
-				padding: 0 24px;
-			}
-			&-nothing {
-				display: none;
-				color: $c-accent;
-				font-size: 20px;
-				padding: 0 24px;
-				&.active {
-					display: block;
-				}
 			}
 		}
 	}

@@ -161,10 +161,11 @@ mixin objectItem(type, title, description, image, link, id, number)
 					.objects__title= title
 					.objects__description 
 						p= description
-			.objects__bottom
-				.objects__link
-					+btnTicker('grey', link)
-						|• Подробнее
+			if (link)
+				.objects__bottom
+					.objects__link
+						+btnTicker('grey', link)
+							|• Подробнее
 	if (type === "list")
 		article.objects__item
 			.objects__top

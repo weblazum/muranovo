@@ -8,7 +8,7 @@ window.onload = () => {
 	preloader.classList.add('preloader--hidden')
 }
 
-// Меню
+// Меню и поиск
 const 
 	body = document.body,
 	header = document.querySelector('.header'),
@@ -16,16 +16,10 @@ const
 	burger = document.querySelector('.burger'),
 	navButtons = document.querySelector('.header__buttons'),
 	dropLinks = document.querySelectorAll('.nav__link--drop'),
+	searchBlock = document.querySelectorAll('.search'),
 	searchOpen = document.querySelector('#search-btn'),
-	searchWindow = document.querySelector('.search'),
 	searchOverlay = document.querySelector('.search__overlay'),
-	searchClose = document.querySelector('#search-closebtn'),
-	searchInput = document.querySelector('.search__input'),
-  searchResults = document.querySelector('.search__results'),
-  searchResultsContent = document.querySelector('.search__results-content'),
-  searchResultsNothing = document.querySelector('.search__results-nothing'),
-  searchShowMoreBtn = document.querySelector('#search-showmore'),
-  searchResultsList = document.querySelector('.search__results-list')
+	searchClose = document.querySelector('#search-closebtn')
 
 burger.addEventListener('click', () => {
 	burger.classList.toggle('active')
@@ -41,66 +35,81 @@ dropLinks.forEach(item => {
 	})
 })
 
-searchOpen.addEventListener('click', () => {
-	body.classList.add('lock')
-	searchWindow.classList.add('open')
-	searchInput.focus()
-})
+searchBlock.forEach(searchWindow => {
+	const
+		searchInput = searchWindow.querySelector('.search__input'),
+		searchResults = searchWindow.querySelector('.search__results'),
+		searchResultsContent = searchWindow.querySelector('.search__results-content'),
+		searchResultsNothing = searchWindow.querySelector('.search__results-nothing'),
+		searchShowMoreBtn = searchWindow.querySelector('#search-showmore'),
+		searchResultsList = searchWindow.querySelector('.search__results-list'),
+		searchClearBtn = searchWindow.querySelector('.clear-btn')
 
-searchClose.addEventListener('click', () => {
-	body.classList.remove('lock')
-	searchWindow.classList.remove('open')
-})
+	// нажатие кнопки меню
+	if (searchOpen) {
+		searchOpen.addEventListener('click', () => {
+			body.classList.add('lock')
+			searchWindow.classList.add('open')
+			searchInput.focus()
+		})
 
-searchOverlay.addEventListener('click', () => {
-	body.classList.remove('lock')
-	searchWindow.classList.remove('open')
-})
+		// нажатие кнопки закрыть
+		searchClose.addEventListener('click', () => {
+			body.classList.remove('lock')
+			searchWindow.classList.remove('open')
+		})
 
-searchInput.addEventListener('input', () => {
-	if (searchInput.value.trim() !== '') {
-		searchResults.classList.add('active')
-	} else {
+		// нажатие по оверлэю
+		searchOverlay.addEventListener('click', () => {
+			body.classList.remove('lock')
+			searchWindow.classList.remove('open')
+		})
+	}
+
+	// проверка ввода в инпут
+	searchInput.addEventListener('input', () => {
+		if (searchInput.value.trim() !== '') {
+			searchResults.classList.add('active')
+		} else {
+			searchResults.classList.remove('active')
+		}
+
+		if (searchInput.value.trim() === 'блаблабла') {
+			searchResultsContent.classList.add('hidden')
+			searchResultsNothing.classList.add('active')
+		} else {
+			searchResultsContent.classList.remove('hidden')
+			searchResultsNothing.classList.remove('active')
+		}
+	})
+
+	// нажатие по кнопке показать результаты
+	if (searchShowMoreBtn) {
+		searchShowMoreBtn.addEventListener('click', () => {
+			searchResultsList.classList.add('added')
+			searchShowMoreBtn.style.display = 'none'
+		})
+	}
+
+	// нажатие по кнопке очистить инпут
+	searchClearBtn.addEventListener('click', (e) => {
+		e.preventDefault()
+		searchInput.value = ''
+		searchInput.focus()
 		searchResults.classList.remove('active')
-	}
+		searchResultsContent.classList.remove('hidden')
+		searchResultsNothing.classList.remove('active')
+		searchClearBtn.style.display = 'none'
+	})
 
-	if (searchInput.value.trim() === 'блаблабла') {
-			searchResultsContent.classList.add('hidden');
-			searchResultsNothing.classList.add('active');
-	} else {
-			searchResultsContent.classList.remove('hidden');
-			searchResultsNothing.classList.remove('active');
-	}
+	// обновляем видимость кнопки очистки в зависимости от содержимого поля
+	searchInput.addEventListener('input', () => {
+		searchClearBtn.style.display = searchInput.value ? 'inline' : 'none'
+	})
+
+	// начальная установка видимости кнопки очистки
+	searchClearBtn.style.display = searchInput.value ? 'inline' : 'none'
 })
-
-searchShowMoreBtn.addEventListener('click', () => {
-	searchResultsList.classList.add('added')
-	searchShowMoreBtn.style.display = 'none'
-})
-
-
-const clearBtn = document.createElement('button');
-
-clearBtn.classList.add('clear-btn');
-searchInput.parentNode.appendChild(clearBtn);
-
-clearBtn.addEventListener('click', (e) => {
-  e.preventDefault()
-	searchInput.value = ''
-	searchInput.focus()
-	searchResults.classList.remove('active')
-	searchResultsContent.classList.remove('hidden')
-	searchResultsNothing.classList.remove('active')
-	clearBtn.style.display = 'none'
-});
-
-// Обновляем видимость кнопки очистки в зависимости от содержимого поля
-searchInput.addEventListener('input', () => {
-	clearBtn.style.display = searchInput.value ? 'inline' : 'none'
-});
-
-// Начальная установка видимости кнопки очистки
-clearBtn.style.display = searchInput.value ? 'inline' : 'none'
 
 
 // Карусель проектов
@@ -161,6 +170,18 @@ if (tabs) {
 		})
 		
 		document.querySelector(`#${button}`).classList.add('active')
+
+		// переключатель на карте объектов
+		if (tabTarget.classList.contains("active") && tabTargetData == "map") {
+			tabs.classList.remove('list-view')
+			tabs.classList.add('map-view')
+			document.documentElement.scrollTop = 0
+		}
+		if (tabTarget.classList.contains("active") && tabTargetData == "list") {
+			tabs.classList.remove('map-view')
+			tabs.classList.add('list-view')
+			document.documentElement.scrollTop = 0
+		}
 	}
 
 	if (pageReferrer) {
@@ -168,6 +189,7 @@ if (tabs) {
 	} else {
 		tabItem[0].click()
 	}
+
 }
 
 if (accordion) {
@@ -357,13 +379,13 @@ if (objectMap) {
 			// Запрещаем контекстное меню при зажатии левой кнопки мыши
 			event.preventDefault()
 		}
-	});
+	})
 
 	objectMapWrapper.addEventListener('mouseup', function(event) {
 		if (event.button === 0) {
 			isMouseLeftButtonDown = false
 		}
-	});
+	})
 
 	objectMapWrapper.addEventListener('mousemove', function(event) {
 		if (isMouseLeftButtonDown) {
@@ -378,7 +400,7 @@ if (objectMap) {
 			lastMouseX = event.clientX
 			lastMouseY = event.clientY
 		}
-	});
+	})
 
 	objectMapAreas.forEach(area => {
 		area.addEventListener('click', function() {
@@ -404,5 +426,5 @@ if (objectMap) {
 		fillColor:'e6886b',
 		stroke:false,
 		fillOpacity: 0.3,
-	});
+	})
 }

@@ -64,20 +64,18 @@ function images() {
 // настройка скриптов
 function scripts() {
 	return src([
-		'node_modules/swiper/swiper-bundle.js',
-		'src/js/*.js', // выбираем все файлы .js в папке js
-		'!src/js/main.min.js' // исключить файл main.min.js для предотвращения бесконечного цикла
+		'src/js/*.js'
 	]) // пути к файлам-источникам
-		.pipe(concat('main.min.js')) // переименование, например main.min.js
+		//.pipe(concat('main.min.js')) // переименование, например main.min.js
 		//.pipe(uglify()) // функция сжатия
-		.pipe(dest('src/js')) // путь для скомпилированного файла
+		//.pipe(dest('src/js')) // путь для скомпилированного файла
 		.pipe(browserSync.stream());
 }
 
 // настройка стилей
 function styles() {
 	return src('src/scss/style.scss') // путь к файлу-источнику
-		// .pipe(autoprefixer({overrideBrowsersList: ['last 10 version']})) // префиксы последних 10 версий
+		.pipe(autoprefixer({overrideBrowsersList: ['last 10 version']})) // префиксы последних 10 версий
 		.pipe(concat('style.css')) // переименование, например style.min.css
 		.pipe(scss()) // { outputStyle: 'compressed' } для сжатия
 		.pipe(dest('src/css')) // путь для скомпилированного файла

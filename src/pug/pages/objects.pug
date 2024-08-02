@@ -12,18 +12,9 @@ block content
 				.pagetop__container.container
 					+breadcrumps(pageTitle, parentPage, 'museum.html')
 					h1.h2.pagetop__title= pageTitle
-					//- .pagetop__tabs.tabs
-					//- 	button.pagetop__tab.btn.btn-tab.btn-tab--white.tab-target(data-button="map") Карта
-					//- 	button.pagetop__tab.btn.btn-tab.btn-tab--white.tab-target(data-button="list") Список
 			section.objects
-				.objects__nav.tabs
-					button.objects__select.btn.tab-target(data-button="map") 
-						svg(width="26" height="24")
-							use(xlink:href=`${sitePath}img/icons/icon-map.svg#icon-map`)
-					button.objects__select.btn.tab-target(data-button="list")
-						svg(width="24" height="20")
-							use(xlink:href=`${sitePath}img/icons/icon-list.svg#icon-list`)
-				.objects__map.map.tab-body.active#map
+				.objects__map.map.tab-body#map
+					a(href=`${sitePath}docs/objects-map.jpg` target="_blank").map-download.btn.btn-download Скачать карту 
 					.map-wrapper
 						img(src=`${sitePath}img/objects-map-2.jpg` id="object-map" usemap="#map")
 						map(name="map")
@@ -51,8 +42,16 @@ block content
 						.objects__map-list 
 							each item in objectsList
 								+objectItem("map", item.title, item.description, item.image, item.link, item.id, item.number)
+				.objects__nav.tabs
+					button.objects__select.btn.tab-target(data-button="map")
+						svg(width="26" height="24")
+							use(xlink:href=`${sitePath}img/icons/icon-map.svg#icon-map`)
+					button.objects__select.btn.tab-target(data-button="list")
+						svg(width="24" height="20")
+							use(xlink:href=`${sitePath}img/icons/icon-list.svg#icon-list`)
 				.objects__objects.tab-body#list
 					.objects__container.container
 						.objects__list
 							each item in objectsList
-								+objectItem("list", item.title, item.description, item.image, item.link)
+								if (item.list)
+									+objectItem("list", item.title, item.description, item.image, item.link)
