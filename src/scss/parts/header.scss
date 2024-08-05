@@ -3,6 +3,9 @@
 	@media ($l-s) {
 		height: 70px;
 	}
+	@media ($t) {
+		height: 40px;
+	}
 	a,
 	span,
 	button {
@@ -20,6 +23,7 @@
 		@media ($t) {
 			padding: 9px 0;
 			height: 40px;
+			gap: 24px;
 		}
 	}
 	&__menu {
@@ -54,8 +58,8 @@
 			display: none;
 			button,
 			a {
-				padding: 18px 4px;
-				max-width: 328px;
+				padding: 17px 4px 14px;
+				max-width: 480px;
 				width: 100%;
 				margin: 0 auto;
 			}
@@ -214,8 +218,8 @@
 		@media ($t) {
 			opacity: 0;
 			visibility: hidden;
-			position: absolute;
-			right: 60px;
+			// position: absolute;
+			// right: 60px;
 		}
 		&.active {
 			opacity: 1;

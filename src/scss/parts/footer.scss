@@ -61,10 +61,10 @@
 		@media ($t) {
 			order: 5;
 		}
-		& > div {
+		.social {
 			max-width: 256px;
 			@media ($t) {
-				max-width: 100%;
+				max-width: 382px;
 			}
 		}
 	}

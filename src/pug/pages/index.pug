@@ -33,7 +33,7 @@ block content
 					.muranovo__item
 						.muranovo__word
 							+svg('words', 'u')
-					.muranovo__item
+					.muranovo__item.muranovo__item--text
 						.muranovo__text
 							p Посетите усадебный дом в Муранове и познакомитесь с его неповторимой экспозицией
 					.muranovo__item
@@ -57,7 +57,7 @@ block content
 					.muranovo__item
 						.muranovo__word
 							+svg('words', 'o')
-					.muranovo__item
+					.muranovo__item.muranovo__item--text
 						.muranovo__text.space-between
 							p В сопровождении экскурсовода вы окажитесь в атмосфере русского дворянства XIX века, почувствуете себя званым и любимым гостем усадьбы.
 							+btnTicker('white', 'about.html', 'btn--baron')
@@ -71,56 +71,60 @@ block content
 					.muranovo__item
 						.muranovo__word
 							+svg('words', 'o')
+				.muranovo__mobtext
+					p Посетите усадебный дом в Муранове и познакомитесь с его неповторимой экспозицией. В сопровождении экскурсовода вы окажитесь в атмосфере русского дворянства XIX века, почувствуете себя званым и любимым гостем усадьбы.
+					+btnTicker('white', 'about.html', 'btn--baron')
+						|• О музее
 			include ../parts/events-list
 			section.section.events
 				.events__container.container 
 					.events__heading.section__heading
 						h2 Афиша
-						+btnTicker('grey', 'afisha.html')
+						+btnTicker('grey', 'afisha.html', 'btn--baron')
 							|• все События
 					.swiper.swiper-tape
 						ul.events__list.swiper-wrapper
 							each item in eventsList.slice(0, 4)
 								if (item.category == 'Мероприятия' && item.archive == false)
 									+eventItem(item.title, item.date, item.image, item.link, item.category, item.pushkincard, item.age, 'swiper-slide')
-			section.section.ad
-				.ad__container
-					.ad__content
-						.ad__item
-							a(href="#").ad__link Ночь музеев в Муранове
-						.ad__item
-							a(href="#").ad__link Фестиваль «Про речь»
+			section.section.inform
+				.inform__container
+					.inform__content
+						.inform__item
+							a(href="#").inform__link Ночь музеев в Муранове
+						.inform__item
+							a(href="#").inform__link Фестиваль «Про речь»
 			section.section.service
 				.service__container 
 					.service__pages
 						a(href=`${sitePath}afisha.html?t=programs`).service__block.service__page
 							+picture('image-10', 'jpg', 'service__cover')
-							h5.service__name семейные программы
+							.service__name Семейные программы
 						.service__block
 							+picture('image-11', 'jpg', 'service__cover')
 						a(href=`${sitePath}afisha.html?t=tours`).service__block.service__page
 							+picture('image-20', 'jpg', 'service__cover')
-							h5.service__name Экскурсии
+							.service__name Экскурсии
 						.service__block
 							+picture('image-12', 'jpg', 'service__cover')
 						.service__block
 							+picture('image-17', 'jpg', 'service__cover')
 						a(href=`${sitePath}afisha.html?t=concerts`).service__block.service__page
 							+picture('image-18', 'jpg', 'service__cover')
-							h5.service__name Концерты
+							.service__name Концерты
 						.service__block
 							+picture('image-25', 'jpg', 'service__cover')
 						a(href="#").service__block.service__page
 							+picture('image-16', 'jpg', 'service__cover')
-							h5.service__name Усадебный крокет
+							.service__name Усадебный крокет
 						a(href="#").service__block.service__page
 							+picture('image-15', 'jpg', 'service__cover')
-							h5.service__name Фестивали
+							.service__name Фестивали
 						.service__block
 							+picture('image-14', 'jpg', 'service__cover')
 						a(href="#").service__block.service__page
 							+picture('image-19', 'jpg', 'service__cover')
-							h5.service__name Квесты
+							.service__name Квесты
 						.service__block
 							+picture('image-13', 'jpg', 'service__cover')
 					.service__heading 
@@ -138,7 +142,7 @@ block content
 				.news__container.container 
 					.news__heading.section__heading
 						h2 Новости
-						+btnTicker('grey', 'news.html')
+						+btnTicker('grey', 'news.html', '')
 							|• все Новости
 					.swiper.swiper-tape
 						ul.news__list.swiper-wrapper
@@ -165,7 +169,7 @@ block content
 				.gosuslugi__container.container
 					.gosuslugi__content
 						p.gosuslugi__subtitle Ждем ваших предложений!
-						h4.gosuslugi__title Расскажите, как музей может стать лучше?
+						h4.h2.gosuslugi__title Расскажите, как музей может стать лучше?
 						button.btn.btn-primary Перейти
 					.gosuslugi__pic
 						+picture('gosuslugi-logo', 'svg')
@@ -174,16 +178,21 @@ block content
 					a(href="#").banner__link
 						+picture('banner-mosreg')
 			section.guest
-				.guest__container
+				.guest__container.container
 					.guest__content 
 						.guest__title 
-							h2 <span class="c-accent">ощутите</span> себя <span class="c-accent">гостем</span> старинной усадьбы, хозяева которой некоторое время назад <span class="c-accent">покинули</span> свой <span class="c-accent">дом</span>
+							h2 
+								span.c-accent ощутите 
+								span.c-grey себя 
+								span.c-accent гостем 
+								span.c-grey старинной усадьбы, хозяева которой некоторое время назад 
+								span.c-accent покинули 
+								span.c-grey свой 
+								span.c-accent дом
 						.guest__links 
-							a.btn.btn--black(href="#").guest__link Виртуальный тур
-							span •
-							a.btn.btn--black(href=`${sitePath}pushkin-card.html`).guest__link Пушкинская карта
-							span •
-							a.btn.btn--black(href=`${sitePath}collections.html`).guest__link коллекции
+							a.btn.btn--black.btn-tab(href="#").guest__link Виртуальный тур
+							a.btn.btn--black.btn-tab(href=`${sitePath}pushkin-card.html`).guest__link Пушкинская карта
+							a.btn.btn--black.btn-tab(href=`${sitePath}collections.html`).guest__link коллекции
 						.guest__button 
 							+btnTicker("grey", "#")
 								|• Посетить

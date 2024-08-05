@@ -29,6 +29,9 @@ input[type="submit"] {
 	width: fit-content;
 	line-height: 1;
 	text-align: center;
+	@media ($t) {
+		padding: 16px 4px 14px;
+	}
 	&:focus,
 	&:active {
 		border: 1px solid $c-theme-grey;
@@ -40,7 +43,7 @@ input[type="submit"] {
 	background-color: transparentize($c-theme-brown, 0.9);
 	color: $c-theme-brown;
 	border-radius: 8px;
-	font-size: 16px;
+	font-size: clamp(0.875rem, 0.8333rem + 0.1852vw, 1rem);
 	transition: $transition-base;
 	flex-shrink: 0;
 	text-decoration: none;
@@ -107,6 +110,7 @@ input[type="submit"] {
 		text-transform: initial;
 	}
 	&--black {
+		background-color: $c-white;
 		color: $c-text;
 		&:hover,
 		&:active,
@@ -117,6 +121,7 @@ input[type="submit"] {
 	&--grey {
 		border-color: $c-theme-grey;
 		color: $c-theme-grey;
+		background-color: $c-white;
 		&:active,
 		&:focus {
 			border-color: $c-theme-grey;
@@ -133,6 +138,7 @@ input[type="submit"] {
 		}
 	}
 	&--accent {
+		background-color: $c-white;
 		border-color: $c-accent;
 		color: $c-accent;
 		&:active,
