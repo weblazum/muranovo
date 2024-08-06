@@ -35,6 +35,10 @@
 		svg {
 			width: 246px;
 			height: 51px;
+			@media ($t) {
+				width: 156px;
+				height: 32px;
+			}
 		}
 	}
 	&__content {

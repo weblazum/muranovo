@@ -214,6 +214,9 @@ label {
 		align-items: center;
 		color: $c-theme-grey;
 		margin: 0 0 40px;
+		@media ($t) {
+			margin: 0 0 32px;
+		}
 	}
 }
 
@@ -379,6 +382,10 @@ div.space-between {
 	border-radius: 30px;
 	padding-top: 40px;
 	padding-bottom: 40px;
+	@media ($t) {
+		padding-top: 32px;
+		padding-bottom: 32px;
+	}
 }
 
 .tabs {
@@ -430,13 +437,27 @@ div.space-between {
 		}
 	}
 	&--accentback {
+		display: flex;
+		flex-direction: column;
+		@media ($t) {
+			align-items: center;
+		}
 		padding: 32px $p-clamp;
 		background:
 			url("../img/noise.png") center / contain repeat,
 			$c-accent;
 		margin: 40px 0;
+		@media ($t) {
+			margin: 24px 0;
+		}
 		* {
 			color: $c-white;
+		}
+	}
+	.btn {
+		@media ($t) {
+			width: 100%;
+			max-width: 480px;
 		}
 	}
 }
@@ -447,16 +468,32 @@ div.space-between {
 	padding: 32px 50px;
 	display: flex;
 	gap: 40px;
+	@media ($t) {
+		gap: 24px;
+		padding: 24px 16px;
+		flex-direction: column;
+	}
 	&--single {
 		flex: 0 1 100%;
+		width: 100%;
 	}
 	&--half {
 		flex: 0 1 calc(50% - 52px / 2);
+		@media ($t) {
+			flex: 0 1 100%;
+			width: 100%;
+		}
 		.highlight-block__top {
 			margin: 0 0 36px;
+			@media ($t) {
+				margin: 0 0 24px;
+			}
 		}
 		.highlight-block__info {
 			margin: 0 0 36px;
+			@media ($t) {
+				margin: 0 0 24px;
+			}
 		}
 		*:last-child {
 			margin: 0;
@@ -491,32 +528,10 @@ div.space-between {
 	}
 	&__link {
 		* {
-			font-size: 22px;
+			font-size: clamp(1.125rem, 1.0417rem + 0.3704vw, 1.375rem);
 		}
 	}
 }
-
-// .highlight-block {
-// 	padding: 32px 50px;
-// 	background-color: transparentize($c-theme-brown, 0.9);
-// 	border-radius: 30px;
-// 	width: 100%;
-// 	margin: 40px 0;
-// 	color: $c-theme-brown;
-// 	h4 {
-// 		color: $c-theme-brown;
-// 	}
-// }
-
-// .highlight-whiteback {
-// 	border-radius: 30px;
-// 	padding: 24px $p-clamp;
-// 	background-color: $c-white;
-// 	margin: 0 0 40px;
-// }
-
-// .highlight-block {
-// }
 
 i {
 	display: block;
@@ -570,8 +585,18 @@ i {
 	}
 }
 
-.fancybox__slide {
-	padding: 40px $p-clamp;
+.fancybox {
+	&__slide {
+		padding: 40px $p-clamp;
+		@media ($t) {
+			padding: 4px;
+		}
+	}
+}
+.is-compact .fancybox__content > .f-button.is-close-btn {
+	--f-button-bg: rgba(0, 0, 0, 0.4);
+	--f-button-active-bg: rgba(0, 0, 0, 0.5);
+	--f-button-hover-bg: rgba(0, 0, 0, 0.5);
 }
 
 .feedback {
@@ -584,9 +609,15 @@ i {
 	padding: 0;
 	&__content {
 		padding: 40px $p-clamp;
+		@media ($t) {
+			padding: 40px $p-clamp 24px;
+		}
 	}
 	&__heading {
 		margin: 0 0 36px;
+		@media ($t) {
+			margin: 0 0 24px;
+		}
 	}
 	&__inputs {
 		display: flex;
@@ -594,6 +625,10 @@ i {
 		flex-wrap: wrap;
 		justify-content: space-between;
 		max-width: 776px;
+		@media ($t) {
+			gap: 8px;
+			margin: 0 0 24px;
+		}
 	}
 	&__group {
 		position: relative;
@@ -603,6 +638,9 @@ i {
 		}
 		&--half {
 			flex: 0 1 calc(50% - 32px / 2);
+			@media ($t) {
+				flex: 0 1 100%;
+			}
 		}
 		&--fit {
 			flex: 0 1 auto;
@@ -610,6 +648,10 @@ i {
 			display: flex;
 			flex-direction: column;
 			align-items: flex-end;
+			@media ($t) {
+				flex: 0 1 100%;
+				max-width: 100%;
+			}
 		}
 	}
 	&__input {
@@ -619,6 +661,9 @@ i {
 		border: 1px solid transparentize($c-theme-grey, 0.5);
 		color: $c-text;
 		transition: $transition-base;
+		@media ($t) {
+			padding: 14px 8px;
+		}
 		&:focus,
 		&:hover {
 			border-color: $c-theme-grey;
@@ -628,36 +673,43 @@ i {
 		display: flex;
 		justify-content: flex-end;
 		transform: translateY(-50px);
-	}
-	&__submit {
-		text-transform: uppercase;
-		margin: 0 0 14px;
-	}
-	&__policy {
-		* {
-			font-size: 14px;
-			text-align: right;
-		}
-		a {
-			text-decoration: underline;
+		@media ($t) {
+			transform: translateY(0);
+			.btn {
+				max-width: 100%;
+				width: 100%;
+			}
 		}
 	}
 	&__select {
 		position: relative;
 		max-width: calc(50% - 32px / 2);
 		margin: 0 0 32px;
+		@media ($t) {
+			margin: 0 0 16px;
+			max-width: 100%;
+		}
 		&.active {
 			.custom-select__list {
 				opacity: 1;
 				z-index: 2;
 			}
 		}
-
+		span {
+			overflow: hidden;
+			text-overflow: ellipsis;
+			display: -webkit-box;
+			-webkit-box-orient: vertical;
+			-webkit-line-clamp: 1;
+		}
 		&-input {
 			font-size: 16px;
 			position: relative;
 			cursor: pointer;
 			z-index: 3;
+			@media ($t) {
+				padding-right: 46px;
+			}
 			&::after {
 				content: "";
 				position: absolute;
@@ -745,6 +797,22 @@ i {
 		}
 		&:disabled + label::before {
 			background-color: transparentize($c-theme-grey, 0.5);
+		}
+	}
+	&__submit {
+		text-transform: uppercase;
+		margin: 0 0 14px;
+	}
+	&__policy {
+		* {
+			font-size: 14px;
+			text-align: right;
+			@media ($t) {
+				text-align: left;
+			}
+		}
+		a {
+			text-decoration: underline;
 		}
 	}
 	&__success {

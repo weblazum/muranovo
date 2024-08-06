@@ -14,7 +14,8 @@ const
 	header = document.querySelector('.header'),
 	menu = document.querySelector('.header__menu'),
 	burger = document.querySelector('.burger'),
-	navButtons = document.querySelector('.header__buttons'),
+	navButtonsBlock = document.querySelector('.header__buttons'),
+	navButtons = document.querySelectorAll('.header__buttons>a'),
 	dropLinks = document.querySelectorAll('.nav__link--drop'),
 	searchBlock = document.querySelectorAll('.search'),
 	searchOpen = document.querySelector('#search-btn'),
@@ -23,7 +24,7 @@ const
 
 burger.addEventListener('click', () => {
 	burger.classList.toggle('active')
-	navButtons.classList.toggle('active')
+	navButtonsBlock.classList.toggle('active')
 	menu.classList.toggle('header__menu--open')
 	body.classList.toggle('lock')
 })
@@ -32,6 +33,15 @@ dropLinks.forEach(item => {
 	item.addEventListener('click', () => {
 		item.classList.toggle('active')
 		item.nextElementSibling.classList.toggle('open')
+	})
+})
+
+navButtons.forEach(item => {
+	item.addEventListener('click', () => {
+		burger.classList.remove('active')
+		navButtonsBlock.classList.remove('active')
+		menu.classList.remove('header__menu--open')
+		body.classList.remove('lock')
 	})
 })
 

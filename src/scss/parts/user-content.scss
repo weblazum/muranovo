@@ -1,5 +1,5 @@
 .user-content {
-	font-size: 22px;
+	font-size: clamp(1.125rem, 1.0417rem + 0.3704vw, 1.375rem);
 	// *:not(ol, ul, li) {
 	// 	margin: 0 0 20px;
 	// 	&:last-child {
@@ -60,7 +60,11 @@
 		background-color: $c-white;
 		border-radius: 30px;
 		margin: 0 0 20px;
+		@media ($t) {
+			padding: 32px 24px 32px 48px;
+		}
 		q {
+			font-size: clamp(0.875rem, 0.75rem + 0.5556vw, 1.25rem);
 			text-align: left;
 			color: $c-theme-brown;
 			margin: 0;

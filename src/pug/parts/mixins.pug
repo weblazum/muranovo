@@ -127,7 +127,7 @@ mixin seeMore(pageName, parentPage, contentType = 'pages')
 						- let i = 0
 						each item in newsList
 							if (i < 3)
-								+newsItem(item.title, item.date, item.image, item.link, item.announce)
+								+newsItem(item.title, item.date, item.image, item.link, item.announce, 'swiper-slide')
 								- i++
 				if (contentType == 'pages')
 					include pages-list

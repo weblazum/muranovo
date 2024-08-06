@@ -7,6 +7,7 @@ $c-theme-grey: #818b94;
 $c-white: #fbfbfb;
 $c-text: #1d1d1b;
 $c-background-gray-accent: #f4f5f7;
+// $c-background-gray-accent: lightgrey;
 
 // Макет
 $transition-base: 0.2s ease;
@@ -57,12 +58,11 @@ $p-s: "max-width: 360px";
 	text-transform: uppercase;
 }
 
-// d: 80, m: 40
 @mixin h2 {
 	font-family: $f-baron;
 	font-weight: 700;
 	line-height: 1.2;
-	font-size: clamp(2.5rem, 1.6667rem + 3.7037vw, 5rem);
+	font-size: clamp(2rem, 1rem + 4.4444vw, 5rem); /* 80 > 32 */
 	text-transform: uppercase;
 }
 
@@ -70,15 +70,14 @@ $p-s: "max-width: 360px";
 	font-family: $f-baron;
 	font-weight: 700;
 	line-height: 1.2;
-	font-size: 60px;
+	font-size: clamp(1.875rem, 1.25rem + 2.7778vw, 3.75rem); /* 60 > 30 */
 }
 
-// d: 40, m: 24
 @mixin h4 {
 	font-family: $f-baron;
 	font-weight: 700;
 	line-height: 1.2;
-	font-size: clamp(1.5rem, 1.1667rem + 1.4815vw, 2.5rem);
+	font-size: clamp(1.5rem, 1.1667rem + 1.4815vw, 2.5rem); /* 40 > 24 */
 }
 
 @mixin h5 {

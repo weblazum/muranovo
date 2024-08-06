@@ -16,144 +16,148 @@ block content
 				.contacts__container.container
 					.contacts__content.background-fill 	
 						.narrow-content
-							.contacts__heading.h4 Контакты музея
-							.contacts__subtitle 
-								p <strong>Государственное автономное учреждение культуры Московской области «Объединенный мемориально-художественный музей-заповедник «Усадьба «Мураново» имени Ф.И. Тютчева и народных художественных промыслов «Усадьба Лукутиных»</strong>
-							ul.contacts__list
-								li.highlight-block.highlight-block--single
-									+contactBlock('Адрес')
-										p 141250, Московская область, Пушкинский городской округ,  деревня Мураново.
-								li.highlight-block.highlight-block--single
-									+contactBlock('Телефоны')
-										p +7 (496) 531-81-80
-										span приёмная директора
-									+contactBlock()
-										p +7 (985) 317-38-98
-										span запись на экскурсию
-									+contactBlock()
-										p +7 (496) 585 46 28
-										span церковь
-								li.highlight-block.highlight-block--single
-									+contactBlock('Email')
-										p
-											a(href="mailto:mk_muranovo@mosreg.ru") mk_muranovo@mosreg.ru
-									+contactBlock('Skype')
-										p
-											a(href="skype:muranovo-museum") muranovo-museum
-									+contactBlock('Социальные сети', false, false, 'social')
-										ul.social__list 
-											li.social__item
-												a(href='https://t.me/muranovo_museum' target="_blank").social__link 
-													svg(width="22" height="20")
-														use(xlink:href=`${sitePath}img/icons/icon-tg.svg#icon-tg`)
-											li.social__item
-												a(href='https://vk.com/muranovo_museum' target="_blank").social__link 
-													svg(width="24" height="24")
-														use(xlink:href=`${sitePath}img/icons/icon-vk.svg#icon-vk`)
-											li.social__item
-												a(href=`#` target="_blank").social__link 
-													img(src=`${sitePath}img/icons/icon-dzen.png` alt="")
-											li.social__item
-												a(href='https://ok.ru/muranovo' target="_blank").social__link 
-													svg(width="13" height="22")
-														use(xlink:href=`${sitePath}img/icons/icon-ok.svg#icon-ok`)
-							.contacts__heading.h4 Сотрудники музея
-							ul.contacts__list
-								li.highlight-block.highlight-block--half
-									+contactBlock('Богатырев Александр Евгеньевич', 'Директор музея', true)
-										p +7 (496) 531-81-80
-										p
-											a(href="mailto:mk_muranovo@mosreg.ru") mk_muranovo@mosreg.ru
-								li.highlight-block.highlight-block--half
-									+contactBlock('Кондратьева Вера Леонидовна', 'Главный хранитель фондов', true)
-										p +7 (496) 531-81-80
-								li.highlight-block.highlight-block--half
-									+contactBlock('Королёв Руслан Алоевич', 'Заместитель директора по основной деятельности', true)
-										p +7 (496) 531-87-37
-										p
-											a(href="mailto:mk_muranovo@mosreg.ru") mk_muranovo@mosreg.ru
-								li.highlight-block.highlight-block--half
-									+contactBlock('Голубовская Светлана Викторовна', 'Заместитель директора по экономическим и финансовым вопросам', true)
-										p +7 (496) 531-87-37
-										p 
-											a(href="mailto:mk_muranovo@mosreg.ru") mk_muranovo@mosreg.ru
-								li.highlight-block.highlight-block--half
-									+contactBlock('Бишкин Игорь Владимирович', 'Заместитель директора по безопасности и АХР', true)
-										p +7 (496) 531-87-37
-								li.highlight-block.highlight-block--half
-									+contactBlock('Сахно Александр Анатольевич', 'Заведующий научно-фондовым отделом', true)
-										p +7 (496) 531-81-80
-										p
-											a(href="mailto:mk_muranovo@mosreg.ru") mk_muranovo@mosreg.ru
-								li.highlight-block.highlight-block--half
-									+contactBlock('Гладышев Михаил Сергеевич', 'Заведующий экспозиционно-выставочным отделом', true)
-										p +7 (496) 531-87-37
-								li.highlight-block.highlight-block--half
-									+contactBlock('Стратанович Анна Юрьевна', 'Заведующий отделом маркетинга и связей с общественностью', true)
-										p +7 (496) 531-81-80
-								li.highlight-block.highlight-block--half
-									+contactBlock('Тавасиева Марина Ростановна', 'Заведующий экскурсионно-просветительским отделом', true)
-										p +7 (985) 317-38-98
-								li.highlight-block.highlight-block--half
-									+contactBlock('Губкин Владимир Евгеньевич', 'Заведующий ландшафтно-парковым отделом', true)
-										p +7 (496) 531-81-80
-								li.highlight-block.highlight-block--half
-									+contactBlock('Круглова Ирина Васильевна', 'Ведущий архитектор', true)
-										p +7 (496) 531-81-80
-								li.highlight-block.highlight-block--half
-									+contactBlock('Бабешко Ольга Валерьевна', 'Администратор', true)
-										p +7 (496) 531-81-80
-										p
-											a(href="mailto:mk_muranovo@mosreg.ru") mk_muranovo@mosreg.ru
-								li.highlight-block.highlight-block--half
-									+contactBlock('Гущин Сергей Витальевич', 'Учёный секретарь', true)
-										p +7 (496) 531-81-80
-										p
-											a(href="mailto:mk_muranovo@mosreg.ru") mk_muranovo@mosreg.ru
-								li.highlight-block.highlight-block--half
-									+contactBlock('Комаров Александр Игоревич', 'Заведующий сектором хранения экспозиции', true)
-								li.highlight-block.highlight-block--half
-									+contactBlock('Игумен Феофан (Замесов)', 'Настоятель Храма Спаса Нерукотворного', true)
-										p +7 (496) 585-46-28
-										p +7 (916) 554-60-40 
-										p
-											a(href="#") Сайт храма
-					form(action="" method="post").contacts__form.feedback#feedback
-						.feedback__content
-							.feedback__heading.h4 Форма обратной связи
-							.feedback__inputs 	
-								fieldset.feedback__group.feedback__group--half
-									input.feedback__input(type="text" placeholder="Введите имя*") 
-								fieldset.feedback__group.feedback__group--half
-									input.feedback__input(type="text" placeholder="Введите email*") 
-								fieldset.feedback__group.feedback__group--single
-									input.feedback__input(type="text" placeholder="Введите тему обращения*") 
-								fieldset.feedback__group.feedback__group--single
-									textarea.feedback__input(placeholder="Ваше сообщение*")
-								fieldset.feedback__group.feedback__group--single
-									p <strong>Кому</strong>
-									.feedback__select.custom-select
-										.feedback__select-input.feedback__input.custom-select__input
-											span.custom-select__current Богатырев Александр Евгеньевич
-										ul.feedback__select-body.custom-select__list
-											li.feedback__select-item.custom-select__item Кондратьева Вера Леонидовна
-											li.feedback__select-item.custom-select__item Стратанович Анна Юрьевна
-											li.feedback__select-item.custom-select__item Гущин Сергей Витальевич
-									span(data-name="selected_value")
-										input.selected_value(type="text" value style="display:none")
-									input(type="checkbox").feedback__checkbox#feedback-checkbox
-									label(for="feedback-checkbox") Отправить копию сообщения на мой адрес
-							.feedback__bottom
-								fieldset.feedback__group.feedback__group--fit
-									.feedback__submit.btn.btn-primary Отправить
-									.feedback__policy
-										p Отправляя сообщение, вы даете согласие на <a href=`${sitePath}policy.html` class="btn-link">обработку персональных данных</a>
-						.feedback__success
-							.feedback__message
-								div
-									h3 Сообщение успешно отправлено!
-									p Скоро мы его посмотрим и ответим в ближайшее время!
-								a(href=`${sitePath}`).btn.btn-transparent.btn--white.ticker На главную 
-
+							.contacts__row
+								.contacts__heading.h4 Контакты музея
+								.contacts__subtitle 
+									p <strong>Государственное автономное учреждение культуры Московской области «Объединенный мемориально-художественный музей-заповедник «Усадьба «Мураново» имени Ф.И. Тютчева и народных художественных промыслов «Усадьба Лукутиных»</strong>
+								ul.contacts__list
+									li.highlight-block.highlight-block--single
+										+contactBlock('Адрес')
+											p 141250, Московская область, Пушкинский городской округ,  деревня Мураново.
+									li.highlight-block.highlight-block--single
+										+contactBlock('Телефоны')
+											p +7 (496) 531-81-80
+											span приёмная директора
+										+contactBlock()
+											p +7 (985) 317-38-98
+											span запись на экскурсию
+										+contactBlock()
+											p +7 (496) 585-46-28
+											span церковь
+									li.highlight-block.highlight-block--single
+										+contactBlock('Email')
+											p
+												a(href="mailto:mk_muranovo@mosreg.ru") mk_muranovo@mosreg.ru
+										+contactBlock('Skype')
+											p
+												a(href="skype:muranovo-museum") muranovo-museum
+										+contactBlock('Социальные сети', false, false, 'social')
+											ul.social__list 
+												li.social__item
+													a(href='https://t.me/muranovo_museum' target="_blank").social__link 
+														svg(width="22" height="20")
+															use(xlink:href=`${sitePath}img/icons/icon-tg.svg#icon-tg`)
+												li.social__item
+													a(href='https://vk.com/muranovo_museum' target="_blank").social__link 
+														svg(width="24" height="24")
+															use(xlink:href=`${sitePath}img/icons/icon-vk.svg#icon-vk`)
+												li.social__item
+													a(href=`#` target="_blank").social__link 
+														img(src=`${sitePath}img/icons/icon-dzen.png` alt="")
+												li.social__item
+													a(href='https://ok.ru/muranovo' target="_blank").social__link 
+														svg(width="13" height="22")
+															use(xlink:href=`${sitePath}img/icons/icon-ok.svg#icon-ok`)
+							.contacts__row
+								.contacts__heading.h4 Сотрудники музея
+								ul.contacts__list
+									li.highlight-block.highlight-block--half
+										+contactBlock('Богатырев Александр Евгеньевич', 'Директор музея', true)
+											p +7 (496) 531-81-80
+											p
+												a(href="mailto:mk_muranovo@mosreg.ru") mk_muranovo@mosreg.ru
+									li.highlight-block.highlight-block--half
+										+contactBlock('Кондратьева Вера Леонидовна', 'Главный хранитель фондов', true)
+											p +7 (496) 531-81-80
+									li.highlight-block.highlight-block--half
+										+contactBlock('Королёв Руслан Алоевич', 'Заместитель директора по основной деятельности', true)
+											p +7 (496) 531-87-37
+											p
+												a(href="mailto:mk_muranovo@mosreg.ru") mk_muranovo@mosreg.ru
+									li.highlight-block.highlight-block--half
+										+contactBlock('Голубовская Светлана Викторовна', 'Заместитель директора по экономическим и финансовым вопросам', true)
+											p +7 (496) 531-87-37
+											p 
+												a(href="mailto:mk_muranovo@mosreg.ru") mk_muranovo@mosreg.ru
+									li.highlight-block.highlight-block--half
+										+contactBlock('Бишкин Игорь Владимирович', 'Заместитель директора по безопасности и АХР', true)
+											p +7 (496) 531-87-37
+									li.highlight-block.highlight-block--half
+										+contactBlock('Сахно Александр Анатольевич', 'Заведующий научно-фондовым отделом', true)
+											p +7 (496) 531-81-80
+											p
+												a(href="mailto:mk_muranovo@mosreg.ru") mk_muranovo@mosreg.ru
+									li.highlight-block.highlight-block--half
+										+contactBlock('Гладышев Михаил Сергеевич', 'Заведующий экспозиционно-выставочным отделом', true)
+											p +7 (496) 531-87-37
+									li.highlight-block.highlight-block--half
+										+contactBlock('Стратанович Анна Юрьевна', 'Заведующий отделом маркетинга и связей с общественностью', true)
+											p +7 (496) 531-81-80
+									li.highlight-block.highlight-block--half
+										+contactBlock('Тавасиева Марина Ростановна', 'Заведующий экскурсионно-просветительским отделом', true)
+											p +7 (985) 317-38-98
+									li.highlight-block.highlight-block--half
+										+contactBlock('Губкин Владимир Евгеньевич', 'Заведующий ландшафтно-парковым отделом', true)
+											p +7 (496) 531-81-80
+									li.highlight-block.highlight-block--half
+										+contactBlock('Круглова Ирина Васильевна', 'Ведущий архитектор', true)
+											p +7 (496) 531-81-80
+									li.highlight-block.highlight-block--half
+										+contactBlock('Бабешко Ольга Валерьевна', 'Администратор', true)
+											p +7 (496) 531-81-80
+											p
+												a(href="mailto:mk_muranovo@mosreg.ru") mk_muranovo@mosreg.ru
+									li.highlight-block.highlight-block--half
+										+contactBlock('Гущин Сергей Витальевич', 'Учёный секретарь', true)
+											p +7 (496) 531-81-80
+											p
+												a(href="mailto:mk_muranovo@mosreg.ru") mk_muranovo@mosreg.ru
+									li.highlight-block.highlight-block--half
+										+contactBlock('Комаров Александр Игоревич', 'Заведующий сектором хранения экспозиции', true)
+									li.highlight-block.highlight-block--half
+										+contactBlock('Игумен Феофан (Замесов)', 'Настоятель Храма Спаса Нерукотворного', true)
+											p +7 (496) 585-46-28
+											p +7 (916) 554-60-40 
+											p
+												a(href="#") Сайт храма
+						form(action="" method="post").contacts__form.feedback#feedback
+							.feedback__content
+								.feedback__heading.h4 Форма обратной связи
+								.feedback__inputs 	
+									fieldset.feedback__group.feedback__group--half
+										input.feedback__input(type="text" placeholder="Введите имя*") 
+									fieldset.feedback__group.feedback__group--half
+										input.feedback__input(type="text" placeholder="Введите email*") 
+									fieldset.feedback__group.feedback__group--single
+										input.feedback__input(type="text" placeholder="Введите тему обращения*") 
+									fieldset.feedback__group.feedback__group--single
+										textarea.feedback__input(placeholder="Ваше сообщение*")
+									fieldset.feedback__group.feedback__group--single
+										p <strong>Кому</strong>
+										.feedback__select.custom-select
+											.feedback__select-input.feedback__input.custom-select__input
+												span.custom-select__current Богатырев Александр Евгеньевич
+											ul.feedback__select-body.custom-select__list
+												li.feedback__select-item.custom-select__item 
+													span Кондратьева Вера Леонидовна
+												li.feedback__select-item.custom-select__item 
+													span Стратанович Анна Юрьевна
+												li.feedback__select-item.custom-select__item 
+													span Гущин Сергей Витальевич
+										span(data-name="selected_value")
+											input.selected_value(type="text" value style="display:none")
+										input(type="checkbox").feedback__checkbox#feedback-checkbox
+										label(for="feedback-checkbox") Отправить копию сообщения на мой адрес
+								.feedback__bottom
+									fieldset.feedback__group.feedback__group--fit
+										.feedback__submit.btn.btn-primary Отправить
+										.feedback__policy
+											p Отправляя сообщение, вы даете согласие на <a href=`${sitePath}policy.html` class="btn-link">обработку персональных данных</a>
+							.feedback__success
+								.feedback__message
+									div
+										h3 Сообщение успешно отправлено!
+										p Скоро мы его посмотрим и ответим в ближайшее время!
+									a(href=`${sitePath}`).btn.btn-transparent.btn--white.ticker На главную 
 
 			+seeMore(pageName, parentPage)
