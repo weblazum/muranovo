@@ -47,6 +47,13 @@ $p-s: "max-width: 360px";
 		2px -2px 0 $c-theme-brown,
 		-2px 2px 0 $c-theme-brown,
 		-2px -2px 0 $c-theme-brown;
+	@media ($t) {
+		text-shadow:
+			1px 1px 0 $c-theme-brown,
+			1px -1px 0 $c-theme-brown,
+			-1px 1px 0 $c-theme-brown,
+			-1px -1px 0 $c-theme-brown;
+	}
 }
 
 // d: 110, m: 42
@@ -92,24 +99,4 @@ $p-s: "max-width: 360px";
 	font-weight: 300;
 	font-size: 16px;
 	line-height: 1.2;
-}
-
-@mixin string-cut-2 {
-	overflow: hidden;
-	text-overflow: ellipsis;
-	display: -webkit-box;
-	-webkit-box-orient: vertical;
-	-webkit-line-clamp: 2; /* Количество строк */
-	// line-height: 1.3em;
-	// height: 2.6em;
-}
-
-@mixin string-cut-4 {
-	overflow: hidden;
-	text-overflow: ellipsis;
-	display: -webkit-box;
-	-webkit-box-orient: vertical;
-	-webkit-line-clamp: 4; /* Количество строк */
-	// line-height: 1.3em;
-	// height: 2.6em;
 }

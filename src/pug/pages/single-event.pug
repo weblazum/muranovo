@@ -12,7 +12,7 @@ block content
 				.container
 					+breadcrumps(`${pageTitle}`, parentPage, 'events.html')
 			section.section.detail
-				.detail__container.container
+				.detail__container.container.container--bg-fill
 					.detail__inner
 						.narrow-content.detail__content
 							.detail__backlink 
@@ -49,5 +49,5 @@ block content
 								.user-content
 									h4 Информация О празднике
 									p Масленица в Муранове проходит каждую зиму. Следите за анонсом и билетами на сайте в афише!
-							include ../parts/event-inner-links
+				include ../parts/event-inner-links
 			+seeMore(pageName, parentPage, 'events')

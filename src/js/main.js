@@ -259,8 +259,12 @@ if (swiperTapeItems) {
 	swiperTapeItems.forEach(item => {
 		const swiperTape = new Swiper('.swiper-tape', {
 			slidesPerView: 'auto',
-			freeMode: true,
-			// mousewheel: {enabled: true},
+			grabCursor: true,
+			freeMode: {
+				enabled: true,
+				momentumBounce: false,
+				// mousewheel: {enabled: true},
+			}
 		})
 	})
 }

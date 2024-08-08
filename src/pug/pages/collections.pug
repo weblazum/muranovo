@@ -12,14 +12,14 @@ block content
 				.pagetop__container.container
 					+breadcrumps(pageTitle, parentPage, 'museum.html')
 					h1.h2.pagetop__title= pageTitle
-					.pagetop__tabs.tabs
-						button.pagetop__tab.btn.btn-tab.btn-tab--white.tab-target(data-button="fabrics") Ткани
-						button.pagetop__tab.btn.btn-tab.btn-tab--white.tab-target(data-button="ceramics") Керамика
-						button.pagetop__tab.btn.btn-tab.btn-tab--white.tab-target(data-button="kitchenware") Кухонная утварь
-						button.pagetop__tab.btn.btn-tab.btn-tab--white.tab-target(data-button="memorial") Мемориальный архив
-						button.pagetop__tab.btn.btn-tab.btn-tab--white.tab-target(data-button="daguerreotypes") Дагеротипы
+				.pagetop__tabs.tabs.container.scroll-layer
+					button.pagetop__tab.btn.btn-tab.btn-tab--white.tab-target(data-button="fabrics") Ткани
+					button.pagetop__tab.btn.btn-tab.btn-tab--white.tab-target(data-button="ceramics") Керамика
+					button.pagetop__tab.btn.btn-tab.btn-tab--white.tab-target(data-button="kitchenware") Кухонная утварь
+					button.pagetop__tab.btn.btn-tab.btn-tab--white.tab-target(data-button="memorial") Мемориальный архив
+					button.pagetop__tab.btn.btn-tab.btn-tab--white.tab-target(data-button="daguerreotypes") Дагеротипы
 			section.section.collections
-				.collections__container.container
+				.collections__container.container.container--bg-fill
 					.collections__content.background-fill 	
 						.user-content.narrow-content
 							.tab-body#fabrics

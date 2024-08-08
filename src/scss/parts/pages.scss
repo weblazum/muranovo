@@ -289,6 +289,7 @@
 	}
 	&__title {
 		@include h5;
+		@include line-clamp(5);
 	}
 	&__tabs {
 		margin: 0 0 40px;
@@ -676,6 +677,7 @@
 	&__announce {
 		font-size: 20px;
 		color: $c-text;
+		@include line-clamp(6);
 	}
 }
 
@@ -825,7 +827,7 @@
 			gap: 4px;
 		}
 		&__item {
-			padding: 6px;
+			margin: 6px;
 		}
 		&__home,
 		&__prev {
@@ -845,14 +847,7 @@
 		}
 		&__current {
 			font-weight: 700;
-			overflow: hidden;
-			text-overflow: ellipsis;
-			display: -webkit-box;
-			-webkit-box-orient: vertical;
-			-webkit-line-clamp: 1; /* Количество строк */
-			// line-height: 1.3em;
-			height: 1em;
-			box-sizing: content-box;
+			@include line-clamp(1);
 		}
 	}
 	&--breadcrumps {
@@ -871,11 +866,13 @@
 		}
 	}
 	&__tabs {
-		padding: 40px 0 0;
+		padding-top: 40px;
+		flex-wrap: wrap;
+		margin: 0 auto;
+		@media ($l-s) {
+			flex-wrap: nowrap;
+		}
 	}
-	// &__tab {
-	// 	background-color: transparentize($c-white, 0.9);
-	// }
 }
 
 .search {
@@ -1069,6 +1066,7 @@
 }
 
 .seemore {
+	overflow-x: hidden;
 	.category__item {
 		flex: 0 0 calc(100% / 3 - 32px);
 		min-width: 420px;
@@ -1081,21 +1079,29 @@
 			margin: 0 16px 0 0;
 		}
 	}
-	.events__list {
-		display: flex;
-	}
 	.events__item {
+		flex: 0 0 calc(100% / 4 - 24px);
 		min-width: 318px;
-		flex-shrink: 0;
+		margin: 0 24px 0 0;
+		&:last-child {
+			margin: 0;
+		}
 		@media ($t) {
-			max-width: 318px;
+			margin: 0 16px 0 0;
+			&:nth-child(2n) .events__link {
+				flex-direction: column;
+			}
 		}
 	}
 	.news__item {
+		flex: 0 0 calc(100% / 3 - 24px);
 		min-width: 280px;
-		flex-shrink: 0;
+		margin: 0 24px 0 0;
+		&:last-child {
+			margin: 0;
+		}
 		@media ($t) {
-			max-width: 280px;
+			margin: 0 16px 0 0;
 		}
 	}
 }
@@ -1189,7 +1195,6 @@
 	display: block;
 	position: relative;
 	transition: $transition-base;
-	// margin: 0 0 40px;
 	&::after {
 		content: "";
 		display: block;
@@ -1214,7 +1219,11 @@
 		}
 	}
 	figure {
-		max-height: 634px;
+		aspect-ratio: 3 / 2;
+		@media ($t) {
+			max-height: 634px;
+			height: 90vw;
+		}
 	}
 	figcaption {
 		position: absolute;
@@ -1270,10 +1279,7 @@
 		@media ($t) {
 			padding: 0 0 74px;
 		}
-		&__list {
-			display: flex;
-			gap: 0;
-		}
+
 		&__item {
 			min-width: 318px;
 			margin: 0 24px 0 0;
@@ -1305,8 +1311,11 @@
 
 .owners-page,
 .about-page {
+	.wrapper {
+		overflow: initial;
+	}
 	.swiper-gallery .swiper-slide {
-		height: 700px;
+		max-height: 700px;
 	}
 }
 
@@ -1375,11 +1384,18 @@
 .content-section {
 	display: flex;
 	margin: 0 0 60px;
+	flex-wrap: wrap;
+	@media ($t) {
+		margin: 0 0 32px;
+	}
 	&--single {
 		background-color: $c-theme-brown;
 		color: $c-white;
 		text-align: center;
 		margin: 0 auto 60px;
+		@media ($t) {
+			margin: 0 0 32px;
+		}
 		padding: 62px 0 56px;
 		h2 {
 			color: $c-theme-brown;
@@ -1396,19 +1412,31 @@
 	&--cols {
 		& > div:first-child {
 			flex: 0 1 45%;
+			@media ($t) {
+				flex: 0 1 100%;
+			}
 		}
 		& > div:last-child {
 			flex: 0 1 55%;
+			@media ($t) {
+				flex: 0 1 100%;
+			}
 		}
 	}
 	&--space {
 		padding: 80px 0;
+		@media ($t) {
+			padding: 0;
+		}
 	}
 	&__images {
 		min-width: 0;
 		position: sticky;
 		top: 16px;
 		height: fit-content;
+		@media ($t) {
+			order: 2;
+		}
 		a {
 			height: 100%;
 			&.tablet-pic--primary {
@@ -1417,6 +1445,9 @@
 			&.tablet-pic--full {
 				flex: 0 1 100%;
 				aspect-ratio: 2 / 1;
+				@media ($t) {
+					aspect-ratio: initial;
+				}
 			}
 			&.tablet-pic--object-top img {
 				object-position: top;
@@ -1424,7 +1455,11 @@
 			&.tablet-pic--square {
 				aspect-ratio: 1 / 1;
 			}
+			&.tablet-pic--brr img {
+				border-radius: 0 30px 30px 0;
+			}
 		}
+
 		img {
 			object-fit: cover;
 			object-position: center;
@@ -1442,16 +1477,24 @@
 			display: flex;
 			flex-wrap: wrap;
 			gap: 16px;
+			@media ($t) {
+				flex-wrap: nowrap;
+			}
 			a {
 				flex: 0 1 calc(50% - 16px / 2);
 				border-radius: 30px;
 				overflow: hidden;
+				@media ($t) {
+					min-width: 85vw;
+				}
 			}
 		}
 		&--single {
 			a {
-				border-radius: 30px;
 				overflow: hidden;
+			}
+			img {
+				border-radius: 30px;
 			}
 		}
 	}
@@ -1461,9 +1504,20 @@
 		justify-content: space-between;
 		padding-top: 18px;
 		padding-bottom: 24px;
+		@media ($t) {
+			order: 1;
+		}
 	}
 	&__title {
 		margin: 0 0 100px;
+		@media ($t) {
+			margin: 0 0 24px;
+		}
+	}
+	&__description {
+		p:last-child {
+			margin: 0;
+		}
 	}
 	&__links {
 		display: flex;
@@ -1477,6 +1531,9 @@
 	ul {
 		padding: 0 0 24px 46px;
 		position: relative;
+		@media ($t) {
+			padding: 0 0 0 32px;
+		}
 		&::before {
 			content: "";
 			position: absolute;
@@ -1498,6 +1555,9 @@
 			height: 20px;
 			left: -46px;
 			top: 6px;
+			@media ($t) {
+				left: -32px;
+			}
 		}
 	}
 	&__title {
@@ -1562,11 +1622,6 @@
 }
 
 .detail {
-	&__container {
-		@media ($t) {
-			padding: 0;
-		}
-	}
 	&__inner {
 		background-color: $c-background-gray-accent;
 		border-radius: 30px;
@@ -1816,6 +1871,9 @@
 	background-color: $c-white;
 	border-radius: 30px;
 	margin: 0 0 40px;
+	@media ($t) {
+		margin: 0 0 24px;
+	}
 	h4,
 	h5 {
 		margin: 0;
@@ -1868,7 +1926,7 @@
 	}
 	&--col-2 {
 		grid-template-columns: repeat(2, 1fr);
-		.table__item {
+		& > * {
 			display: flex;
 			flex-direction: column;
 			align-items: center;
@@ -1880,9 +1938,37 @@
 			&:nth-last-child(-n + 2) {
 				border-bottom: none;
 			}
+			@media ($t) {
+				&:nth-child(2n - 1) {
+					border-right: none;
+				}
+				&:nth-last-child(-n + 2) {
+					border-bottom: 1px solid transparentize($c-theme-grey, 0.5);
+				}
+				&:last-child {
+					border-bottom: none;
+				}
+			}
+		}
+	}
+	&--rules {
+		@media ($t) {
+			display: flex;
+			flex-direction: column;
+			& > * {
+				&:nth-child(2n - 1) {
+					order: 1;
+				}
+				&:nth-child(2n) {
+					order: 2;
+				}
+			}
 		}
 	}
 	&--tickets {
+		.table__row {
+			min-width: 660px;
+		}
 		.table__header {
 			.table__item {
 				border-bottom: none;
@@ -2069,7 +2155,7 @@ area {
 		font-size: 24px;
 		color: $c-theme-grey;
 		font-family: $f-baron;
-		@include string-cut-2;
+		@include line-clamp(2);
 	}
 	&__image {
 		position: relative;
@@ -2100,7 +2186,7 @@ area {
 		font-size: 20px;
 		// color: $c-text;
 		// margin: 0 0 36px;
-		@include string-cut-4;
+		@include line-clamp(4);
 	}
 	&__link .btn {
 		max-width: 100%;

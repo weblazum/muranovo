@@ -13,8 +13,8 @@ block content
 					+breadcrumps(pageTitle)
 					h1.h2.pagetop__title= pageTitle
 			section.section.contacts
-				.contacts__container.container
-					.contacts__content.background-fill 	
+				.contacts__container.container.container--bg-fill
+					.contacts__content.background-fill
 						.narrow-content
 							.contacts__row
 								.contacts__heading.h4 Контакты музея
@@ -152,7 +152,8 @@ block content
 									fieldset.feedback__group.feedback__group--fit
 										.feedback__submit.btn.btn-primary Отправить
 										.feedback__policy
-											p Отправляя сообщение, вы даете согласие на <a href=`${sitePath}policy.html` class="btn-link">обработку персональных данных</a>
+											p Отправляя сообщение, вы даете согласие на 
+												a.btn.btn-link(href=`${sitePath}policy.html`) обработку персональных данных
 							.feedback__success
 								.feedback__message
 									div

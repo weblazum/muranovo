@@ -83,7 +83,7 @@ block content
 						+btnTicker('grey', 'afisha.html', 'btn--baron')
 							|• все События
 					.swiper.swiper-tape
-						ul.events__list.swiper-wrapper
+						ul.swiper-wrapper
 							each item in eventsList.slice(0, 4)
 								if (item.category == 'Мероприятия' && item.archive == false)
 									+eventItem(item.title, item.date, item.image, item.link, item.category, item.pushkincard, item.age, 'swiper-slide')
@@ -130,10 +130,10 @@ block content
 					.service__heading 
 						.service__title.h2 Услуги музея
 						.service__links 
-							a(href="#").service__link Усадьба и парк
-							a(href="#").service__link Главный дом
-							a(href="#").service__link Флигель
-							a(href="#").service__link Храм Спаса Нерукотворного
+							a(href=`${sitePath}objects.html`).service__link Главный усадебный дом
+							a(href=`${sitePath}objects.html`).service__link Усадьбрый парк
+							a(href=`${sitePath}objects.html`).service__link Храм Спаса Нерукотворного
+							a(href=`${sitePath}objects.html`).service__link Кучерская
 					.service__more 
 						+btnTicker('white', '#')
 							|• Все услуги

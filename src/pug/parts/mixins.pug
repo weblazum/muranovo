@@ -107,7 +107,7 @@ mixin seeMore(pageName, parentPage, contentType = 'pages')
 			.swiper.swiper-tape
 				if (contentType == 'events')
 					include events-list
-					ul.events__list.swiper-wrapper
+					ul.swiper-wrapper
 						- let i = 0
 						each item in eventsList
 							if (item.category == 'Мероприятия' && item.archive == false && i < 4)

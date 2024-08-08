@@ -11,14 +11,14 @@ block content
 				.pagetop__container.container
 					+breadcrumps(pageTitle)
 					h1.h2.pagetop__title= pageTitle
+				.pagetop__tabs.tabs.container.scroll-layer
+					button.pagetop__tab.btn.btn-tab.btn-tab--white.tab-target(data-button="holidays") Праздники
+					button.pagetop__tab.btn.btn-tab.btn-tab--white.tab-target(data-button="tours") Экскурсии
+					button.pagetop__tab.btn.btn-tab.btn-tab--white.tab-target(data-button="child") Детям
+					button.pagetop__tab.btn.btn-tab.btn-tab--white.tab-target(data-button="archive") Архив
 			section.section.events
 				include ../parts/events-list
 				.events__container.container
-					.events__tabs.tabs
-						button.events__tab.btn.btn-tab.tab-target(data-button="holidays") Праздники
-						button.events__tab.btn.btn-tab.tab-target(data-button="tours") Экскурсии
-						button.events__tab.btn.btn-tab.tab-target(data-button="child") Детям
-						button.events__tab.btn.btn-tab.tab-target(data-button="archive") Архив
 					ul.events__list.events__body.tab-body#holidays
 						each item in eventsList
 							if (item.category == 'Мероприятия' && item.group == 'Праздники' && item.archive == false)

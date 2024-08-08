@@ -1,11 +1,5 @@
 .user-content {
 	font-size: clamp(1.125rem, 1.0417rem + 0.3704vw, 1.375rem);
-	// *:not(ol, ul, li) {
-	// 	margin: 0 0 20px;
-	// 	&:last-child {
-	// 		margin: 0;
-	// 	}
-	// }
 	h2,
 	h3,
 	h4,
@@ -18,6 +12,9 @@
 		color: $c-theme-grey;
 		text-transform: lowercase;
 		margin: 0 0 40px;
+		@media ($t) {
+			margin: 0 0 32px;
+		}
 	}
 	a {
 		text-decoration: underline;
@@ -25,6 +22,9 @@
 		&:hover {
 			text-decoration: none;
 		}
+	}
+	p {
+		margin: 0 0 24px;
 	}
 	ul {
 		padding: 0 0 24px 28px;
@@ -51,9 +51,12 @@
 		display: block;
 		font-style: italic;
 		text-align: right;
-		font-size: 20px;
+		font-size: clamp(0.875rem, 0.75rem + 0.5556vw, 1.25rem);
 		line-height: 1.4;
 		margin: 40px 0 0;
+		@media ($t) {
+			margin: 24px 0 0;
+		}
 	}
 	blockquote {
 		padding: 32px 50px 32px 78px;
@@ -87,5 +90,30 @@
 		margin: 0 0 40px;
 		overflow: hidden;
 		max-height: 634px;
+		@media ($t) {
+			margin: 0 0 24px;
+		}
+		picture {
+			margin: 0;
+		}
+	}
+	picture {
+		display: block;
+		margin: 0 0 40px;
+		overflow: hidden;
+		// min-height: 100vw;
+		// max-width: 638px;
+		// position: relative;
+		width: 100%;
+		@media ($t) {
+			margin: 0 0 24px;
+		}
+	}
+	img {
+		// position: absolute;
+		// object-fit: cover;
+		width: 100%;
+		height: 100%;
+		border-radius: 30px;
 	}
 }

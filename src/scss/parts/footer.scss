@@ -25,11 +25,6 @@
 	svg {
 		fill: $c-white;
 	}
-	.btn {
-		border-radius: 10px;
-		width: 100%;
-		text-align: center;
-	}
 	&__logo {
 		margin: 0 0 6px;
 		svg {
@@ -80,6 +75,11 @@
 	}
 	&__maplink {
 		margin: 0 0 32px;
+		.btn {
+			border-radius: 10px;
+			// width: 100%;
+			// text-align: center;
+		}
 	}
 	.nav {
 		flex: 0 1 auto;
@@ -143,16 +143,45 @@
 			font-weight: 300;
 		}
 	}
+	&__public {
+		flex: 0 1 40%;
+		& > * {
+			display: block;
+			margin: 0 0 16px;
+			&:last-child {
+				margin: 0;
+			}
+		}
+		@media ($l-b) {
+			flex: 0 1 33.333%;
+		}
+		@media ($t) {
+			order: 7;
+		}
+	}
 	&__copy {
-		grid-column: span 2;
+		flex: 0 1 calc(60% - 54px);
 		opacity: 0.5;
-		text-align: center;
-		max-width: 1060px;
+		// text-align: center;
+		// max-width: 1060px;
 		margin: 0 auto;
 		font-size: 14px;
+		@media ($l-b) {
+			flex: 0 1 calc(100% / 3 * 2 - 54px);
+		}
 		@media ($t) {
 			order: 6;
 			text-align: left;
+		}
+	}
+	a.footer__link,
+	button.footer__link,
+	.footer__link {
+		font-size: 14px;
+		opacity: 0.5;
+		text-decoration: underline;
+		&:hover {
+			opacity: 0.8;
 		}
 	}
 }

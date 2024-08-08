@@ -12,23 +12,30 @@ block content
 				.pagetop__container.container
 					+breadcrumps(pageTitle, parentPage, 'visitors.html')
 					h1.h2.pagetop__title= pageTitle
-					.pagetop__tabs.tabs
-						button.pagetop__tab.btn.btn-tab.btn-tab--white.tab-target(data-button="mode") Часы работы
-						button.pagetop__tab.btn.btn-tab.btn-tab--white.tab-target(data-button="howtoget") Как добраться
-						button.pagetop__tab.btn.btn-tab.btn-tab--white.tab-target(data-button="rules") Правила посещения
-						button.pagetop__tab.btn.btn-tab.btn-tab--white.tab-target(data-button="cost") Стоимость услуг
-						button.pagetop__tab.btn.btn-tab.btn-tab--white.tab-target(data-button="cafe") Кафе «В амбаре»
-						button.pagetop__tab.btn.btn-tab.btn-tab--white.tab-target(data-button="stay") Где остановиться
-						button.pagetop__tab.btn.btn-tab.btn-tab--white.tab-target(data-button="near") Объекты рядом
+				.pagetop__tabs.tabs.container.scroll-layer
+					button.pagetop__tab.btn.btn-tab.btn-tab--white.tab-target(data-button="mode") Часы работы
+					button.pagetop__tab.btn.btn-tab.btn-tab--white.tab-target(data-button="howtoget") Как добраться
+					button.pagetop__tab.btn.btn-tab.btn-tab--white.tab-target(data-button="rules") Правила посещения
+					button.pagetop__tab.btn.btn-tab.btn-tab--white.tab-target(data-button="cost") Стоимость услуг
+					button.pagetop__tab.btn.btn-tab.btn-tab--white.tab-target(data-button="cafe") Кафе «В амбаре»
+					button.pagetop__tab.btn.btn-tab.btn-tab--white.tab-target(data-button="stay") Где остановиться
+					button.pagetop__tab.btn.btn-tab.btn-tab--white.tab-target(data-button="near") Объекты рядом
 			section.section.preparation
-				.preparation__container.container
+				.preparation__container.container.container--bg-fill
 					.preparation__content.background-fill 	
 						.user-content.narrow-content
 							.tab-body#mode
 								h3 Часы работы
 								.highlight.highlight--brownback
 									h4 Внимание!
-									p <strong>10 и 11 июня</strong> музей и усадебный парк закрыты по техническим причинам! Посещение Главного усадебного дома возможно только с экскурсоводом
+									p <strong>10 и 11 июня</strong> музей и усадебный парк закрыты по техническим причинам! 
+								.highlight.highlight--brownback
+									h4 Уважаемые гости!
+									ul 
+										li Посещение Главного усадебного дома возможно только с экскурсоводом.
+										li Приобрести билет на экскурсию можно в кассе музея.
+										li Приобрести билет онлайн можно только в усадебный парк или по Пушкинской карте.
+										li Рекомендуем записываться на экскурсию заранее по телефону: +7 (985) 317-38-98
 								.highlight.highlight--whiteback
 									h5 Усадебный парк
 									p Ежедневно с 10:00 до 20:00
@@ -37,7 +44,7 @@ block content
 										.highlight-block__top 
 											.highlight-block__name.h5 Экспозиции музея
 										.highlight-block__info
-											p ср-вс с 10:00 до 17:30
+											p вт-вс с 10:00 до 17:30
 									.highlight-block__block
 										.highlight-block__top 
 											.highlight-block__name.h5 экскурсионное обслуживание
@@ -70,8 +77,8 @@ block content
 									i.train
 										h5 Электропоездом
 									ul
-										li С Ярославского вокзала (см. расписание) до ст. Софрино или Ашукинская.
-										li Далее автобусом № 34 до остановки «Музей «Мураново» (см. расписание).
+										li С Ярославского вокзала (<a href="https://www.tutu.ru/rasp.php?st1=20000&st2=47907" target="_blank">см. расписание</a>) до ст. Софрино или Ашукинская.
+										li Далее автобусом № 34 до остановки «Музей «Мураново» (<a href="https://rasp.yandex.ru/search/bus/?fromName=%D0%90%D1%88%D1%83%D0%BA%D0%B8%D0%BD%D0%BE&toName=%D0%9C%D1%83%D1%80%D0%B0%D0%BD%D0%BE%D0%B2%D0%BE&fromId=c33958&toId=c33973&when=%D1%81%D0%B5%D0%B3%D0%BE%D0%B4%D0%BD%D1%8F" target="_blank">см. расписание</a>).
 								.highlight.highlight--whiteback
 									i.car 
 										h5 На такси
@@ -86,7 +93,7 @@ block content
 									.ymap#ymap
 							.tab-body#rules
 								h3 Правила посещения
-								.table.table--col-2
+								.table.table--col-2.table--rules
 									.table__item
 										h4 в музее Я
 									.table__item
@@ -122,28 +129,34 @@ block content
 									.table__item
 										p Провожу время в отличной компании
 									.table__item
-										p Прикасаюсь к музейным экспонатам
+										p Прикасаюсь к музейным экспонатам
 								.highlight.highlight--brownback
 									ul 
-										li <strong>Не более 15 человек в группе</strong>
+										li <strong>Не более 15 человек в группе</strong>
 										li <strong>Утвержденный экскурсионный график</strong>
 										li <strong>Посетители обязаны выполнять требования и рекомендации экскурсоводов, сопровождающих экскурсионную группу смотрителей и сотрудников Службы безопасности Музея.</strong>
 								p 
 									|С полным текстом документа «Правила приема посетителей Главного усадебного дома музея-заповедника «Усадьба «Мураново» Вы можете ознакомиться 
 									a.link(href=`${sitePath}docs/rules.pdf`) ЗДЕСЬ
 									| или обратившись к смотрителям музея.
+								.highlight.highlight--whiteback
+									h5 Экскурсионным группам
+									p Для организованных экскурсионных групп обязательна предварительная запись по телефону: +7 (985) 317-38-98
+
 							.tab-body#cost
 								h3 Стоимость услуг
 								.highlight.highlight--brownback
 									h4 Уважаемые гости!
-									p <strong>Посещение Главного усадебного дома возможно только с экскурсоводом!</strong>
-								p Далее Вы можете ознакомиться со стоимостью основных услуг, оказываемых музеем.
+									ul
+										li Посещение Главного усадебного дома возможно только с экскурсоводом!
+										li Для организованных экскурсионных групп обязательна предварительная запись по телефону: +7 (985) 317-38-98
+								p Далее Вы можете ознакомиться со стоимостью основных услуг, оказываемых музеем.
 								p 
 									|с полным Перечнем цен на услуги можно ознакомиться в разделе «
 									a(href=`${sitePath}documents.html`) Документация
 									|»
 								br
-								.table.table--tickets
+								.table.table--tickets.scroll-layer
 									.table__row.table__header
 										.table__item.table__item--center
 											h5 Наименование услуги
@@ -283,8 +296,8 @@ block content
 									h5 График работы
 									p ср-вс с 10:00 до 18:00
 									p Предварительный заказ блюд и вопросы по телефону: +7 (917) 114-12-30 Ирина
-									p.c-brown <strong>ПН и ВТ: музей и кафе «В амбаре» закрыты!</strong>
-								p На территории усадьбы в восстановленном здании амбара находится кафе, где вас ждёт отличный кофе, мурановский чай из 17 трав, в ассортименте пирожки, блины со сметаной, сгущенкой и яблочным вареньем, традиционно знаменитые щи из квашеных ананасов и мурановские вафли, а также специальное меню выходного дня.
+									span.c-brown <strong>ПН и ВТ: музей и кафе «В амбаре» закрыты!</strong>
+								p На территории усадьбы в восстановленном здании амбара находится кафе, где вас ждёт отличный кофе, мурановский чай из 17 трав, в ассортименте пирожки, блины со сметаной, сгущенкой и яблочным вареньем, традиционно знаменитые щи из квашеных ананасов и мурановские вафли, а также специальное меню выходного дня. 
 								br
 								a(href="https://yandex.ru/profile/1683282264" target="_blank") Посмотреть кафе в Яндекс-картах
 							.tab-body#stay
@@ -293,7 +306,7 @@ block content
 								p Не секрет, что летом в усадьбе «Мураново» проходит множество интереснейших фестивалей. Многих гостей интересуют объекты размещения, находящиеся поблизости.
 								p Знакомим вас с поистине уникальным местом, где царит особенная атмосфера — кемпинг в Мартьянково.
 								+picture('image-75')
-								p в «Мартьянково» можно погулять в лесу, порыбачить, поделиться впечатлениями от прошедшего дня у вечернего костра, а на ночь остановиться в палатке у озера. Для детей здесь устраивают экскурсии, мероприятия выходного дня и недельные лагеря с разной тематикой. Отдых здесь идеально дополнит день, проведенный в усадьбе: территория окружена лесом, можно плавать на лодках.
+								p В «Мартьянково» можно погулять в лесу, порыбачить, поделиться впечатлениями от прошедшего дня у вечернего костра, а на ночь остановиться в палатке у озера. Для детей здесь устраивают экскурсии, мероприятия выходного дня и недельные лагеря с разной тематикой. Отдых здесь идеально дополнит день, проведенный в усадьбе: территория окружена лесом, можно плавать на лодках.
 								br
 								p <strong>Проживание в кемпинге отвечает всем требованиям комфорта и включает:</strong>
 								ul
@@ -321,7 +334,7 @@ block content
 								br
 								h4 Парк-отель Софрино
 								+picture('image-73')
-								p для ценителей отдыха в формате «всё включено» в 30 минутах езды от музея рекомендуем отель Sofrino Park — это круглогодичный курорт в Подмосковье для всей семьи всего в 30 км от Москвы. На территории комплекса расположены сразу два отеля — европейский отель Tulip Inn Sofrino Park Hotel 4* и уникальный тематический отель Дом Творчества Гостелерадио СССР 3*.
+								p Для ценителей отдыха в формате «всё включено» в 30 минутах езды от музея рекомендуем отель Sofrino Park — это круглогодичный курорт в Подмосковье для всей семьи всего в 30 км от Москвы. На территории комплекса расположены сразу два отеля — европейский отель Tulip Inn Sofrino Park Hotel 4* и уникальный тематический отель Дом Творчества Гостелерадио СССР 3*.
 								.highlight.highlight--whiteback
 									i.info Информация
 									p Адрес: <strong> МО, Пушкинский р-н, территория парк-отель Софрино (точка на карте указывает на КПП)</strong>
@@ -330,7 +343,6 @@ block content
 							.tab-body#near
 								h3 Объекты рядом
 								a.btn.btn-download(href=`${sitePath}docs/muranovo-map.jpg`) Скачать карту
-								br
 								br
 								br
 								+picture('muranovo-map', 'jpg', false, false, true)

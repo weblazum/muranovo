@@ -234,6 +234,11 @@ label {
 	max-width: 1440px;
 	padding: 0 $p-clamp;
 	margin: 0 auto;
+	&--bg-fill {
+		@media ($t) {
+			padding: 0;
+		}
+	}
 }
 
 .preloader {
@@ -391,7 +396,7 @@ div.space-between {
 .tabs {
 	display: flex;
 	gap: 12px;
-	margin: 0 0 40px;
+	margin: 0 auto 40px;
 }
 
 .tab-body {
@@ -420,16 +425,22 @@ div.space-between {
 	&--whiteback {
 		padding: 24px $p-clamp;
 		background-color: $c-white;
-		margin: 0 0 40px;
-		* {
+		margin: 0 0 32px;
+		*:not(a):not(span):not(strong) {
 			color: $c-text;
+		}
+		@media ($t) {
+			margin: 0 0 24px;
 		}
 	}
 	&--brownback {
 		padding: 32px $p-clamp;
 		background-color: transparentize($c-theme-brown, 0.9);
-		margin: 40px 0;
-		* {
+		margin: 32px 0;
+		@media ($t) {
+			margin: 24px 0;
+		}
+		*:not(a):not(span):not(strong) {
 			color: $c-theme-brown;
 		}
 		ul li::before {
@@ -446,7 +457,7 @@ div.space-between {
 		background:
 			url("../img/noise.png") center / contain repeat,
 			$c-accent;
-		margin: 40px 0;
+		margin: 32px 0;
 		@media ($t) {
 			margin: 24px 0;
 		}
@@ -468,10 +479,12 @@ div.space-between {
 	padding: 32px 50px;
 	display: flex;
 	gap: 40px;
+	margin: 0 0 32px;
 	@media ($t) {
 		gap: 24px;
 		padding: 24px 16px;
 		flex-direction: column;
+		margin: 0 0 24px;
 	}
 	&--single {
 		flex: 0 1 100%;
@@ -484,13 +497,13 @@ div.space-between {
 			width: 100%;
 		}
 		.highlight-block__top {
-			margin: 0 0 36px;
+			margin: 0 0 32px;
 			@media ($t) {
 				margin: 0 0 24px;
 			}
 		}
 		.highlight-block__info {
-			margin: 0 0 36px;
+			margin: 0 0 32px;
 			@media ($t) {
 				margin: 0 0 24px;
 			}
@@ -582,6 +595,26 @@ i {
 	&.car:before {
 		background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none'%3E%3Cpath fill='%2372665B' d='M29 12h-1.42l-3.424-5.992A2 2 0 0 0 22.42 5h-2.743l-1.5-3.742A1.992 1.992 0 0 0 16.323 0h-2.646a1.992 1.992 0 0 0-1.857 1.258L10.322 5H7.58a2 2 0 0 0-1.736 1.008L2.42 12H1a1 1 0 0 0 0 2h1v10a2 2 0 0 0 2 2h3a2 2 0 0 0 2-2v-2h12v2a2 2 0 0 0 2 2h3a2 2 0 0 0 2-2V14h1a1 1 0 1 0 0-2ZM13.678 2h2.645l1.2 3h-5.046l1.2-3ZM7.58 7h14.84l2.856 5H4.724L7.58 7ZM7 24H4v-2h3v2Zm16 0v-2h3v2h-3Zm3-4H4v-6h22v6ZM6 17a1 1 0 0 1 1-1h2a1 1 0 0 1 0 2H7a1 1 0 0 1-1-1Zm14 0a1 1 0 0 1 1-1h2a1 1 0 0 1 0 2h-2a1 1 0 0 1-1-1Z'/%3E%3C/svg%3E")
 			center / 30px no-repeat;
+	}
+}
+
+.scroll-layer {
+	contain: layout;
+	display: flex;
+	overflow-x: scroll;
+	overflow-y: hidden;
+	scrollbar-width: none;
+	width: 100%;
+	scroll-snap-type: x mandatory;
+	flex-shrink: 0;
+	& > * {
+		scroll-snap-align: center;
+	}
+	&::-webkit-scrollbar {
+		width: 0 !important;
+		height: 0;
+		display: none !important;
+		background: transparent;
 	}
 }
 

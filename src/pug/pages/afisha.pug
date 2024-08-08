@@ -14,18 +14,18 @@ block content
 					h1.h2.pagetop__title= pageTitle
 			section.section.events
 				include ../parts/events-list
+				.events__tabs.tabs.container.scroll-layer
+					button.events__tab.events__calendar-btn
+					button.events__tab.btn.btn-tab.tab-target(data-button="exhibitions") Выставки
+					button.events__tab.btn.btn-tab.tab-target(data-button="concerts") Концерты
+					button.events__tab.btn.btn-tab.tab-target(data-button="programs") Программы
+					button.events__tab.btn.btn-tab.tab-target(data-button="events") Мероприятия
+					button.events__tab.btn.btn-tab.tab-target(data-button="tours") Экскурсии
+					button.events__tab.btn.btn-tab.tab-target(data-button="child") Детям
+					button.events__tab.btn.btn-tab.tab-target(data-button="pushkincard") Пушкинская карта
+					button.events__tab.btn.btn-tab.tab-target(data-button="archive") Архив
+					button.events__tab.events__reset
 				.events__container.container
-					.events__tabs.tabs
-						button.events__tab.events__calendar-btn
-						button.events__tab.btn.btn-tab.tab-target(data-button="exhibitions") Выставки
-						button.events__tab.btn.btn-tab.tab-target(data-button="concerts") Концерты
-						button.events__tab.btn.btn-tab.tab-target(data-button="programs") Программы
-						button.events__tab.btn.btn-tab.tab-target(data-button="events") Мероприятия
-						button.events__tab.btn.btn-tab.tab-target(data-button="tours") Экскурсии
-						button.events__tab.btn.btn-tab.tab-target(data-button="child") Детям
-						button.events__tab.btn.btn-tab.tab-target(data-button="pushkincard") Пушкинская карта
-						button.events__tab.btn.btn-tab.tab-target(data-button="archive") Архив
-						button.events__tab.events__reset
 					ul.events__list.events__body.tab-body#exhibitions
 						each item in eventsList
 							if (item.category == 'Выставки' && item.archive == false)
