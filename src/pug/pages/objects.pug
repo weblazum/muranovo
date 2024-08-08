@@ -37,11 +37,13 @@ block content
 							area(shape="circle" coords="1508, 594, 28" data-object="object-18" title="Кегельбан")
 							area(shape="circle" coords="1642, 899, 28" data-object="object-19" title="Баня")
 							area(shape="circle" coords="555, 1273, 28" data-object="object-20" title="Школа")
+							area(shape="circle" coords="661, 1111, 28" data-object="object-21" title="Касса")
+							area(shape="circle" coords="841, 773, 28" data-object="object-22" title="Туалет")
 					.map-objects
 						include ../parts/objects-list
 						.objects__map-list 
 							each item in objectsList
-								+objectItem("map", item.title, item.description, item.image, item.link, item.id, item.number)
+								+objectItem("map", item.title, item.description, item.image, item.link, item.id, item.icon, item.status)
 				.objects__nav.tabs
 					button.objects__select.btn.tab-target(data-button="map")
 						svg(width="26" height="24")

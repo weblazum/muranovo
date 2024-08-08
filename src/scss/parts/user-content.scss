@@ -16,6 +16,10 @@
 			margin: 0 0 32px;
 		}
 	}
+	a,
+	button {
+		font-size: clamp(1.125rem, 1.0417rem + 0.3704vw, 1.375rem);
+	}
 	a {
 		text-decoration: underline;
 		text-decoration-thickness: 1px;

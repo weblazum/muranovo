@@ -11,6 +11,7 @@ window.onload = () => {
 // Меню и поиск
 const 
 	body = document.body,
+	overlay = document.querySelector('.overlay'),
 	header = document.querySelector('.header'),
 	menu = document.querySelector('.header__menu'),
 	burger = document.querySelector('.burger'),
@@ -61,18 +62,21 @@ searchBlock.forEach(searchWindow => {
 			body.classList.add('lock')
 			searchWindow.classList.add('open')
 			searchInput.focus()
+			overlay.classList.add('visible')
 		})
 
 		// нажатие кнопки закрыть
 		searchClose.addEventListener('click', () => {
 			body.classList.remove('lock')
 			searchWindow.classList.remove('open')
+			overlay.classList.remove('visible')
 		})
 
 		// нажатие по оверлэю
 		searchOverlay.addEventListener('click', () => {
 			body.classList.remove('lock')
 			searchWindow.classList.remove('open')
+			overlay.classList.remove('visible')
 		})
 	}
 
@@ -376,63 +380,86 @@ if (document.querySelector('.ymap')) {
 const objectMap = document.querySelector('#object-map'),
 			objectMapWrapper = document.querySelector('.map-wrapper'),
 			objectMapAreas = document.querySelectorAll('area[data-object]'),
+			objectMapContainer = document.querySelector('.map-objects'),
 			objectMapItems = document.querySelectorAll('.objects__item'),
 			objectMapItemClose = document.querySelectorAll('.map-objects-close')
 
 if (objectMap) {
-	let isMouseLeftButtonDown = false
-	let lastMouseX = 0
-	let lastMouseY = 0
+	if (window.innerWidth > 1024) {
+		let isMouseLeftButtonDown = false
+		let lastMouseX = 0
+		let lastMouseY = 0
 
-	objectMapWrapper.addEventListener('mousedown', function(event) {
-		if (event.button === 0) { // Левая кнопка мыши
-			isMouseLeftButtonDown = true
-			lastMouseX = event.clientX // Запоминаем начальное положение мыши по оси X
-			lastMouseY = event.clientY // Запоминаем начальное положение мыши по оси Y
+		objectMapWrapper.addEventListener('mousedown', function(event) {
+			if (event.button === 0) { // Левая кнопка мыши
+				isMouseLeftButtonDown = true
+				lastMouseX = event.clientX // Запоминаем начальное положение мыши по оси X
+				lastMouseY = event.clientY // Запоминаем начальное положение мыши по оси Y
 
-			// Запрещаем контекстное меню при зажатии левой кнопки мыши
-			event.preventDefault()
-		}
-	})
+				// Запрещаем контекстное меню при зажатии левой кнопки мыши
+				event.preventDefault()
+			}
+		})
 
-	objectMapWrapper.addEventListener('mouseup', function(event) {
-		if (event.button === 0) {
-			isMouseLeftButtonDown = false
-		}
-	})
+		objectMapWrapper.addEventListener('mouseup', function(event) {
+			if (event.button === 0) {
+				isMouseLeftButtonDown = false
+			}
+		})
 
-	objectMapWrapper.addEventListener('mousemove', function(event) {
-		if (isMouseLeftButtonDown) {
-			// Рассчитываем разницу в положении мыши и инвертированно прокручиваем содержимое элемента
-			const deltaX = lastMouseX - event.clientX
-			const deltaY = lastMouseY - event.clientY
+		objectMapWrapper.addEventListener('mousemove', function(event) {
+			if (isMouseLeftButtonDown) {
+				// Рассчитываем разницу в положении мыши и инвертированно прокручиваем содержимое элемента
+				const deltaX = lastMouseX - event.clientX
+				const deltaY = lastMouseY - event.clientY
 
-			objectMapWrapper.scrollLeft += deltaX
-			objectMapWrapper.scrollTop += deltaY
+				objectMapWrapper.scrollLeft += deltaX
+				objectMapWrapper.scrollTop += deltaY
 
-			// Обновляем положение мыши
-			lastMouseX = event.clientX
-			lastMouseY = event.clientY
-		}
-	})
+				// Обновляем положение мыши
+				lastMouseX = event.clientX
+				lastMouseY = event.clientY
+			}
+		})
+	}
 
 	objectMapAreas.forEach(area => {
 		area.addEventListener('click', function() {
 			const objectId = this.getAttribute('data-object')
 			const targetItem = document.getElementById(objectId)
 
-			objectMapItems.forEach(item => item.classList.remove('active'))
+			objectMapItems.forEach(item => 
+				item.classList.remove('active'))
+				objectMapContainer.classList.remove('active')
+				overlay.classList.remove('visible')
+				body.classList.remove('lock')
 
 			if (targetItem) {
 				targetItem.classList.add('active')
+				objectMapContainer.classList.add('active')
+				if (window.innerWidth <= 860) {
+					body.classList.add('lock')
+					overlay.classList.add('visible')
+				}
 			}
 		})
 	})
 
 	objectMapItemClose.forEach(btn => {
 		btn.addEventListener('click', function() {
-			objectMapItems.forEach(item => item.classList.remove('active'))
+			objectMapItems.forEach(item => 
+				item.classList.remove('active'))
+				objectMapContainer.classList.remove('active')
+				overlay.classList.remove('visible')
+				body.classList.remove('lock')
 		})
+	})
+
+	overlay.addEventListener('click', function() {
+		objectMapItems.forEach(item => item.classList.remove('active'))
+		body.classList.remove('lock')
+		overlay.classList.remove('visible')
+		objectMapContainer.classList.remove('active')
 	})
 	
 	// Инициируем библиотеку для подсветки area

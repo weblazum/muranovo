@@ -89,14 +89,14 @@ block content
 									+eventItem(item.title, item.date, item.image, item.link, item.category, item.pushkincard, item.age, 'swiper-slide')
 			section.section.inform
 				.inform__container
-					.inform__content
+					.inform__content.scroll-layer
 						.inform__item
 							a(href="#").inform__link Ночь музеев в Муранове
 						.inform__item
 							a(href="#").inform__link Фестиваль «Про речь»
 			section.section.service
 				.service__container 
-					.service__pages
+					.service__pages.scroll-layer
 						a(href=`${sitePath}afisha.html?t=programs`).service__block.service__page
 							+picture('image-10', 'jpg', 'service__cover')
 							.service__name Семейные программы
@@ -175,7 +175,7 @@ block content
 						+picture('gosuslugi-logo', 'svg')
 			section.section.banner
 				.banner__container
-					a(href="#").banner__link
+					a(href="https://welcome.mosreg.ru/" target="_blank").banner__link
 						+picture('banner-mosreg')
 			section.guest
 				.guest__container.container

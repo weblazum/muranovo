@@ -224,7 +224,7 @@
 		&.active {
 			opacity: 1;
 			visibility: visible;
-			z-index: 199;
+			z-index: 100;
 		}
 	}
 	&__button {
@@ -251,8 +251,8 @@
 		inset: 0;
 		width: 100%;
 		height: 100%;
-		background-color: rgba(0, 0, 0, 0.8);
-		backdrop-filter: blur(4px);
+		// background-color: rgba(0, 0, 0, 0.8);
+		// backdrop-filter: blur(4px);
 		opacity: 0;
 		visibility: hidden;
 		z-index: -1;
@@ -264,9 +264,9 @@
 		}
 		&__overlay {
 			position: absolute;
-			inset: 0;
 			width: 100%;
 			height: 100%;
+			inset: 0;
 			z-index: -1;
 		}
 		&__close {
@@ -322,7 +322,7 @@
 }
 
 .logo {
-	z-index: 199;
+	z-index: 100;
 	svg {
 		width: 185px;
 		height: 37px;
@@ -335,7 +335,7 @@
 
 .burger {
 	display: none;
-	z-index: 199;
+	z-index: 100;
 	@media ($l-m) {
 		display: inline-flex;
 	}

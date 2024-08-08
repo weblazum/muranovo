@@ -115,7 +115,7 @@ mixin seeMore(pageName, parentPage, contentType = 'pages')
 								- i++
 				if (contentType == 'programs')
 					include events-list
-					ul.events__list.swiper-wrapper
+					ul.swiper-wrapper
 						- let i = 0
 						each item in eventsList
 							if (item.category == 'Программы' && item.archive == false && i < 4)
@@ -123,7 +123,7 @@ mixin seeMore(pageName, parentPage, contentType = 'pages')
 								- i++
 				if (contentType == 'news')
 					include news-list
-					ul.events__list.swiper-wrapper
+					ul.swiper-wrapper
 						- let i = 0
 						each item in newsList
 							if (i < 3)
@@ -134,7 +134,10 @@ mixin seeMore(pageName, parentPage, contentType = 'pages')
 					ul.swiper-wrapper
 						each item in pagesList
 							if (pageName !== item.name + '-page' && parentPage == item.parent)
-								+catItem(item.title, item.name + '.html', item.image, "swiper-slide")
+								if (item.parent == "Контакты")
+									+catItem(item.title, item.name, item.image, "swiper-slide")
+								else
+									+catItem(item.title, item.name + '.html', item.image, "swiper-slide")
 
 mixin contactBlock(title, suptitle, link, customClass)
 	.highlight-block__block
@@ -149,18 +152,19 @@ mixin contactBlock(title, suptitle, link, customClass)
 			.highlight-block__link 
 				a(href="#feedback" data-fancybox).btn.btn-link Написать
 
-mixin objectItem(type, title, description, image, link, id, number)
+mixin objectItem(type, title, description, image, link, id, icon, status)
 	if (type === "map")
 		article.objects__item.objects__map-item(id=`object-${id}`)
 			button.btn.map-objects-close
 			.objects__top
 				.objects__image
 					+picture(image)
-					span.objects__number= number
+					.objects__icon
+						+svg('objects', `object-${icon}`)
 				.objects__text
-					.objects__title= title
-					.objects__description 
-						p= description
+						.objects__title= title
+						.objects__description 
+							p!= description
 			if (link)
 				.objects__bottom
 					.objects__link
@@ -175,7 +179,7 @@ mixin objectItem(type, title, description, image, link, id, number)
 					.objects__title 
 						h5.c-grey= title
 					.objects__description 
-						p= description
+						p!= description
 			.objects__bottom
 				.objects__link
 					+btnTicker('grey', link)
